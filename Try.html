@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width-device-width,initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="Try.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bungee+Inline&family=Russo+One&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="account_picture"></div>
+    <div id="container">
+        <!-- Container for Images -->
+        <div class="image-container">
+            <!-- Image 1 -->
+            <div class="button" onclick="displayImage('apple')">
+                <img src="apple.jpg" alt="GFG image" style="cursor: pointer;" />
+            </div>
+            <!-- Image 2 -->
+            <div class="button" onclick="displayImage('orange')">
+                <img src="oranges.jpg" alt="GFG image" style="cursor: pointer;" />
+            </div>
+            <!-- Image 3 -->
+            <div class="button" onclick="displayImage('banana')">
+                <img src="banana.jpg" alt="GFG image" style="cursor: pointer;" />
+            </div>
+        </div>
+    </div>
+
+     <!-- Container for All Images -->
+     <div class="image" style="display: none;">
+        <img src="apple.jpg" alt="GFG image" id="apple" />
+        <img src="oranges.jpg" alt="GFG image" id="orange" />
+        <img src="banana.jpg" alt="GFG image" id="banana" />
+    </div>
+</div>
+</div>
+</div>
+
+    <div id="imageDisplay" style="display: none;"></div>
+
+    <script type="text/javascript">
+        function displayImage(imageId) {
+            var imageDiv = document.getElementById('imageDisplay');
+            var image = document.getElementById(imageId);
+
+            // Set image to be displayed
+            imageDiv.style.display = "block";
+            imageDiv.innerHTML = '';
+            imageDiv.appendChild(image.cloneNode(true));
+        }
+    </script>
+</body>
+
+</html>

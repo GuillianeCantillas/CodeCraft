@@ -1,0 +1,14 @@
+body {
+    display: grid;
+    grid: 1fr 1fr / 1fr;
+  }
+  
+  image {
+    width: 100px;
+    height: 4em;
+  }
+
+  .image-display {
+    display: none;
+    margin-top: -20px; /* Adjust as needed */
+}

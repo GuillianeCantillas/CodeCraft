@@ -1,0 +1,148 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
+    
+    body{
+        display: flex;
+        position: absolute; 
+        left: 0; 
+        right: 0; 
+        margin-left: auto; 
+        margin-right: auto; 
+        width: 1000px;
+        align-items: center;
+        min-height: 100vh;
+        justify-content: center;
+        background-color: #1B1919;
+    }
+    
+    .homeheader h1{
+        font-family: "Bungee Inline", sans-serif;
+        font-size: 30px; 
+        color: #F50CA0;
+        text-align: center;
+        position: absolute;
+        left: 0px;
+        top: 40px;
+    }
+    
+    .homeheader h2{
+        font-family: 'Roboto', sans-serif; 
+        font-size: 18px; 
+        color: white;
+        text-align: left;
+        position: absolute;
+        left: 100px;
+        top: 90px;
+    }
+    
+    .homeheader h3{
+        font-family: "Russo One", sans-serif; 
+        font-size: 18px; 
+        color: #D284AC;
+        text-align: left;
+        position: absolute;
+        left: 129px;
+        top: 90px;
+    }
+
+      /* Whole  Form for register */
+    .Register {
+        width: 420px;
+        align-items: center;
+        background-color: #1B1919;
+        border: 2px ;
+        color: white;
+    }
+
+    /* Get Started */
+    .Register h1{
+        font-size: 30px;
+        text-align: left;
+        color: white;
+    }
+
+    /* Login Link for already have an account */
+   .Register .login-link{
+        text-align: left;
+        position: relative;
+        left: 30px;
+        margin-bottom: 40px;
+    }
+
+    .Register .login-link p a:hover{
+       text-decoration: underline;
+       color:#F50CA0;
+    }
+
+    .Register .login-link p a{
+        text-decoration: underline;
+        color:#D284AC;
+        font-weight: 600;
+     }
+
+    /* End of Login Link*/
+
+     .Register .input-box p{
+        margin: 5px 0;
+    }
+
+    .Register .input-box{
+        width: 150%;
+        height: 50px;
+        background-color:#1B1919;;
+        margin: 40px 0;
+    }
+
+
+    .input-box input{
+        width: 50%;
+        height: 100%;
+        background: transparent;
+        border: none;
+        outline: none;
+        border: 2px solid rgba(255, 255, 255, .2);
+        border-radius: 40px;
+        font-size: 15px;
+        color: white;
+        padding: 20px 45px 20px 20px;
+    }
+
+    .Register .btn{
+        width: 50%;
+        height: 45px;
+        background:#D284AC;
+        border: none;
+        outline:none;
+        border-radius: 40px;
+        box-shadow: 0 0 10px  rgba(0,0,0, -1);
+        cursor: pointer;
+        font-size: 16px;
+        color: white;
+        font-weight: 600;
+        margin-top: 15px ;
+    }
+    
+    .Register .btn:hover{
+        background:#F50CA0;
+        color:black
+    }
+
+    .Register .Terms-and-Conditions p a:hover{
+        text-decoration: underline;
+        color:#F50CA0;
+     }
+ 
+     .Register .Terms-and-Conditions p a{
+         text-decoration: underline;
+         color:#D284AC;
+      }
+
+
+      .Register .Button a{
+        color:white;
+        font-weight: 600;
+     }
