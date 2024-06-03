@@ -1,74 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width-device-width,initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link rel="stylesheet" href="Register.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Bungee+Inline&family=Russo+One&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('#btnSubmit').click(function(){
+                var val = $('#emailAddress').val();
+                if (!val.endsWith('@feualabang.edu.ph')) {
+                    $('#emailResponse').html('Please use your @feualabang.edu.ph email address.').css({'backgroundColor': '#ff9999', 'color': 'black'}).effect('highlight', {color: '#ffff99'}, 1000);
+                    return false;
+                }
+                $('#emailResponse').html('');  // Clear any previous messages
+                // Submit the form if the email is valid
+                $('form').submit();
+                return false;
+            });
+            $('#emailAddress').keyup(function(e) {
+                if(e.keyCode == 13) {
+                    $('#btnSubmit').click();
+                }
+                return false;
+            });
+        });
+    </script>
 </head>
-
 <body>
     <div class="homeheader"> 
         <h1>CodeCraft</h1>
         <h2>by </h2>
         <h3>CyberPink</h3>
     </div>
-
     <div class="Register">
-        <form action="">
+        <form id="registrationForm" method="post" action="register.php">
             <h1>Get Started</h1>
-
             <div class="login-link">
                 <p>Already have an account? <a href="http://127.0.0.1:3000/Login.html">Login</a></p>
             </div>
-            
-         
             <div class="input-box">
                 <p>First name</p>
-                <input type="text" placeholder="First name" required>
+                <input type="text" name="first_name" placeholder="First name" required>
                 <i class='bx bxs-user'></i>
-                        </div>
-
-        
+            </div>
             <div class="input-box">
                 <p>Last name</p>
-                <input type="text" placeholder="Last name" required>
-                    <i class='bx bxs-user'></i>
-                        </div>
-
-            
+                <input type="text" name="last_name" placeholder="Last name" required>
+                <i class='bx bxs-user'></i>
+            </div>
             <div class="input-box">
                 <p>Middle Initial</p>
-                <input type="text" placeholder="Middle Initial" required>
-                    <i class='bx bxs-user'></i>
-                         </div>
-
+                <input type="text" name="middle_initial" placeholder="Middle Initial" required>
+                <i class='bx bxs-user'></i>
+            </div>
             <div class="input-box">
                 <p>Email</p>
-                <input type="email" placeholder="Email" required>
-                    <i class='bx bxs-user'></i>
-                        </div>
-
+                <input type="email" id="emailAddress" name="email" placeholder="Email" required>
+                <i class='bx bxs-user'></i>
+            </div>
+            <div id="emailResponse" style="margin-right:10px;"></div>
             <div class="input-box">
                 <p>Password</p>
-                <input type="password" placeholder="Password" required>
-                     <i class='bx bxs-user'></i>
-                        </div>
-           
-            <div class="Terms-and-Conditions">
-                <p><input type="checkbox"> I agree to the
-              <a href="#">Terms</a> and  <a href="#">Conditions</a></p>
+                <input type="password" name="password" placeholder="Password" required>
+                <i class='bx bxs-user'></i>
             </div>
-            
-            <button type="submit" class="btn">Sign up</a></button>
-            
-</form>
-</div>
+            <div class="Terms-and-Conditions">
+                <p><input type="checkbox" name="terms" value="1" required> I agree to the
+                    <a href="#">Terms</a> and <a href="#">Conditions</a></p>
+            </div>
+            <button type="button" id="btnSubmit" class="btn">Sign up</button>
+        </form>
+    </div>
+
+    <script>
+        $(document).ready(function(){
+            $('#registrationForm').submit(function(e){
+                e.preventDefault(); // Prevent form submission
+                var formData = $(this).serialize(); // Serialize form data
+                $.ajax({
+                    type: 'POST',
+                    url: 'register.php',
+                    data: formData,
+                    success: function(response){
+                        // If registration is successful, redirect to the next page
+                        window.location.href = 'http://127.0.0.1:3000/Register/Account.html'; // Change 'nextpage.php' to the actual URL of the next page
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
+
