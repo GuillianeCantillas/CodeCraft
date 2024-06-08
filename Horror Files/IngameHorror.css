@@ -1,0 +1,194 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif, 'monospace';
+    }
+    
+    body{
+        display: flex;
+        align-items: center;
+        min-height: 100vh;
+        justify-content: center;
+        background-color: black;
+    }
+    
+    .homeheader h1{
+        font-family: "Bungee Inline", sans-serif;
+        font-size: 25px; 
+        color: #F50CA0;
+        text-align: left;
+        position: absolute;
+       bottom: 60px;
+       left: 10px;
+    }
+    
+    .homeheader h2{
+        font-family: 'Roboto', sans-serif; 
+        font-size: 18px; 
+        color: white;
+        text-align: left;
+        position: absolute;
+        bottom: 40px;
+        left: 30px;
+    }
+    
+    .homeheader h3{
+        font-family: "Russo One", sans-serif; 
+        font-size: 18px; 
+        color: #D284AC;
+        text-align: left;
+        position: absolute;
+        bottom: 15px;
+        left: 50px;
+    }
+
+    #pixel-art-container1 {
+        width: 900px;
+        height: 500px;
+        position: fixed;
+        top: 200px;
+        left: 60px;
+        margin: 0 auto; 
+        border: white;
+        border-style: solid;
+        border-width: 5px;
+      }
+
+      #pixel-art-container2 {
+        width: 900px;
+        height: 500px;
+        position: fixed;
+        top: 200px;
+        left: 60px;
+        margin: 0 auto; 
+        border: white;
+        border-style: solid;
+        border-width: 5px;
+      }
+
+      .pixel-art-frame {
+        width: 100%; 
+        height: 100%;
+        position: absolute; 
+        top: 0;
+        left: 0;
+        opacity: 0; 
+      }
+      
+      .pixel-art-frame:first-child {
+        opacity: 1; 
+      }
+      
+      .pixel-art-frame.active {
+        opacity: 1; 
+      }
+
+     .button1{
+        width: 5%;
+        height: 30px;
+        background:#D284AC;
+        border: none;
+        outline:none;
+        border-radius: 40px;
+        box-shadow: 0 0 10px  rgba(0,0,0, -1);
+        cursor: pointer;
+        font-size: 14px;
+        color: black;
+        font-weight: 100;
+        position: fixed;
+        bottom: 190px;
+        left: 60px;
+    }
+      
+     .button1:hover {
+        background-color:#F50CA0;
+        color: white;
+    }
+
+    .button2{
+        width: 5%;
+        height: 30px;
+        background:#D284AC;
+        border: none;
+        outline:none;
+        border-radius: 40px;
+        box-shadow: 0 0 10px  rgba(0,0,0, -1);
+        cursor: pointer;
+        font-size: 14px;
+        color: black;
+        font-weight: 100;
+        position: fixed;
+        bottom: 190px;
+        right: 720px;
+    }
+
+     .button2:hover {
+        background-color:#F50CA0;
+        color: white;
+    }
+
+    .text-box {
+      position:fixed;
+      top: 5px;
+      right: 50px;
+      width: 600px;
+      height: 100%;
+      font-size: 20px;
+      color: #fff;
+      background-color: black; 
+      padding-top: 20px;
+      padding: 10px;
+      border-width: 2;
+     /* border-left: 2px solid white; 
+      border-right: 2px solid white; */
+      text-align: left;
+    }
+
+
+.form input[type="text"] {
+  width: 600px;
+  height: 50px;
+  padding: 15px; 
+  border: 1px solid #ccc;
+  background-color: black;
+  border-radius: 5px;
+  font-size: 20px; 
+  color: white;
+  position:fixed;
+  bottom: 50px;
+  right: 50px;
+}
+
+.form input[type="submit"] {
+  position:fixed;
+  bottom: 50px;
+  right: 50px;
+  width: 100px;
+  height: 50px;
+  padding: 15px;
+  border: none;
+  border-radius: 5px;
+  box-sizing: border-box;
+  font-size: 20px; 
+  background-color: #D284AC; 
+  color: black;
+  cursor: pointer;
+}
+
+.form input[type="submit"]:hover {
+  background-color: #F50CA0;
+  color: white;
+}
+
+.correct {
+  color: #F50CA0; /* Pink color */
+}
+.incorrect {
+  color: red;
+}
+
+#sentence5{
+  color:gray;
+  font-size: 12px;
+}

@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horror</title>
+    <link rel="stylesheet" href="IngameHorror.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bungee+Inline&family=Russo+One&display=swap" rel="stylesheet">
+    <style>
+        .pixel-art-frame {
+            display: none;
+        }
+
+        .active {
+            display: block;
+        }
+
+        .correct {
+            color: #F50CA0;
+        }
+
+        .incorrect {
+            color: red;
+        }
+
+        .sentence {
+            opacity: 0;
+            transition: opacity 2s ease-in-out;
+        }
+
+        .sentence.show {
+            opacity: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="homeheader">
+        <h1>CodeCraft</h1>
+        <h2>by </h2>
+        <h3>CyberPink</h3>
+    </div>
+
+    <div id="pixel-art-container1">
+        <img id="img2" src="2.png" class="pixel-art-frame">
+        <img id="img3" src="3.png" class="pixel-art-frame">
+        <img id="img4" src="4.JPEG" class="pixel-art-frame">
+        <img id="img5" src="5.JPEG" class="pixel-art-frame">
+        <img id="img6" src="6.png" class="pixel-art-frame">
+        <img id="img7" src="7.png" class="pixel-art-frame">
+        <img id="img8" src="8.JPEG" class="pixel-art-frame">
+        <img id="img9" src="9.JPEG" class="pixel-art-frame">
+        <img id="img10" src="10.png" class="pixel-art-frame">
+    </div>
+
+    <div class="text-box">
+        <div id="sentence1" class="sentence show">You awaken to a cold feeling on your back. As you open your eyes, you are met with a
+            lightbulb continuously turning on and off. <br><br> </div>
+        <div id="sentence2" class="sentence">Trying to adjust your eyes to the surroundings, you notice that you're in a room. 
+          There's a gray and maroon wall, decorated with a shelf and some books as well as beside the bed where you awaken, a sink and small mirror.<br><br></div>
+        <div id="sentence3" class="sentence"> By the end of the room, a large steel door can be seen. You decided to walk towards the door.<br><br></div>
+        <div id="sentence4" class="sentence">  The door seems to be missing a small passcode, <br><br> 
+          passcode = new File ("C:\\dungeon\\LargeSteelDoortxt");<br><br>
+          public void __________ (passcode) throws IOException  <br><br></div>
+        <div id="sentence5" class="sentence"> The open() method of Desktop class, launches the associated application to open a file. It takes a file as an argument.<br><br></div>
+
+        <!-- Level 2 easy -->
+        <div id="sentence6" style="display: none;" class="sentence">You hear the steel door creak as it opens. 
+            Now stepping outside of the room you were in, you are met with a completely different atmosphere. <br><br></div>
+        <div id="sentence7" style="display: none;" class="sentence">Gray bricked walls lit by torches and a wooden floor that seems too clean for the place it rests in. <br><br></div>
+        <div id="sentence8" style="display: none;" class="sentence"> There's a long hallway ahead. You started walking down the very well lit corridor. <br><br></div>
+    </div>
+
+    <div class="buttons">
+        <button type="reset" class="button1" onclick="resetForm()">Reset</button>
+        <button type="button" class="button2" onclick="undoInput()">Undo</button>
+    </div>
+
+    <div class="form">
+        <form id="answerForm" onsubmit="checkAnswer(); return false;">
+            <label for="textbox">Enter Text:</label><br>
+            <input type="text" id="textbox" name="textbox" oninput="updateSentence();"><br>
+            <span id="output" style="font-size: 14px;"></span><br>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+
+    <div id="pixel-art-container2">
+        <img id="img11" src="Chest1.png" class="pixel-art-frame">
+        <img id="img12" src="Chest2.png" class="pixel-art-frame">
+        <img id="img13" src="Chest3.png" class="pixel-art-frame">
+        <img id="img14" src="Chest4.png" class="pixel-art-frame">
+        <img id="img15" src="Chest5.png" class="pixel-art-frame">
+        <img id="img16" src="Chest6.png" class="pixel-art-frame">
+        <img id="img17" src="Chest7.png" class="pixel-art-frame">
+        <img id="img18" src="Chest8.png" class="pixel-art-frame">
+    </div>
+
+    <script type="text/javascript">
+        document.addEventListener("DOMContentLoaded", function () {
+            const container1 = document.getElementById("pixel-art-container1");
+            const frames1 = container1.querySelectorAll(".pixel-art-frame");
+            const container2 = document.getElementById("pixel-art-container2");
+            const frames2 = container2.querySelectorAll(".pixel-art-frame");
+
+            let currentFrameIndex = 0;
+            const interval = 1000;
+
+            function showNextFrame(frames) {
+                frames[currentFrameIndex].classList.remove("active");
+                currentFrameIndex = (currentFrameIndex + 1) % frames.length;
+                frames[currentFrameIndex].classList.add("active");
+            }
+
+            function startAnimation(frames) {
+                currentFrameIndex = 0; // Reset index
+                frames[currentFrameIndex].classList.add("active");
+                setInterval(() => showNextFrame(frames), interval);
+            }
+
+            startAnimation(frames1); // first animation
+
+            setTimeout(() => {
+                        document.getElementById("sentence2").style.display = "block";
+                        document.getElementById("sentence2").classList.add("show");
+                    }, 4000); 
+
+            setTimeout(() => {
+                        document.getElementById("sentence3").style.display = "block";
+                        document.getElementById("sentence3").classList.add("show");
+                      }, 10000); 
+
+            setTimeout(() => {
+                      document.getElementById("sentence3").style.display = "block";
+                      document.getElementById("sentence3").classList.add("show");
+                      }, 15000); 
+
+            setTimeout(() => {
+                      document.getElementById("sentence4").style.display = "block";
+                      document.getElementById("sentence4").classList.add("show");
+                      }, 19000); 
+
+            window.checkAnswer = function () {
+                var userInput = document.getElementById("textbox").value.trim().toLowerCase();
+                var correctAnswer = "open";
+                var spanClass = userInput === correctAnswer ? 'correct' : 'incorrect';
+
+                var sentence = document.getElementById("sentence4");
+                if (userInput === correctAnswer) {
+                        sentence.innerHTML = "The door seems to be missing a small passcode, <br><br> " + "passcode = new File (\"C:\\dungeon\\LargeSteelDoortxt\");<br><br>" + "public void <span class='" + spanClass + "'>" + userInput + "</span> (passcode) throws IOException  <br><br>";
+
+                    startAnimation(frames2); // Start the second animation
+                    document.getElementById("textbox").disabled = true; // Disable the textbox
+
+                    setTimeout(() => {
+                        document.getElementById("sentence5").style.display = "block";
+                        document.getElementById("sentence5").classList.add("show");
+                    }, 1000); 
+
+                    setTimeout(() => {
+                        document.getElementById("sentence6").style.display = "block";
+                        document.getElementById("sentence6").classList.add("show");
+                    }, 5000);
+
+                    setTimeout(() => {
+                        document.getElementById("sentence7").style.display = "block";
+                        document.getElementById("sentence7").classList.add("show");
+                    }, 6000);
+                } else {
+                  sentence.innerHTML = "The door seems to be missing a small passcode, <br><br> " + "passcode = new File (\"C:\\dungeon\\LargeSteelDoortxt\");<br><br>" + "public void <span class='" + spanClass + "'>" + userInput + "</span> (passcode) throws IOException  <br><br>";
+
+                }
+            };
+
+            window.updateSentence = function () {
+                var userInput = document.getElementById("textbox").value.trim();
+                var sentence = document.getElementById("sentence4");
+                sentence.innerHTML = "The door seems to be missing a small passcode, <br><br> " + "passcode = new File (\"C:\\dungeon\\LargeSteelDoortxt\"); <br><br>" + "public void " + userInput + " (passcode) throws IOException  <br><br>";
+            };
+
+            window.resetForm = function () {
+                document.getElementById("answerForm").reset();
+                document.getElementById("sentence4").innerHTML = "The door seems to be missing a small passcode, <br><br> " + "passcode = new File (\"C:\\dungeon\\LargeSteelDoortxt\");<br><br>" + "public void __________ (passcode) throws IOException  <br><br>";
+                document.getElementById("textbox").disabled = false;
+
+                document.getElementById("sentence5").style.display = "none";
+                document.getElementById("sentence6").style.display = "none";
+                document.getElementById("sentence7").style.display = "none";
+                document.getElementById("sentence5").classList.remove("show");
+                document.getElementById("sentence6").classList.remove("show");
+                document.getElementById("sentence7").classList.remove("show");
+            };
+
+            window.undoInput = function () {
+                var textbox = document.getElementById("textbox");
+                textbox.value = textbox.value.slice(0, -1);
+                updateSentence();
+            };
+        });
+    </script>
+</body>
+
+</html>
+
