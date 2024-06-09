@@ -1,194 +1,225 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif, 'monospace';
-    }
-    
-    body{
-        display: flex;
-        align-items: center;
-        min-height: 100vh;
-        justify-content: center;
-        background-color: black;
-    }
-    
-    .homeheader h1{
-        font-family: "Bungee Inline", sans-serif;
-        font-size: 25px; 
-        color: #F50CA0;
-        text-align: left;
-        position: absolute;
-       bottom: 60px;
-       left: 10px;
-    }
-    
-    .homeheader h2{
-        font-family: 'Roboto', sans-serif; 
-        font-size: 18px; 
-        color: white;
-        text-align: left;
-        position: absolute;
-        bottom: 40px;
-        left: 30px;
-    }
-    
-    .homeheader h3{
-        font-family: "Russo One", sans-serif; 
-        font-size: 18px; 
-        color: #D284AC;
-        text-align: left;
-        position: absolute;
-        bottom: 15px;
-        left: 50px;
-    }
-
-    #pixel-art-container1 {
-        width: 900px;
-        height: 500px;
-        position: fixed;
-        top: 200px;
-        left: 60px;
-        margin: 0 auto; 
-        border: white;
-        border-style: solid;
-        border-width: 5px;
-      }
-
-      #pixel-art-container2 {
-        width: 900px;
-        height: 500px;
-        position: fixed;
-        top: 200px;
-        left: 60px;
-        margin: 0 auto; 
-        border: white;
-        border-style: solid;
-        border-width: 5px;
-      }
-
-      .pixel-art-frame {
-        width: 100%; 
-        height: 100%;
-        position: absolute; 
-        top: 0;
-        left: 0;
-        opacity: 0; 
-      }
-      
-      .pixel-art-frame:first-child {
-        opacity: 1; 
-      }
-      
-      .pixel-art-frame.active {
-        opacity: 1; 
-      }
-
-     .button1{
-        width: 5%;
-        height: 30px;
-        background:#D284AC;
-        border: none;
-        outline:none;
-        border-radius: 40px;
-        box-shadow: 0 0 10px  rgba(0,0,0, -1);
-        cursor: pointer;
-        font-size: 14px;
-        color: black;
-        font-weight: 100;
-        position: fixed;
-        bottom: 190px;
-        left: 60px;
-    }
-      
-     .button1:hover {
-        background-color:#F50CA0;
-        color: white;
-    }
-
-    .button2{
-        width: 5%;
-        height: 30px;
-        background:#D284AC;
-        border: none;
-        outline:none;
-        border-radius: 40px;
-        box-shadow: 0 0 10px  rgba(0,0,0, -1);
-        cursor: pointer;
-        font-size: 14px;
-        color: black;
-        font-weight: 100;
-        position: fixed;
-        bottom: 190px;
-        right: 720px;
-    }
-
-     .button2:hover {
-        background-color:#F50CA0;
-        color: white;
-    }
-
-    .text-box {
-      position:fixed;
-      top: 5px;
-      right: 50px;
-      width: 600px;
-      height: 100%;
-      font-size: 20px;
-      color: #fff;
-      background-color: black; 
-      padding-top: 20px;
-      padding: 10px;
-      border-width: 2;
-     /* border-left: 2px solid white; 
-      border-right: 2px solid white; */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif, 'monospace';
+  }
+  
+  body{
+      display: flex;
+      align-items: center;
+      min-height: 100vh;
+      justify-content: center;
+      background-color: black;
+  }
+  
+  .homeheader h1{
+      font-family: "Bungee Inline", sans-serif;
+      font-size: 25px; 
+      color: #F50CA0;
       text-align: left;
+      position: absolute;
+     bottom: 50px;
+     left: 10px;
+  }
+  
+  .homeheader h2{
+      font-family: 'Roboto', sans-serif; 
+      font-size: 18px; 
+      color: white;
+      text-align: left;
+      position: absolute;
+      bottom: 40px;
+      left: 30px;
+  }
+  
+  .homeheader h3{
+      font-family: "Russo One", sans-serif; 
+      font-size: 18px; 
+      color: #D284AC;
+      text-align: left;
+      position: absolute;
+      bottom: 15px;
+      left: 50px;
+  }
+
+  #pixel-art-container1, #pixel-art-container2{
+      width: 900px;
+      height: 500px;
+      position: fixed;
+      top: 200px;
+      left: 60px;
+      margin: 0 auto; 
+      border: white;
+      border-style: solid;
+      border-width: 5px;
     }
 
+    .pixel-art-frame {
+      width: 100%; 
+      height: 100%;
+      position: absolute; 
+      top: 0;
+      left: 0;
+      opacity: 0; 
+    }
+    
+    .pixel-art-frame:first-child {
+      opacity: 1; 
+    }
+    
+    .pixel-art-frame.active {
+      opacity: 1; 
+    }
+
+   .button1{
+      width: 5%;
+      height: 30px;
+      background:#D284AC;
+      border: none;
+      outline:none;
+      border-radius: 40px;
+      box-shadow: 0 0 10px  rgba(0,0,0, -1);
+      cursor: pointer;
+      font-size: 14px;
+      color: black;
+      font-weight: 100;
+      position: fixed;
+      bottom: 190px;
+      left: 60px;
+  }
+    
+   .button1:hover {
+      background-color:#F50CA0;
+      color: white;
+  }
+
+  .button2{
+      width: 5%;
+      height: 30px;
+      background:#D284AC;
+      border: none;
+      outline:none;
+      border-radius: 40px;
+      box-shadow: 0 0 10px  rgba(0,0,0, -1);
+      cursor: pointer;
+      font-size: 14px;
+      color: black;
+      font-weight: 100;
+      position: fixed;
+      bottom: 190px;
+      right: 720px;
+  }
+
+   .button2:hover {
+      background-color:#F50CA0;
+      color: white;
+  }
+
+ /* .text-box {
+    position:fixed;
+    top: 5px;
+    right: 50px;
+    width: 600px;
+    height: 100%;
+    font-size: 20px;
+    color: #fff;
+    background-color: black; 
+    padding-top: 20px;
+    padding: 10px;
+    border-width: 2;
+   /* border-left: 2px solid white; 
+    border-right: 2px solid white;
+    text-align: left;
+  }*/
+
+  .text-box {
+    position: fixed;
+    top: 5px;
+    right: 50px;
+    bottom: 4px;
+    width: 30vw; 
+    height: 100%;
+    max-width: 600px; 
+    font-size: 20px;
+    color: #fff;
+    background-color: black;
+    padding-top: 20px;
+    padding: 10px;
+    text-align: left;
+    overflow-y: auto; /* Added overflow-y to enable vertical scrolling */
+}
+
+.text-box.minimized {
+  width: 60px; /* Adjusted minimized width */
+}
+
+.text-box::-webkit-scrollbar {
+  width: 2px; /* width of the scrollbar */
+  height: 100vw; /* height of the scrollbar */
+}
+
+.text-box::-webkit-scrollbar-thumb {
+  background-color: #D284AC; /* Set the color of the thumb */
+  border-radius: 2px; /* Set the border radius of the thumb */
+}
+
+.text-box::-webkit-scrollbar-track {
+  background-color: #F50CA0; /* Set the color of the track */
+  border-radius: 10px; /* Set the border radius of the track */
+}
 
 .form input[type="text"] {
-  width: 600px;
-  height: 50px;
-  padding: 15px; 
-  border: 1px solid #ccc;
-  background-color: black;
-  border-radius: 5px;
-  font-size: 20px; 
-  color: white;
-  position:fixed;
-  bottom: 50px;
-  right: 50px;
+width: 25vw; 
+max-width: 600px;
+height: 5vh;
+padding: 1.5vh; 
+border: 0.2vw solid #ccc; 
+background-color: black;
+border-radius: 3px;
+font-size: 1.2vw; 
+color: white;
+position: fixed;
+bottom: 3vh;
+right: 120px;
+z-index: 1;
 }
 
 .form input[type="submit"] {
-  position:fixed;
-  bottom: 50px;
-  right: 50px;
-  width: 100px;
-  height: 50px;
-  padding: 15px;
-  border: none;
-  border-radius: 5px;
-  box-sizing: border-box;
-  font-size: 20px; 
-  background-color: #D284AC; 
-  color: black;
-  cursor: pointer;
+position: fixed;
+bottom: 3vh; 
+right: 70px;
+width: 9vw; 
+height: 5vh; 
+padding: 1.5vh;
+border: none;
+border-radius: 5px;
+box-sizing: border-box;
+font-size: 1vw; 
+background-color: #D284AC;
+color: black;
+cursor: pointer;
+z-index: 1;
 }
 
 .form input[type="submit"]:hover {
-  background-color: #F50CA0;
-  color: white;
+background-color: #F50CA0;
+color: white;
+}
+
+.minimized-form .form input[type="text"],
+.minimized-form .form input[type="submit"] {
+width: 60px; 
 }
 
 .correct {
-  color: #F50CA0; /* Pink color */
+color: #F50CA0; /* Pink color */
 }
 .incorrect {
-  color: red;
+color: red;
 }
 
 #sentence5{
-  color:gray;
-  font-size: 12px;
+color:gray;
+font-size: 12px;
 }
