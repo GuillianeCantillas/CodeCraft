@@ -12,32 +12,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Bungee+Inline&family=Russo+One&display=swap" rel="stylesheet">
-    <style>
-        .pixel-art-frame {
-            display: none;
-        }
-
-        .active {
-            display: block;
-        }
-
-        .correct {
-            color: #F50CA0;
-        }
-
-        .incorrect {
-            color: red;
-        }
-
-        .sentence {
-            opacity: 0;
-            transition: opacity 2s ease-in-out;
-        }
-
-        .sentence.show {
-            opacity: 1;
-        }
-    </style>
 </head>
 
 <body>
@@ -48,7 +22,7 @@
     </div>
 
     <div id="pixel-art-container1">
-        <img id="img2" src="2.png" class="pixel-art-frame">
+        <img id="img2" src="2.png" class="pixel-art-frame active">
         <img id="img3" src="3.png" class="pixel-art-frame">
         <img id="img4" src="4.JPEG" class="pixel-art-frame">
         <img id="img5" src="5.JPEG" class="pixel-art-frame">
@@ -57,168 +31,153 @@
         <img id="img8" src="8.JPEG" class="pixel-art-frame">
         <img id="img9" src="9.JPEG" class="pixel-art-frame">
         <img id="img10" src="10.png" class="pixel-art-frame">
-    </div>
-
-    <div id="pixel-art-container2">
-        <img id="img11" src="Chest1.png" class="pixel-art-frame">
-        <img id="img12" src="Chest2.png" class="pixel-art-frame">
-        <img id="img13" src="Chest3.png" class="pixel-art-frame">
-        <img id="img14" src="Chest4.png" class="pixel-art-frame">
-        <img id="img15" src="Chest5.png" class="pixel-art-frame">
-        <img id="img16" src="Chest6.png" class="pixel-art-frame">
-        <img id="img17" src="Chest7.png" class="pixel-art-frame">
-        <img id="img18" src="Chest8.png" class="pixel-art-frame">
-    </div>
-
-    <div class="text-box">
-        <div id="sentence1" class="sentence show">You awaken to a cold feeling on your back. As you open your eyes, you are met with a
-            lightbulb continuously turning on and off. <br><br> </div>
-        <div id="sentence2" class="sentence">Trying to adjust your eyes to the surroundings, you notice that you're in a room. 
-          There's a gray and maroon wall, decorated with a shelf and some books as well as beside the bed where you awaken, a sink and small mirror.<br><br></div>
-        <div id="sentence3" class="sentence"> By the end of the room, a large steel door can be seen. You decided to walk towards the door.<br><br></div>
-        <div id="sentence4" class="sentence">  The door seems to be missing a small passcode, <br><br> 
-          passcode = new File ("C:\\dungeon\\LargeSteelDoortxt");<br><br>
-          public void __________ (passcode) throws IOException  <br><br></div>
-        <div id="sentence5" style="display:none;" class="sentence"> The open() method of Desktop class, launches the associated application to open a file. It takes a file as an argument.<br><br></div>
-
-        <!-- Level 2 easy -->
-        <div id="sentence6" class="sentence">You hear the steel door creak as it opens. 
-            Now stepping outside of the room you were in, you are met with a completely different atmosphere. Gray bricked walls lit by torches and a wooden floor. <br><br></div>
-        <div id="sentence7" class="sentence"> You started walking down the very well lit corridor and notice a chest. Opening it, you see a number. Which number do you see? <br><br></div>
-        <div id="sentence8" class="sentence">Complete the code to verify the number you currently see in your screen. <br><br> 
-            public class Chest{<br>
-                    int number = ________;<br>
-                    int ChestNumber;<br><br><div>     
-        <div id="sentence9" class="sentence">Complete the code to verify the number you currently see in your screen. <br><br> 
-            __________ (number) {<br>
-                ______ 1:<br>
-                ChestNumber = 67;<br>
-                    break;<br>
-                ______ 2:<br>
-                ChestNumber = 65;<br>
-                    break;<br>
-                ______ 3:<br>
-                ChestNumber = 68;<br>
-                    break;<br>
-                default:<br>
-                ChestNumber = "Wrong Code";<br>
-            }<br><br>
-    
-            System.out.println("The code is: " + Chestnumber);<br>
-        }<br><br></div>
-    </div>
 
     <div class="buttons">
         <button type="reset" class="button1" onclick="resetForm()">Reset</button>
         <button type="button" class="button2" onclick="undoInput()">Undo</button>
+        <button type="button" class="button3" onclick="showHint()">Hint</button>
     </div>
 
-    <div class="form">
-        <form id="answerForm" onsubmit="checkAnswer(); return false;">
-            <label for="textbox">Enter Text:</label><br>
-            <input type="text" id="textbox" name="textbox" oninput="updateSentence();"><br>
-            <span id="output" style="font-size: 14px;"></span><br>
-            <input type="submit" value="Submit">
-        </form>
+    <div id="score-container">
+        <p>Score: <span id="score">0</span></p>
     </div>
 
-    <script type="text/javascript">
+    <div id="hintBox" style="display:none;">
+        <p id="hintText"></p>
+    </div>
+</div>
+    
+
+    <div class="text-box">
+        <div id="sentence1" class="sentence show">You awaken to a cold feeling on your back. As you open your eyes, you are met with a lightbulb continuously turning on and off. <br><br> </div>
+        <div id="sentence2" class="sentence">Trying to adjust your eyes to the surroundings, you notice that you're in a room.
+            There's a gray and maroon wall, decorated with a shelf and some books as well as beside the bed where you awaken, a sink and small mirror.<br><br>
+        </div>
+        <div id="sentence3" class="sentence"> By the end of the room, a large steel door can be seen. You decided to walk towards the door.<br><br>
+        </div>
+        <div id="sentence4" class="sentence"> The door seems to be missing a small passcode, <br><br>
+            passcode = new File ("C:\\dungeon\\LargeSteelDoortxt");<br><br>
+            public void __________ (passcode) throws IOException <br><br>
+        </div>
+        <div id="sentence5" class="sentence"> The open() method, launches the associated application to open a file. It takes a file as an argument.<br><br>
+    </div>
+
+        <div class="form">
+            <form id="answerForm" onsubmit="checkAnswer4(); return false;">
+                <input type="text" id="textbox" name="textbox" placeholder="Enter your answer here: " oninput="updateSentence4();"><br>
+                <span id="output" style="font-size: 14px;"></span><br>
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+
+    <script>
         document.addEventListener("DOMContentLoaded", function () {
-            const container1 = document.getElementById("pixel-art-container1");
-            const frames1 = container1.querySelectorAll(".pixel-art-frame");
-            const container2 = document.getElementById("pixel-art-container2");
-            const frames2 = container2.querySelectorAll(".pixel-art-frame");
+            const container = document.getElementById('pixel-art-container1');
+            const button1 = document.querySelector('.button1');
+            const button2 = document.querySelector('.button2');
+            const button3 = document.querySelector('.button3');
+            const scoreElement = document.getElementById('score');
+            const scores = document.getElementById('score-container');
+            const hinting = document.getElementById('hintBox');
+            let score = 0;
+            let hintIndex = 0;
+            const hints = [
+            "Hint 1: The method you are looking for starts with an 'o'.",
+            "Hint 2: It's a common method used to initiate actions.",
+            "Hint 3: It's often used to start programs or processes."];
 
+            function updateButtonPositions() {
+                const containerRect = container.getBoundingClientRect();
+                
+                button1.style.left = `${containerRect.left + -60}px`;
+                button1.style.top = `${containerRect.top + 310}px`; //Reset
+
+                button2.style.left = `${containerRect.left + 20}px`;
+                button2.style.top = `${containerRect.top + 310}px`; //Undo
+
+                button3.style.left = `${containerRect.left + 760}px`;
+                button3.style.top = `${containerRect.top + 310}px`; // Hint
+
+                scores.style.left = `${containerRect.left + 740}px`;
+                scores.style.top = `${containerRect.top + -255}px`; // Score Board
+
+                hinting.style.left = `${containerRect.left + 710}px`;
+                hinting.style.top = `${containerRect.top + 340}px`; // Hints na talaguh
+            }
+
+            updateButtonPositions();
+            window.addEventListener('resize', updateButtonPositions);
+            window.addEventListener('scroll', updateButtonPositions);
+
+            const frames = document.querySelectorAll(".pixel-art-frame");
             let currentFrameIndex = 0;
-            interval = 1000;
+            const interval = 1000;
 
-            function showNextFrame(frames) {
+            function showNextFrame() {
                 frames[currentFrameIndex].classList.remove("active");
                 currentFrameIndex = (currentFrameIndex + 1) % frames.length;
                 frames[currentFrameIndex].classList.add("active");
             }
-            
-            function startAnimation(frames) {
-                currentFrameIndex = 0; // Reset index
-                frames[currentFrameIndex].classList.add("active");
-                setInterval(() => showNextFrame(frames), interval);
+
+            function startAnimation() {
+                setInterval(showNextFrame, interval);
             }
 
-            startAnimation(frames1); // first animation
+            startAnimation();
 
             setTimeout(() => {
                         document.getElementById("sentence2").style.display = "block";
                         document.getElementById("sentence2").classList.add("show");
-                    }, 4000); 
+                    }, 5000);
 
-            setTimeout(() => {
+             setTimeout(() => {
                         document.getElementById("sentence3").style.display = "block";
                         document.getElementById("sentence3").classList.add("show");
-                      }, 10000); 
-
+                    }, 15000);
+                    
             setTimeout(() => {
-                      document.getElementById("sentence3").style.display = "block";
-                      document.getElementById("sentence3").classList.add("show");
-                      }, 15000); 
+                        document.getElementById("sentence4").style.display = "block";
+                        document.getElementById("sentence4").classList.add("show");
+                    }, 20000);       
 
-            setTimeout(() => {
-                      document.getElementById("sentence4").style.display = "block";
-                      document.getElementById("sentence4").classList.add("show");
-                      }, 19000); 
+            window.checkAnswer4 = function () {
+                const userInput = document.getElementById("textbox").value.trim().toLowerCase();
+                const correctAnswer = "open";
+                const spanClass = userInput === correctAnswer ? 'correct' : 'incorrect';
+                const sentence = document.getElementById("sentence4");
 
-            window.checkAnswer = function () {
-                var userInput = document.getElementById("textbox").value.trim().toLowerCase();
-                var correctAnswer = "open";
-                var spanClass = userInput === correctAnswer ? 'correct' : 'incorrect';
-
-                var sentence = document.getElementById("sentence4");
                 if (userInput === correctAnswer) {
-                        sentence.innerHTML = "The door seems to be missing a small passcode, <br><br> " + "passcode = new File (\"C:\\dungeon\\LargeSteelDoortxt\");<br><br>" + "public void <span class='" + spanClass + "'>" + userInput + "</span> (passcode) throws IOException  <br><br>";
-
-                    setTimeout(() => {
-                        startAnimation(frames2); // second animation
-                    }, 12000);
-                    document.getElementById("textbox").disabled = true; // Disable the textbox
+                    sentence.innerHTML = `The door seems to be missing a small passcode, <br><br> passcode = new File ("C:\\dungeon\\LargeSteelDoortxt");<br><br>public void <span class='${spanClass}'>${userInput}</span> (passcode) throws IOException  <br><br>`;
+                    
+                    score += 11;
+                    scoreElement.textContent = score;
+                    localStorage.setItem("score", score); // localStorage
 
                     setTimeout(() => {
                         document.getElementById("sentence5").style.display = "block";
                         document.getElementById("sentence5").classList.add("show");
-                    }, 1000); 
+                    }, 1000);
 
-                    setTimeout(() => {
-                        document.getElementById("sentence6").style.display = "block";
-                        document.getElementById("sentence6").classList.add("show");
-                    }, 4000);
-
-                    setTimeout(() => {
-                        document.getElementById("sentence7").style.display = "block";
-                        document.getElementById("sentence7").classList.add("show");
-                    }, 8000);
-
-                    setTimeout(() => {
-                        document.getElementById("sentence8").style.display = "block";
-                        document.getElementById("sentence8").classList.add("show");
-                    }, 10000);
-
-                    setTimeout(() => {
-                        document.getElementById("sentence9").style.display = "block";
-                        document.getElementById("sentence9").classList.add("show");
-                    }, 11000);
-
+                     setTimeout(() => {
+                        window.location.href = 'Ingamehorror2.html';
+                    }, 9000);
                 } else {
-                  sentence.innerHTML = "The door seems to be missing a small passcode, <br><br> " + "passcode = new File (\"C:\\dungeon\\LargeSteelDoortxt\");<br><br>" + "public void <span class='" + spanClass + "'>" + userInput + "</span> (passcode) throws IOException  <br><br>";
+                    sentence.innerHTML = `The door seems to be missing a small passcode, <br><br> passcode = new File ("C:\\dungeon\\LargeSteelDoortxt");<br><br>public void <span class='${spanClass}'>${userInput}</span> (passcode) throws IOException  <br><br>`;
+                    
+                    score - 2;
+                    scoreElement.textContent = score;
                 }
             };
 
-            window.updateSentence = function () {
-                var userInput = document.getElementById("textbox").value.trim();
-                var sentence = document.getElementById("sentence4");
-                sentence.innerHTML = "The door seems to be missing a small passcode, <br><br> " + "passcode = new File (\"C:\\dungeon\\LargeSteelDoortxt\"); <br><br>" + "public void " + userInput + " (passcode) throws IOException  <br><br>";
+            window.updateSentence4 = function () {
+                const userInput = document.getElementById("textbox").value.trim();
+                const sentence = document.getElementById("sentence4");
+                sentence.innerHTML = `The door seems to be missing a small passcode, <br><br> passcode = new File ("C:\\dungeon\\LargeSteelDoortxt"); <br><br>public void ${userInput} (passcode) throws IOException  <br><br>`;
             };
 
             window.resetForm = function () {
                 document.getElementById("answerForm").reset();
-                document.getElementById("sentence4").innerHTML = "The door seems to be missing a small passcode, <br><br> " + "passcode = new File (\"C:\\dungeon\\LargeSteelDoortxt\");<br><br>" + "public void __________ (passcode) throws IOException  <br><br>";
+                document.getElementById("sentence4").innerHTML = `The door seems to be missing a small passcode, <br><br> passcode = new File ("C:\\dungeon\\LargeSteelDoortxt");<br><br>public void __________ (passcode) throws IOException  <br><br>`;
                 document.getElementById("textbox").disabled = false;
 
                 document.getElementById("sentence5").style.display = "none";
@@ -227,28 +186,31 @@
                 document.getElementById("sentence5").classList.remove("show");
                 document.getElementById("sentence6").classList.remove("show");
                 document.getElementById("sentence7").classList.remove("show");
+
+                // Reset the score to 0 when the form is reset
+                score = 0;
+                scoreElement.textContent = score;
             };
 
             window.undoInput = function () {
-                var textbox = document.getElementById("textbox");
+                const textbox = document.getElementById("textbox");
                 textbox.value = textbox.value.slice(0, -1);
-                updateSentence();
+                updateSentence4();
             };
+
+        window.showHint = function () {
+            const hintBox = document.getElementById("hintBox");
+            const hintText = document.getElementById("hintText");
+
+            if (hintIndex < hints.length) {
+                hintText.textContent = hints[hintIndex];
+                hintBox.style.display = "block";
+                hintIndex++;
+            } else {
+                hintText.textContent = "No more hints available.";
+            }};
         });
 
-        // toggle minimized state
-            document.querySelector('.text-box').addEventListener('click', function() {
-             this.classList.toggle('minimized');
-});
-
-        function scrollToBottom() {
-            var textBox = document.querySelector('.text-box');
-            textBox.scrollTop = textBox.scrollHeight;
-        }
-
-    
-    </script>
+</script>
 </body>
-
 </html>
-
