@@ -42,7 +42,7 @@ body {
   left: 180px;
 }
 
-#pixel-art-container1, #pixel-art-container2, #pixel-art-container3, #pixel-art-container5, #pixel-art-container6, #pixel-art-container7{
+#pixel-art-container1, #pixel-art-container2, #pixel-art-container3, #pixel-art-container5, #pixel-art-container6, #pixel-art-container7, #pixel-art-container8{
   width: 900px;
   height: 500px;
   position: absolute;
@@ -218,34 +218,14 @@ body {
   opacity: 1;
 }
 
-#sentence5 {
+#sentence5, #sentence9, #sentence14, #sentence23, #sentence30, #sentence46 {
   color: gray;
   font-size: 12px;
 }
 
-#sentence9 {
-  color: gray;
-  font-size: 12px;
-}
-
-#sentence14 {
-  color: gray;
-  font-size: 12px;
-}
-
-#sentence19, #sentence34{
+#sentence19, #sentence34, #sentence39{
   color: red;
   font-size: 18px;
-}
-
-#sentence23{
-  color: gray;
-  font-size: 12px;
-}
-
-#sentence30{
-  color: gray;
-  font-size: 12px;
 }
 
 .form {
@@ -412,4 +392,12 @@ body {
 
 .bg-change .homeheader h3{
   color: red;
+}
+
+.bg-change .text-box::-webkit-scrollbar-thumb{
+  background-color: red;
+}
+
+.bg-change .text-box::-webkit-scrollbar-track{
+  background-color: red;
 }

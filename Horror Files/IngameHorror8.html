@@ -22,7 +22,7 @@
         <h3>CyberPink</h3>
     </div>
 
- <div id="pixel-art-container7">
+ <div id="pixel-art-container8">
         <img id="img56" src="House1.png" class="pixel-art-frame">
         <img id="img57" src="House2.png" class="pixel-art-frame">
         <img id="img58" src="House3.png" class="pixel-art-frame">
@@ -65,7 +65,7 @@
 </div>
 
 <div class="text-box">
-    <div id="sentence31" class="sentence"> After a long while of walking in the darkness, you finally enter another room.  Wooden walls with gray pillars, decorated with various furniture.<br><br></div>
+    <div id="sentence31" class="sentence" style="display: block;"> After a long while of walking in the darkness, you finally enter another room.  Wooden walls with gray pillars, decorated with various furniture.<br><br></div>
     <div id="sentence32" class="sentence"> You slowly traverse the room observing every last detail of it.<br><br></div>
     <div id="sentence33" class="sentence"> There's an eerie feeling.<br><br></div>
     <div id="sentence34" class="sentence"> The feeling like you're being watched. <br><br></div>
@@ -90,11 +90,24 @@
         }<br><br>
     </div>
     <div id="sentence47" class="sentence"> The for loop repeats a block of code a fixed number of times. </div>
+    <div id="sentence48" class="sentence"> 
+        public class DoWhileLoopExample {
+            public static void main(String[] args) {
+                int i = 1;
+                do {
+                    System.out.println("Do-while loop iteration: " + i);
+                    i++;
+                } while (i <= 5);
+            }
+        }
+        
+    </div>
+
 </div>
 
 <script>
 document.addEventListener("DOMContentLoaded", function () {       
-    const container = document.getElementById('pixel-art-container7');
+    const container = document.getElementById('pixel-art-container8');
     const allImages = container.querySelectorAll('.pixel-art-frame');
     const img33 = document.getElementById('img62');
     const button1 = document.querySelector('.button1');
@@ -210,84 +223,14 @@ document.addEventListener("DOMContentLoaded", function () {
     }, 3000);
 
     setTimeout(() => {
-        document.getElementById("sentence31").style.display = "block";
-        document.getElementById("sentence31").classList.add("show");
-    }, 1000);
-
-    setTimeout(() => {
-        document.getElementById("sentence32").style.display = "block";
-        document.getElementById("sentence32").classList.add("show");
-    }, 6000);
-    
-    setTimeout(() => {
-        document.getElementById("sentence33").style.display = "block";
-        document.getElementById("sentence33").classList.add("show");
-    }, 9000);
-
-    setTimeout(() => {
-        document.getElementById("sentence34").style.display = "block";
-        document.getElementById("sentence34").classList.add("show");;
-    }, 13000);
-
-    setTimeout(() => {
-        document.getElementById("sentence35").style.display = "block";
-        document.getElementById("sentence35").classList.add("show");
-    }, 20000);
-
-    setTimeout(() => {
-        document.getElementById("sentence36").style.display = "block";
-        document.getElementById("sentence36").classList.add("show");
-    }, 30000);
-
-    setTimeout(() => {
-        document.getElementById("sentence37").style.display = "block";
-        document.getElementById("sentence37").classList.add("show");
-    }, 52000);
-
-    setTimeout(() => {
-        document.getElementById("sentence38").style.display = "block";
-        document.getElementById("sentence38").classList.add("show");
-    }, 56000);
-
-    setTimeout(() => {
-        document.getElementById("sentence39").style.display = "block";
-        document.getElementById("sentence39").classList.add("show");
-    }, 61000);
-
-    setTimeout(() => {
-        document.getElementById("sentence40").style.display = "block";
-        document.getElementById("sentence40").classList.add("show");
-    }, 71000);
-
-    setTimeout(() => {
-        document.getElementById("sentence41").style.display = "block";
-        document.getElementById("sentence41").classList.add("show");
-    }, 77000);
-
-    setTimeout(() => {
-        document.getElementById("sentence42").style.display = "block";
-        document.getElementById("sentence42").classList.add("show");
-    }, 82000);
-
-    setTimeout(() => {
-        document.getElementById("sentence43").style.display = "block";
-        document.getElementById("sentence43").classList.add("show");
-    }, 88000);
-
-    setTimeout(() => {
-        document.getElementById("sentence44").style.display = "block";
-        document.getElementById("sentence44").classList.add("show");
-    }, 92000);
-
-    setTimeout(() => {
-        document.getElementById("sentence45").style.display = "block";
-        document.getElementById("sentence45").classList.add("show");
-    }, 100000);
-
-    setTimeout(() => {
         document.getElementById("sentence46").style.display = "block";
         document.getElementById("sentence46").classList.add("show");
     }, 103000);
+
+    setTimeout(() => {
+        document.getElementById("sentence31").style.display = "block";
+        document.getElementById("sentence31").classList.add("show");
+    }, 0);
 
 const scoreElement = document.getElementById('score');
 function getScore() {
