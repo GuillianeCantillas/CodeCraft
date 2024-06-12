@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horror</title>
+    <link rel="stylesheet" href="IngameHorror.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bungee+Inline&family=Russo+One&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="homeheader">
+        <h1>CodeCraft</h1>
+        <h2>by </h2>
+        <h3>CyberPink</h3>
+    </div>
+
+<div id="pixel-art-container6">
+        <img id="img47" src="HouseLoop1.png" class="pixel-art-frame">
+        <img id="img48" src="HouseLoop2.png" class="pixel-art-frame">
+        <img id="img49" src="HouseLoop3.png" class="pixel-art-frame">
+        <img id="img50" src="HouseLoop4.png" class="pixel-art-frame">
+        <img id="img51" src="HouseLoop5.png" class="pixel-art-frame">
+        <img id="img52" src="HouseLoop6.png" class="pixel-art-frame">
+        <img id="img53" src="HouseLoop7.png" class="pixel-art-frame">
+        <img id="img54" src="HouseLoop8.png" class="pixel-art-frame">
+
+        <div class="buttons">
+            <button type="reset" class="button1" onclick="resetForm()">Reset</button>
+            <button type="button" class="button2" onclick="undoInput()">Undo</button>
+            <button type="button" class="button3" onclick="showHint()">Hint</button>
+        </div>
+
+        <div id="score-container">
+            <p>Score: <span id="score">0</span></p>
+        </div>
+
+        <div id="hintBox" style="display:none;">
+            <p id="hintText"></p>
+        </div>
+
+        <div class="form">
+            <form id="answerForm" onsubmit="checkAnswer29(); return false;">
+                <input type="text" id="textbox" name="textbox" placeholder="Enter your answer here: " oninput="updateSentence29();"><br>
+                <span id="output" style="font-size: 14px;"></span><br>
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+</div>
+
+<div class="text-box">
+    <div id="sentence24" class="sentence"> Wooden walls and gray pillars, there seems to be nothing but the same walls and pillars around you or so you thought. <br><br></div>
+    <div id="sentence25" class="sentence"> You turn around for a moment, hoping the room you were previously in would magically appear. But to no avail, only the infinite hallway stand before you. <br><br></div>
+    <div id="sentence26" class="sentence"> Wooden walls and gray pillars. You can't remember if this was the right way, are you walking the same direction or are you walking the opposite? <br><br></div>
+    <div id="sentence27" class="sentence"> You grow anxious every minute that passes by. Many questions you ask yet none answered. <br><br></div>
+    <div id="sentence28" class="sentence"> Wooden walls and gray Pillars, you feel like you're in a loop. Would there be an end to this? is there any way to break out of this? You ask. <br><br></div>
+    <div id="sentence29" class="sentence"> 
+        int i = 0;<br>
+        while (i < 10) {<br>
+            &nbsp; &nbsp; &nbsp; System.out.println(i);<br>
+            &nbsp; &nbsp; &nbsp;  i++;<br>
+            &nbsp; &nbsp; &nbsp;  if (i == 4) {<br>
+            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;   _____; <br>
+            &nbsp; &nbsp; &nbsp;  }<br>
+        }<br><br>
+         </div>
+         <div id="sentence30" class="sentence"> <br><br> The break statement in Java is primarily used to terminate the loop or switch statement in which it is present. As soon as the break statement is encountered within a loop, the loop is immediately terminated, and the program control resumes at the next statement following the loop. </div>
+</div>
+
+<!-- <div id="black-screen"></div> -->
+
+<script>
+        document.addEventListener("DOMContentLoaded", function () {       
+            const container = document.getElementById('pixel-art-container6');
+            const blackScreen = document.getElementById("black-screen");
+            const allImages = container.querySelectorAll('.pixel-art-frame');
+            const button1 = document.querySelector('.button1');
+            const button2 = document.querySelector('.button2');
+            const button3 = document.querySelector('.button3');
+            const scores = document.getElementById('score-container');
+            const hinting = document.getElementById('hintBox');
+            let hintIndex = 0;
+            const hints = [
+                    "Hint 1: This statement immediately exits the nearest enclosing loop",
+                    "Hint 2: Use this to terminate a loop prematurely when a certain condition is met.",
+                    "Hint 3: This statement will only exit the innermost loop it is placed in"];
+
+    let currentFrameIndex = 0;
+    let interval = 1000;
+    const frames6 = container.querySelectorAll(".pixel-art-frame");
+    let animationInterval;
+
+    function showNextFrame(frames) {
+        frames[currentFrameIndex].classList.remove("active");
+        currentFrameIndex = (currentFrameIndex + 1) % frames.length;
+        frames[currentFrameIndex].classList.add("active");
+    }
+
+    function startAnimation(frames) {
+        currentFrameIndex = 0;
+        frames[currentFrameIndex].classList.add("active");
+        animationInterval = setInterval(() => showNextFrame(frames), interval);
+    }
+
+    setTimeout(() => {
+        startAnimation(frames6);
+    }, 0);
+
+    setTimeout(() => {
+        document.getElementById("sentence24").style.display = "block";
+        document.getElementById("sentence24").classList.add("show");
+    }, 1000);
+
+    setTimeout(() => {
+        document.getElementById("sentence25").style.display = "block";
+        document.getElementById("sentence25").classList.add("show");
+    }, 6000);
+
+    setTimeout(() => {
+        document.getElementById("sentence26").style.display = "block";
+        document.getElementById("sentence26").classList.add("show");
+    }, 12000);
+
+    setTimeout(() => {
+        document.getElementById("sentence27").style.display = "block";
+        document.getElementById("sentence27").classList.add("show");
+    }, 18000);
+
+    setTimeout(() => {
+        document.getElementById("sentence28").style.display = "block";
+        document.getElementById("sentence28").classList.add("show");
+    }, 24000);
+
+    setTimeout(() => {
+        document.getElementById("sentence29").style.display = "block";
+        document.getElementById("sentence29").classList.add("show");
+    }, 32000);
+
+const updateButtonPositions = () => {
+const containerRect = container.getBoundingClientRect();
+        
+        document.querySelector('.button1').style.left = `${containerRect.left - 60}px`;
+        document.querySelector('.button1').style.top = `${containerRect.top + 310}px`;
+        
+        document.querySelector('.button2').style.left = `${containerRect.left + 20}px`;
+        document.querySelector('.button2').style.top = `${containerRect.top + 310}px`;
+        
+        document.querySelector('.button3').style.left = `${containerRect.left + 760}px`;
+        document.querySelector('.button3').style.top = `${containerRect.top + 310}px`;
+        
+        document.getElementById('score-container').style.left = `${containerRect.left + 740}px`;
+        document.getElementById('score-container').style.top = `${containerRect.top - 255}px`;
+        
+        document.getElementById('hintBox').style.left = `${containerRect.left + 710}px`;
+        document.getElementById('hintBox').style.top = `${containerRect.top + 340}px`;
+    };
+
+    updateButtonPositions();
+    window.addEventListener('resize', updateButtonPositions);
+    window.addEventListener('scroll', updateButtonPositions);
+
+const scoreElement = document.getElementById('score');
+function getScore() {
+  const score = localStorage.getItem("score");
+  return score ? parseInt(score, 10) : 0;
+};
+
+function updateScore(newScore) {
+  localStorage.setItem("score", newScore);
+  scoreElement.textContent = newScore;
+};
+
+let score = getScore();
+scoreElement.textContent = score;
+
+let newScore = getScore();
+
+window.checkAnswer29 = function() {
+  var userInput = document.getElementById("textbox").value.trim();
+  var sentence29 = document.getElementById("sentence29");
+  var correctAnswer = "break";
+  var spanClass = userInput === correctAnswer ? 'correct' : 'incorrect';
+
+    if (userInput === correctAnswer) {
+        let newScore = score + 12; 
+        updateScore(newScore);
+        sentence29.innerHTML = "int i = 0;<br>" +
+            "while (i < 10) {<br>" +
+            "&nbsp; &nbsp; &nbsp; System.out.println(i);<br>" +
+            "&nbsp; &nbsp; &nbsp;  i++;<br>" +
+            "&nbsp; &nbsp; &nbsp;  if (i == 4) {<br>" +
+            "&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class='" + spanClass + "'>" + userInput + "</span>; <br>" +
+            "&nbsp; &nbsp; &nbsp;  }<br>" +
+        "}<br>";
+        document.getElementById("textbox").disabled = true;
+    
+        setTimeout(() => {
+            document.getElementById("sentence30").style.display = "block";
+            document.getElementById("sentence30").classList.add("show");
+        }, 5000);
+
+            /* blackScreen.classList.add("show");
+            setTimeout(() => {
+                window.location.href = 'Ingamehorror7.html';
+            }, 9000); */
+        
+        
+    } else {
+        sentence29.innerHTML = "int i = 0;<br>" +
+            "while (i < 10) {<br>" +
+            "&nbsp; &nbsp; &nbsp; System.out.println(i);<br>" +
+            "&nbsp; &nbsp; &nbsp;  i++;<br>" +
+            "&nbsp; &nbsp; &nbsp;  if (i == 4) {<br>" +
+            "&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class='" + spanClass + "'>" + userInput + "</span>; <br>" +
+            "&nbsp; &nbsp; &nbsp;  }<br>" +
+        "}<br>";
+    };
+};
+
+
+    console.log("Current Score:", score);
+    console.log("New Score:", newScore);  
+
+
+    window.updateSentence29 = function () {
+        var userInput = document.getElementById("textbox").value.trim();
+        var sentence29 = document.getElementById("sentence29");
+        sentence29.innerHTML = "int i = 0;<br>" +
+            "while (i < 10) {<br>" +
+            "&nbsp; &nbsp; &nbsp; System.out.println(i);<br>" +
+            "&nbsp; &nbsp; &nbsp;  i++;<br>" +
+            "&nbsp; &nbsp; &nbsp;  if (i == 4) {<br>" +
+            "&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; " + userInput + "; <br>" +
+            "&nbsp; &nbsp; &nbsp;  }<br>" +
+            "}<br>"
+    };
+            window.resetForm = function () {
+                document.getElementById("answerForm").reset();
+                sentence29.innerHTML = "int i = 0;<br>" +
+                    "while (i < 10) {<br>" +
+                    "&nbsp; &nbsp; &nbsp; System.out.println(i);<br>" +
+                    "&nbsp; &nbsp; &nbsp;  i++;<br>" +
+                    "&nbsp; &nbsp; &nbsp;  if (i == 4) {<br>" +
+                    "&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; _____; <br>" +
+                    "&nbsp; &nbsp; &nbsp;  }<br>" +
+                    "}<br>"
+                document.getElementById("textbox").disabled = false;
+                document.getElementById("sentence30").style.display = "none";
+                document.getElementById("sentence30").classList.remove("show");
+
+                score = 0;
+                scoreElement.textContent = score;
+            };
+
+            window.undoInput = function () {
+                var textbox = document.getElementById("textbox");
+                textbox.value = textbox.value.slice(0, -1);
+                updateSentence29();
+            };
+
+            window.showHint = function () {
+            const hintBox = document.getElementById("hintBox");
+            const hintText = document.getElementById("hintText");
+
+            if (hintIndex < hints.length) {
+                hintText.textContent = hints[hintIndex];
+                hintBox.style.display = "block";
+                hintIndex++;
+            } else {
+                hintText.textContent = "No more hints available.";
+            }};
+        });
+
+
+</script>
+
+
