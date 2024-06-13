@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="Homepage.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bungee+Inline&family=Russo+One&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Jersey+10&display=swap" rel="stylesheet">
+
+  <title>CodeCraft</title>
+
+  <style>
+
+.card-container {
+  display: flex;
+  justify-content: space-around;
+  padding: 20px;
+  padding-top: 4%;
+  gap: 60px;
+}
+
+.card {
+  position: relative;
+  border: 1px solid #ccc;
+  text-align: left;
+  border-radius: 10px;
+  padding: 60px;
+  padding-top: 4%;
+  width: 25%;
+  height: 90%;
+  background-color: #f9f9f9;
+  box-shadow: 0 0 0 8px #000000;
+}
+
+.card:hover {
+  box-shadow: 0 0 1vw rgb(47, 47, 47), 0 0 2vw rgb(52, 52, 52), 0 0 3vw rgb(57, 57, 57), 0 0 4vw rgb(34, 34, 34);
+  transform: scale(1.05);
+}
+
+.card h3 {
+  position: absolute;
+  top: -25px; /* Adjust this value to place the title on top of the border */
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0 10px;
+  font-size: 2.5em;
+  text-align: center;
+}
+
+.card ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.card ul li {
+  margin: 10px 0;
+}
+
+.card ul li a {
+  text-decoration: none;
+  color: #000000;
+  font-size: 1.2em;
+}
+
+.card ul li a:hover {
+  text-decoration: underline;
+}
+
+body {
+  font-family: 'Russo One', sans-serif;
+}
+
+
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>CodeCraft</h1>
+    <nav>
+      <a href="#">Games</a>
+      <a href="#">Leaderboards</a>
+      <a href="#">Supplementary Materials</a>
+    </nav>
+    <div class="search-box">
+      <input type="text" placeholder="Search...">
+    </div>
+    <a href="#"><img src="user-image.jpg" alt="User Image" class="user-image"></a>
+  </header>
+
+  <div class="flowing-line"></div>
+
+  <div class="TextContainer">
+    <h2>Supplementary Materials</h2>
+    <div class="card-container">
+      <div class="card">
+        <h3>Documents</h3>
+        <ul>
+          <li><a href="document1.pdf" target="_blank">Database</a></li>
+          <li><a href="document2.pdf" target="_blank">Information Security</a></li>
+          <li><a href="document3.pdf" target="_blank">Data Science</a></li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Videos</h3>
+        <ul>
+          <li><a href="https://www.youtube.com/watch?v=vLnPwxZdW4Y&t=1135s" target="_blank">Programming Languages Tutorial</a></li>
+          <li><a href="https://www.youtube.com/watch?v=zOjov-2OZ0E&t=97s" target="_blank">Computer Science in 5 minutes</a></li>
+          <li><a href="https://www.youtube.com/watch?v=CxGSnA-RTsA" target="_blank">Programming for Beginners</a></li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Tutorials</h3>
+        <ul>
+          <li><a href="https://www.w3schools.com/" target="_blank">W3Schools</a></li>
+          <li><a href="https://www.geeksforgeeks.org/" target="_blank">GeeksforGeeks</a></li>
+          <li><a href="https://www.freecodecamp.org/" target="_blank">FreeCodeCamp</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <script src="Homepage.js"></script>
+</body>
+</html>
