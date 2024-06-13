@@ -8,19 +8,9 @@ font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 body{
     display: flex;
     align-items: center;
-    min-height: 150vh;
+    height: 100vh;
     justify-content: center;
     background-color: #1B1919;
-}
-
-.homeheader h1{
-    font-family: "Bungee Inline", sans-serif;
-    font-size: 20px; 
-    color: #F50CA0;
-    text-align: left;
-    position: absolute;
-    left: 50px;
-    top: 40px;
 }
 
 .homeheader h2{
@@ -28,8 +18,8 @@ body{
     font-size: 18px; 
     color: white;
     text-align: left;
-    position: absolute;
-    left: 100px;
+    position: fixed;
+    left: 170px;
     top: 80px;
 }
 
@@ -38,13 +28,45 @@ body{
     font-size: 18px; 
     color: #D284AC;
     text-align: left;
-    position: absolute;
-    left: 129px;
+    position: fixed;
+    left: 200px;
     top: 80px;
 }
 
+
+@keyframes flash {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+}
+
+@keyframes glow {
+    0% {
+        text-shadow: 0 0 5px #ff69b4, 0 0 10px #ff69b4, 0 0 20px #ff69b4, 0 0 40px #ff69b4, 0 0 80px #ff69b4, 0 0 90px #ff69b4, 0 0 100px #ff69b4, 0 0 150px #ff69b4;
+    }
+    50% {
+        text-shadow: 0 0 10px #ff69b4, 0 0 20px #ff69b4, 0 0 30px #ff69b4, 0 0 50px #ff69b4, 0 0 100px #ff69b4, 0 0 150px #ff69b4, 0 0 200px #ff69b4, 0 0 250px #ff69b4;
+    }
+}
+
+.flashing-text {
+    animation: flash 3s infinite;
+    animation: glow 1.5s infinite;
+    color: #D284AC; 
+    font-family: 'Arial', sans-serif; 
+    font-size: 2em; 
+    text-align: center;
+}
+
+
 .wrapper {
     width: 420px;
+    position: fixed;
+    bottom: 70px;
+    justify-content: center;
     background-color: #1B1919;
     color: white;
 }
@@ -134,11 +156,23 @@ body{
 
 .register-link p a{
     text-decoration: underline;
-        color:#D284AC;
+    color:#D284AC;
     font-weight: 600;
 }
 
 .register-link p a:hover{
     text-decoration: underline;
        color:#F50CA0;
+}
+
+.Logo{
+    position: fixed;
+    top: 30px;
+}
+
+.LogoOfficial img{
+    width: 80px;
+    position: absolute;
+    top: 50px;
+    left: 80px;
 }
