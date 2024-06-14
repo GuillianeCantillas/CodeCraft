@@ -18,8 +18,8 @@ if (
     $middle_initial = validate($_POST['middle_initial']);
     $email = validate($_POST['email']);
     $password = validate($_POST['password']);
-    $terms = validate($_POST['terms']) == '1' ? 1 : 0; // Ensure the checkbox is properly handled
-    $hashed_password = password_hash($password, PASSWORD_DEFAULT); // Hash the password
+    $terms = validate($_POST['terms']) == '1' ? 1 : 0; 
+    $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
     if (empty($first_name) || empty($last_name) || empty($middle_initial) || empty($email) || empty($password)) {
         header("Location: Register.html");

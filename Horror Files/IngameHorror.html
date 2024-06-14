@@ -47,13 +47,12 @@
     </div>
 </div>
     
-
     <div class="text-box">
         <div id="sentence1" class="sentence show">You awaken to a cold feeling on your back. As you open your eyes, you are met with a lightbulb continuously turning on and off. <br><br> </div>
         <div id="sentence2" class="sentence">Trying to adjust your eyes to the surroundings, you notice that you're in a room.
             There's a gray and maroon wall, decorated with a shelf and some books as well as beside the bed where you awaken, a sink and small mirror.<br><br>
         </div>
-        <div id="sentence3" class="sentence"> Why are you here? <br> <br> By the end of the room, a large steel door can be seen. You decided to walk towards the door.<br><br>
+        <div id="sentence3" class="sentence"> By the end of the room, a large steel door can be seen. You decided to walk towards the door.<br><br>
         </div>
         <div id="sentence4" class="sentence"> The door seems to be missing a small passcode, <br><br>
             passcode = new File ("C:\\dungeon\\LargeSteelDoortxt");<br><br>
@@ -66,7 +65,7 @@
             <form id="answerForm" onsubmit="checkAnswer4(); return false;">
                 <input type="text" id="textbox" name="textbox" placeholder="Enter your answer here: " oninput="updateSentence4();"><br>
                 <span id="output" style="font-size: 14px;"></span><br>
-                <input type="submit" value="Submit">
+                <input type="submit" value="Submit" id="submitbutton">
             </form>
         </div>
 
@@ -148,7 +147,10 @@
 
                 if (userInput === correctAnswer) {
                     sentence.innerHTML = `The door seems to be missing a small passcode, <br><br> passcode = new File ("C:\\dungeon\\LargeSteelDoortxt");<br><br>public void <span class='${spanClass}'>${userInput}</span> (passcode) throws IOException  <br><br>`;
-                    
+                    document.getElementById("textbox").disabled = true;
+                    document.getElementById("submitbutton").disabled = true;
+
+
                     score += 11;
                     scoreElement.textContent = score;
                     localStorage.setItem("score", score); // localStorage

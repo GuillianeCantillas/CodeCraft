@@ -54,7 +54,7 @@ body{
 
 .flashing-text {
     animation: flash 3s infinite;
-    animation: glow 1.5s infinite;
+    animation: glow 0.5s infinite;
     color: #D284AC; 
     font-family: 'Arial', sans-serif; 
     font-size: 2em; 

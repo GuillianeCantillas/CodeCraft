@@ -4,7 +4,7 @@ body{
 :root {
 	--blur: 0px;
 	--spread: 0px;
-	--pixel-size: 6px;
+	--pixel-size: 8px;
 	--gutter-size: 0px;
 	--shadow-mult: calc(var(--gutter-size) + var(--pixel-size));
 }

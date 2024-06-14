@@ -27,3 +27,4 @@ var players = [
   // Call updateLeaderboard function to initially populate leaderboard
   updateLeaderboard();
   
+  

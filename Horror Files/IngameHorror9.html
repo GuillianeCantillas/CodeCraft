@@ -22,7 +22,7 @@
         <h3>CyberPink</h3>
     </div>
 
- <div id="pixel-art-container8">
+ <div id="pixel-art-container9">
         <img id="img73" src="HouseLoop1.png" class="pixel-art-frame">
         <img id="img74" src="HouseLoop2.png" class="pixel-art-frame">
         <img id="img75" src="HouseLoop3.png" class="pixel-art-frame">
@@ -50,7 +50,7 @@
             <form id="answerForm" onsubmit="checkAnswer46(); return false;">
                 <input type="text" id="textbox" name="textbox" placeholder="Enter your answer here: " oninput="updateSentence46();"><br>
                 <span id="output" style="font-size: 14px;"></span><br>
-                <input type="submit" value="Submit" id="submitbutton">
+                <input type="submit" value="Submit">
             </form>
         </div>
 </div>
@@ -74,7 +74,8 @@
         &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  }<br>
         &nbsp; &nbsp; &nbsp;  }<br>
       }<br><br></div>
-    <div id="sentence48" class="sentence"> Recursion is a fundamental programming concept where a method calls itself to solve a problem. In Java, recursion can be a powerful tool for simplifying code, especially for problems that can be broken down into smaller, similar problems. </div>
+    <div id="sentence48" class="sentence"> </div>
+
 </div>
 
 <script>
@@ -196,7 +197,7 @@ window.checkAnswer46 = function() {
 
                     setTimeout(() => {
                         window.location.href = 'Ingamehorror9.html';
-                    }, 10000);
+                    }, 9000);
             
         } else {
             sentence46.innerHTML = "In java, there is a technique that does the same. The only difference is that it calls itself  to do it. What is this technique? <span class='" + spanClass + "'>" + userInput + "</span> <br><br></div>";
@@ -211,7 +212,7 @@ window.checkAnswer46 = function() {
     window.updateSentence46 = function () {
         var userInput = document.getElementById("textbox").value.trim();
         var sentence46 = document.getElementById("sentence46");
-        sentence46.innerHTML = "In java, there is a technique that does the same. The only difference is that it calls itself  to do it. What is this technique? " + userInput + "<br><br></div>"
+        sentence46.innerHTML = "In java, there is a technique that does the same. The only difference is that it calls itself  to do it. What is this technique?" + userInput + "<br><br></div>"
 
     };
             window.resetForm = function () {

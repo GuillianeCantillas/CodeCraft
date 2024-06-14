@@ -16,7 +16,7 @@ body {
 
 .homeheader {
   position: absolute;
-  bottom: 40px;
+  bottom: 70px;
   left: 10px; 
 }
 .homeheader h1, .homeheader h2, .homeheader h3 {
@@ -218,12 +218,18 @@ body {
   opacity: 1;
 }
 
-#sentence5, #sentence9, #sentence14, #sentence23, #sentence30, #sentence46 {
+#sentence5, #sentence9, #sentence14, #sentence23, #sentence30, #sentence42{
   color: gray;
   font-size: 12px;
 }
 
-#sentence19, #sentence34, #sentence39{
+#sentence48{
+  color: gray;
+  font-size: 12px;
+}
+
+
+#sentence19, #sentence34,  #sentence46{
   color: red;
   font-size: 18px;
 }
@@ -274,10 +280,10 @@ body {
 .transition{
   font-family: "Bungee Inline", sans-serif;
   font-size: 25px;
-  color: #F50CA0;
+  color: red;
   left: 0; 
   position: absolute;
-  top: 90px;
+  top: 70px;
   margin-left: auto;
   margin-right: auto;
   left: 0;

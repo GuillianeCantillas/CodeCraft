@@ -50,7 +50,7 @@
             <form id="answerForm" onsubmit="checkAnswer29(); return false;">
                 <input type="text" id="textbox" name="textbox" placeholder="Enter your answer here: " oninput="updateSentence29();"><br>
                 <span id="output" style="font-size: 14px;"></span><br>
-                <input type="submit" value="Submit">
+                <input type="submit" value="Submit" id="submitbutton">
             </form>
         </div>
 </div>
@@ -201,18 +201,19 @@ window.checkAnswer29 = function() {
             "&nbsp; &nbsp; &nbsp;  }<br>" +
         "}<br>";
         document.getElementById("textbox").disabled = true;
+        document.getElementById("submitbutton").disabled = true;
     
         setTimeout(() => {
             document.getElementById("sentence30").style.display = "block";
             document.getElementById("sentence30").classList.add("show");
-        }, 3000);
+        }, 2000);
 
             setTimeout(() => {
                 document.getElementById("black-screen").classList.add("show");
                 setTimeout(() => {
                     window.location.href = 'Ingamehorror7.html';
-                }, 5000);
-                }, 10000);
+                }, 3000);
+                }, 9000);
 
         
     } else {

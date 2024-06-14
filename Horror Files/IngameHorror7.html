@@ -56,12 +56,13 @@
         </div>
 
 <div class="form">
-    <form id="answerForm" onsubmit="checkAnswer46(); return false;">
-        <input type="text" id="textbox" name="textbox" placeholder="Enter your answer here: " oninput="updateSentence46();"><br>
+    <form id="answerForm" onsubmit="checkAnswer41(); return false;">
+        <input type="text" id="textbox" name="textbox" placeholder="Enter your answer here: " oninput="updateSentence41();"><br>
         <span id="output" style="font-size: 14px;"></span><br>
-        <input type="submit" value="Submit">
+        <input type="submit" value="Submit" id="submitbutton">
     </form>
 </div>
+
 </div>
 
 <div class="text-box">
@@ -72,15 +73,10 @@
     <div id="sentence35" class="sentence"> Lighting strikes and everything flashes around you. That's weird, you thought since it doesnt seem to be raining. <br><br></div>
     <div id="sentence36" class="sentence"> But you continued walking, the room appears to be never ending. You'll just keep walking, you thought. It is a big house after all. <br><br></div>
     <div id="sentence37" class="sentence"> But not even a few steps forward, you notice something. <br><br></div>
-    <div id="sentence38" class="sentence"> An eerie feeling.<br><br></div>
-    <div id="sentence39" class="sentence"> The feeling like you're being watched. <br><br></div>
-    <div id="sentence40" class="sentence"> Lighting strikes and everything flashes around you. That's weird, you thought since it doesn't seem to be raining. <br><br></div>
-    <div id="sentence41" class="sentence"> But you continued walking, the room appears to be never ending. You'll just keep walking, you thought. It is a big house after all. <br><br></div>
-    <div id="sentence42" class="sentence"> But not even a few steps forward, you notice something. Why does this seem so familliar? <br><br></div>
-    <div id="sentence43" class="sentence"> Have you done this before? <br><br></div>
-    <div id="sentence44" class="sentence"> Didn't you break out of the loop?<br><br></div>
-    <div id="sentence45" class="sentence"> Identify all the looping statements: <br><br></div>
-    <div id="sentence46" class="sentence"> 
+    <div id="sentence38" class="sentence"> Why does this seem so familliar? <br><br></div>
+    <div id="sentence39" class="sentence"> Have you done this before? <br><br></div>
+    <div id="sentence40" class="sentence"> Didn't you break out of the loop?<br><br></div>
+    <div id="sentence41" class="sentence"> 
         public class Main { <br>
             &nbsp; &nbsp; &nbsp; public static void main(String[] args) { <br>
                 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;___ (int i = 1; i <= 5; i++) { <br>
@@ -89,46 +85,49 @@
                     &nbsp; &nbsp; &nbsp;   } <br>
         }<br><br>
     </div>
-    <div id="sentence47" class="sentence"> The for loop repeats a block of code a fixed number of times. </div>
+    <div id="sentence42" class="sentence"> The for loop repeats a block of code a fixed number of times. </div>
 </div>
 
 <script>
 document.addEventListener("DOMContentLoaded", function () {       
     const container = document.getElementById('pixel-art-container7');
     const allImages = container.querySelectorAll('.pixel-art-frame');
-    const img33 = document.getElementById('img62');
+    const img62 = document.getElementById('img62');
     const button1 = document.querySelector('.button1');
     const button2 = document.querySelector('.button2');
     const button3 = document.querySelector('.button3');
     const scores = document.getElementById('score-container');
     const hinting = document.getElementById('hintBox');
+    const answerForm = document.getElementById('answerForm');
     let hintIndex = 0;
     const hints = [
-            "Hint 1: With this statement, you can declare and initialize the loop control variable within the loop statement.",
-            "Hint 2: The types of loops can be nested inside each other to handle multi-dimensional data structures like 2D arrays.",
-            "Hint 3: This Loop can reverse order by initializing the loop variable to a maximum value and decreasing it."];
-    const flashingElements = [
-        document.querySelector('.button1'),
-        document.querySelector('.button2'),
-        document.querySelector('.button3'),
-        document.getElementById('score-container'),
-        document.getElementById('hintBox'),
-        document.getElementById('answerForm'),
-        document.getElementById('sentence31'),
-        document.getElementById('sentence32'),
-        document.getElementById('sentence33'),
-        document.getElementById('sentence34'),
-        document.getElementById('sentence35'),
-        document.getElementById('sentence36'),
-        document.getElementById('sentence37'),
-        document.getElementById('sentence38'),
-        document.getElementById('sentence39'),
-        document.getElementById('sentence40'),
-        document.getElementById('sentence41'),
-        document.getElementById('sentence42'),
-        document.getElementById('sentence43'),
-        document.getElementById('sentence44'),
-        document.getElementById('sentence45'),
+        "Hint 1: With this statement, you can declare and initialize the loop control variable within the loop statement.",
+        "Hint 2: The types of loops can be nested inside each other to handle multi-dimensional data structures like 2D arrays.",
+        "Hint 3: This Loop can reverse order by initializing the loop variable to a maximum value and decreasing it."
+    ];
+
+    const sentences = [
+        "sentence31",
+        "sentence32",
+        "sentence33",
+        "sentence34",
+        "sentence35",
+        "sentence36",
+        "sentence37",
+        "sentence38",
+        "sentence39",
+        "sentence40",
+        "sentence41",
+        "sentence42"
+    ];
+
+    const additionalElements = [
+        button1,
+        button2,
+        button3,
+        scores,
+        hinting,
+        answerForm
     ];
 
     allImages.forEach(img => {
@@ -137,11 +136,57 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
+    function showSentence(id, delay) {
+        setTimeout(() => {
+            const sentence = document.getElementById(id);
+            if (sentence) {
+                sentence.style.display = "block";
+                sentence.classList.add("show");
+            } else {
+                console.warn(`Sentence with ID ${id} not found.`);
+            }
+        }, delay);
+    }
+
+    function flashElements() {
+        sentences.forEach(id => {
+            const sentence = document.getElementById(id);
+            if (sentence && sentence.classList.contains('show')) {
+                sentence.classList.add('flashing');
+            } else if (!sentence) {
+                console.warn(`Sentence with ID ${id} not found.`);
+            }
+        });
+
+        additionalElements.forEach(el => {
+            if (el) {
+                el.classList.add('flashing');
+            }
+        });
+    }
+
+    function removeFlashFromElements() {
+        sentences.forEach(id => {
+            const sentence = document.getElementById(id);
+            if (sentence) {
+                sentence.classList.remove('flashing');
+            } else {
+                console.warn(`Sentence with ID ${id} not found.`);
+            }
+        });
+
+        additionalElements.forEach(el => {
+            if (el) {
+                el.classList.remove('flashing');
+            }
+        });
+    }
+
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                flashingElements.forEach(el => el.classList.add('flashing'));
-                img33.classList.add('brighten');
+                flashElements();
+                img62.classList.add('brighten');
                 document.body.classList.add('bg-change');
                 allImages.forEach(img => {
                     if (img.id !== 'img62') {
@@ -149,11 +194,11 @@ document.addEventListener("DOMContentLoaded", function () {
                     }
                 });
                 setTimeout(() => {
-                    img33.classList.remove('brighten');
+                    img62.classList.remove('brighten');
                     document.body.classList.remove('bg-change');
                 }, 3000);
             } else {
-                flashingElements.forEach(el => el.classList.remove('flashing'));
+                removeFlashFromElements();
                 allImages.forEach(img => {
                     if (img.id !== 'img62') {
                         img.classList.add('darken');
@@ -161,9 +206,21 @@ document.addEventListener("DOMContentLoaded", function () {
                 });
             }
         });
-    }, { threshold: 0.5 }); 
+    }, { threshold: 0.5 });
 
     observer.observe(img62);
+
+    showSentence("sentence31", 1000);
+    showSentence("sentence32", 6000);
+    showSentence("sentence33", 9000);
+    showSentence("sentence34", 13000);
+    showSentence("sentence35", 20000);
+    showSentence("sentence36", 30000);
+    showSentence("sentence37", 35000);
+    showSentence("sentence38", 40000);
+    showSentence("sentence39", 45000);
+    showSentence("sentence40", 50000);
+    showSentence("sentence41", 55000);
 
     const updateButtonPositions = () => {
     const containerRect = container.getBoundingClientRect();
@@ -242,52 +299,27 @@ document.addEventListener("DOMContentLoaded", function () {
     setTimeout(() => {
         document.getElementById("sentence37").style.display = "block";
         document.getElementById("sentence37").classList.add("show");
-    }, 52000);
+    }, 35000);
 
     setTimeout(() => {
         document.getElementById("sentence38").style.display = "block";
         document.getElementById("sentence38").classList.add("show");
-    }, 56000);
+    }, 45000);
 
     setTimeout(() => {
         document.getElementById("sentence39").style.display = "block";
         document.getElementById("sentence39").classList.add("show");
-    }, 61000);
+    }, 50000);
 
     setTimeout(() => {
         document.getElementById("sentence40").style.display = "block";
         document.getElementById("sentence40").classList.add("show");
-    }, 71000);
+    }, 55000);
 
     setTimeout(() => {
         document.getElementById("sentence41").style.display = "block";
         document.getElementById("sentence41").classList.add("show");
-    }, 77000);
-
-    setTimeout(() => {
-        document.getElementById("sentence42").style.display = "block";
-        document.getElementById("sentence42").classList.add("show");
-    }, 82000);
-
-    setTimeout(() => {
-        document.getElementById("sentence43").style.display = "block";
-        document.getElementById("sentence43").classList.add("show");
-    }, 88000);
-
-    setTimeout(() => {
-        document.getElementById("sentence44").style.display = "block";
-        document.getElementById("sentence44").classList.add("show");
-    }, 92000);
-
-    setTimeout(() => {
-        document.getElementById("sentence45").style.display = "block";
-        document.getElementById("sentence45").classList.add("show");
-    }, 100000);
-
-    setTimeout(() => {
-        document.getElementById("sentence46").style.display = "block";
-        document.getElementById("sentence46").classList.add("show");
-    }, 103000);
+    }, 60000);
 
 const scoreElement = document.getElementById('score');
 function getScore() {
@@ -305,27 +337,28 @@ scoreElement.textContent = score;
 
 let newScore = getScore();
 
-window.checkAnswer46 = function() {
+window.checkAnswer41 = function() {
   var userInput = document.getElementById("textbox").value.trim();
-  var sentence46 = document.getElementById("sentence46");
+  var sentence41 = document.getElementById("sentence41");
   var correctAnswer = "for";
   var spanClass = userInput === correctAnswer ? 'correct' : 'incorrect';
 
         if (userInput === correctAnswer) {
             newScore = score + 12; 
             updateScore(newScore);
-            sentence46.innerHTML = "public class Main { <br>" + 
+            sentence41.innerHTML = "public class Main { <br>" + 
             "&nbsp; &nbsp; &nbsp; public static void main(String[] args) { <br>" +
                 "&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class='" + spanClass + "'>" + userInput + "</span>(int i = 1; i <= 5; i++) { <br>" + 
                     "&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; System.out.println(i); <br>" + 
                     "&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;    } <br>" + 
                     "&nbsp; &nbsp; &nbsp;   } <br>" + 
                         "}<br><br>"
-                document.getElementById("textbox").disabled = true;
+                    document.getElementById("textbox").disabled = true;
+                    document.getElementById("submitbutton").disabled = true;
             
                     setTimeout(() => {
-                        document.getElementById("sentence47").style.display = "block";
-                        document.getElementById("sentence47").classList.add("show");
+                        document.getElementById("sentence42").style.display = "block";
+                        document.getElementById("sentence42").classList.add("show");
                     }, 2000);
 
                     setTimeout(() => {
@@ -333,7 +366,7 @@ window.checkAnswer46 = function() {
                     }, 9000);
             
         } else {
-            sentence46.innerHTML = "public class Main { <br>" + 
+            sentence41.innerHTML = "public class Main { <br>" + 
             "&nbsp; &nbsp; &nbsp; public static void main(String[] args) { <br>" +
                 "&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class='" + spanClass + "'>" + userInput + "</span>(int i = 1; i <= 5; i++) { <br>" + 
                     "&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; System.out.println(i); <br>" + 
@@ -347,10 +380,10 @@ window.checkAnswer46 = function() {
     console.log("New Score:", newScore);  
 
 
-    window.updateSentence46 = function () {
+    window.updateSentence41 = function () {
         var userInput = document.getElementById("textbox").value.trim();
-        var sentence46 = document.getElementById("sentence46");
-        sentence46.innerHTML = "public class Main { <br>" + 
+        var sentence41 = document.getElementById("sentence41");
+        sentence41.innerHTML = "public class Main { <br>" + 
             "&nbsp; &nbsp; &nbsp; public static void main(String[] args) { <br>" +
                 "&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;" + userInput + "(int i = 1; i <= 5; i++) { <br>" + 
                     "&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; System.out.println(i); <br>" + 
@@ -360,7 +393,7 @@ window.checkAnswer46 = function() {
     };
             window.resetForm = function () {
                 document.getElementById("answerForm").reset();
-                sentence46.innerHTML = "public class Main { <br>" + 
+                sentence41.innerHTML = "public class Main { <br>" + 
             "&nbsp; &nbsp; &nbsp; public static void main(String[] args) { <br>" +
                 "&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ___ (int i = 1; i <= 5; i++) { <br>" + 
                     "&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; System.out.println(i); <br>" + 
@@ -368,8 +401,8 @@ window.checkAnswer46 = function() {
                     "&nbsp; &nbsp; &nbsp;   } <br>" + 
                         "}<br><br>"
                 document.getElementById("textbox").disabled = false;
-                document.getElementById("sentence23").style.display = "none";
-                document.getElementById("sentence23").classList.remove("show");
+                document.getElementById("sentence42").style.display = "none";
+                document.getElementById("sentence42").classList.remove("show");
 
                 score = 0;
                 scoreElement.textContent = score;
@@ -378,7 +411,7 @@ window.checkAnswer46 = function() {
             window.undoInput = function () {
                 var textbox = document.getElementById("textbox");
                 textbox.value = textbox.value.slice(0, -1);
-                updateSentence46();
+                updateSentence41();
             };
             window.showHint = function () {
             const hintBox = document.getElementById("hintBox");

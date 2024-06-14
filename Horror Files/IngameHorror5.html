@@ -62,7 +62,7 @@
     <form id="answerForm" onsubmit="checkAnswer22(); return false;">
         <input type="text" id="textbox" name="textbox" placeholder="Enter your answer here: " oninput="updateSentence22();"><br>
         <span id="output" style="font-size: 14px;"></span><br>
-        <input type="submit" value="Submit">
+        <input type="submit" value="Submit"id="submitbutton">
     </form>
 </div>
 
@@ -93,31 +93,30 @@ document.addEventListener("DOMContentLoaded", function () {
     const container = document.getElementById('pixel-art-container5');
     const allImages = container.querySelectorAll('.pixel-art-frame');
     const img33 = document.getElementById('img33');
-    const sentence19 = document.getElementById('sentence19');
     const button1 = document.querySelector('.button1');
     const button2 = document.querySelector('.button2');
     const button3 = document.querySelector('.button3');
     const scores = document.getElementById('score-container');
     const hinting = document.getElementById('hintBox');
-    let hintIndex = 0;
-    const hints = [
-            "Hint 1: This loop will always execute the code block at least once, even if the condition is false initially.",
-            "Hint 2: This loop to repeat actions based on user input.",
-            "Hint 3: Remember that with this loop the condition is checked after the loop body is executed.."];
-    const flashingElements = [
-        document.querySelector('.button1'),
-        document.querySelector('.button2'),
-        document.querySelector('.button3'),
-        document.getElementById('score-container'),
-        document.getElementById('hintBox'),
-        document.getElementById('answerForm'),
-        document.getElementById('sentence16'),
-        document.getElementById('sentence17'),
-        document.getElementById('sentence18'),
-        document.getElementById('sentence19'),
-        document.getElementById('sentence20'),
-        document.getElementById('sentence21'),
-        document.getElementById('sentence22'),
+    const answerForm = document.getElementById('answerForm');
+    
+    const sentences = [
+        "sentence16",
+        "sentence17",
+        "sentence18",
+        "sentence19",
+        "sentence20",
+        "sentence21",
+        "sentence22"
+    ];
+
+    const additionalElements = [
+        button1,
+        button2,
+        button3,
+        scores,
+        hinting,
+        answerForm
     ];
 
     allImages.forEach(img => {
@@ -126,10 +125,46 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
+    function showSentence(id, delay) {
+        setTimeout(() => {
+            const sentence = document.getElementById(id);
+            sentence.style.display = "block";
+            sentence.classList.add("show");
+        }, delay);
+    }
+
+    function flashElements() {
+        sentences.forEach(id => {
+            const sentence = document.getElementById(id);
+            if (sentence.classList.contains('show')) {
+                sentence.classList.add('flashing');
+            }
+        });
+
+        additionalElements.forEach(el => {
+            if (el) {
+                el.classList.add('flashing');
+            }
+        });
+    }
+
+    function removeFlashFromElements() {
+        sentences.forEach(id => {
+            const sentence = document.getElementById(id);
+            sentence.classList.remove('flashing');
+        });
+
+        additionalElements.forEach(el => {
+            if (el) {
+                el.classList.remove('flashing');
+            }
+        });
+    }
+
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                flashingElements.forEach(el => el.classList.add('flashing'));
+                flashElements();
                 img33.classList.add('brighten');
                 document.body.classList.add('bg-change');
                 allImages.forEach(img => {
@@ -142,7 +177,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     document.body.classList.remove('bg-change');
                 }, 3000);
             } else {
-                flashingElements.forEach(el => el.classList.remove('flashing'));
+                removeFlashFromElements();
                 allImages.forEach(img => {
                     if (img.id !== 'img33') {
                         img.classList.add('darken');
@@ -150,9 +185,18 @@ document.addEventListener("DOMContentLoaded", function () {
                 });
             }
         });
-    }, { threshold: 0.5 }); 
+    }, { threshold: 0.5 });
 
     observer.observe(img33);
+
+    showSentence("sentence16", 1000);
+    showSentence("sentence17", 6000);
+    showSentence("sentence18", 9000);
+    showSentence("sentence19", 13000);
+    showSentence("sentence20", 20000);
+    showSentence("sentence21", 30000);
+    showSentence("sentence22", 35000);
+
 
     const updateButtonPositions = () => {
     const containerRect = container.getBoundingClientRect();
@@ -269,6 +313,7 @@ window.checkAnswer22 = function() {
                     "&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }<br>" +
                     "}<br>"
                 document.getElementById("textbox").disabled = true;
+                document.getElementById("submitbutton").disabled = true;
             
                     setTimeout(() => {
                         document.getElementById("sentence23").style.display = "block";
@@ -277,7 +322,7 @@ window.checkAnswer22 = function() {
 
                     setTimeout(() => {
                         window.location.href = 'Ingamehorror6.html';
-                    }, 9000);
+                    }, 11000);
             
         } else {
             sentence22.innerHTML = "public class KeepWalking { <br>" +
