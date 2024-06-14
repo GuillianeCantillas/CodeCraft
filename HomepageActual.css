@@ -125,37 +125,10 @@ body {
     flex-direction: column; /* Stack items vertically */
   }
   
-  #leaderboard {
-    max-width: 37.5vw; /* Adjusted maximum width */
-    width: 100%;
-  }
-  
-  .leaderboard-entry {
-    display: flex;
-    align-items: center;
-    padding: 0.625vw; /* Adjusted padding */
-    border-bottom: 0.0625vw solid #BB0B7B; /* Adjusted border */
-  }
-  
-  .rank-image {
-    width: 3.125vw; /* Adjusted width */
-    height: 3.125vw; /* Adjusted height */
-    margin-right: 0.625vw; /* Adjusted margin-right */
-  }
-  
-  .avatar {
-    width: 3.125vw; /* Adjusted width */
-    height: 3.125vw; /* Adjusted height */
-    border-radius: 50%;
-    margin-right: 0.625vw; /* Adjusted margin-right */
-  }
-  
-  .username {
-    flex: 1;
-    margin-right: 0.625vw; /* Adjusted margin-right */
-  }
-  
-  .score {
-    font-weight: bold;
-  }
-  
+ .horror{
+  position: fixed;
+  top: 150px;
+  left:30px;
+  width: 500px;
+  height: 500px;
+ }
