@@ -11,6 +11,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Bungee+Inline&family=Russo+One&display=swap" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
     
 </head>
 <body>
@@ -20,24 +22,29 @@
         <h3>CyberPink</h3>
     </div>
     <div class="Register">
-        <form id="registrationForm" method="post" action="register.php">
+        <form id="registrationForm">
             <h1>Get Started</h1>
             <div class="login-link">
-                <p>Already have an account? <a href="http://127.0.0.1:3000/Login.html">Login</a></p>
+                <p>Already have an account? <a href="https://guillianecantillas.github.io/CodeCraft/Login.html">Login</a></p>
+            </div>
+            <div class="input-box">
+                <p> Student Number</p>
+                <input type="text" id="Id" placeholder="Student Number" required>
+                <i class='bx bxs-user'></i>
             </div>
             <div class="input-box">
                 <p>First name</p>
-                <input type="text" name="first_name" placeholder="First name" required>
+                <input type="text" id="first_name" placeholder="First name" required>
                 <i class='bx bxs-user'></i>
             </div>
             <div class="input-box">
                 <p>Last name</p>
-                <input type="text" name="last_name" placeholder="Last name" required>
+                <input type="text" id="last_name" placeholder="Last name" required>
                 <i class='bx bxs-user'></i>
             </div>
             <div class="input-box">
                 <p>Middle Initial</p>
-                <input type="text" name="middle_initial" placeholder="Middle Initial" required>
+                <input type="text" id="middle_initial" placeholder="Middle Initial" required>
                 <i class='bx bxs-user'></i>
             </div>
             <div class="input-box">
@@ -48,7 +55,7 @@
             <div id="emailResponse" style="margin-right:10px;"></div>
             <div class="input-box">
                 <p>Password</p>
-                <input type="password" name="password" placeholder="Password" required>
+                <input type="password" id="password" placeholder="Password" required>
                 <i class='bx bxs-user'></i>
             </div>
             <div class="Terms-and-Conditions">
@@ -70,63 +77,102 @@
                     6. Termination <br> Codecraft may terminate or suspend your account and bar access to the Game immediately, without prior notice or liability, for any reason whatsoever, including without limitation if you breach the Terms. Upon termination, your right to use the Game will cease immediately. If you wish to terminate your account, you may simply discontinue using the Game. <br><br>
                     7. Changes to These Terms <br> Codecraft reserves the right to modify or replace these Terms at any time. If a revision is material, we will try to provide at least 30 days' notice prior to any new terms taking effect. What constitutes a material change will be determined at our sole discretion. <br><br>
                     8. Governing Law <br> These Terms shall be governed and construed in accordance with the laws of the Philippines, without regard to its conflict of law provisions.<br><br>
-                    By using the Game, you acknowledge that you have read, understood, and agree to be bound by these Terms and Conditions. <br> </p>
+                    By using the Game, you acknowledge that you have read, understood, and agree to be bound by these Terms and Conditions. <br><br></p>
                   <button id="close"> I agree </button>
                 </div>
               </div>
         </form>
     </div>
 
-    <script>
-        $(document).ready(function(){
-            $('#btnSubmit').click(function(){
-                var val = $('#emailAddress').val();
-                if (!val.endsWith('@feualabang.edu.ph')) {
-                    $('#emailResponse').html('Please use your @feualabang.edu.ph email address.').css({'backgroundColor': '#ff9999', 'color': 'black'}).effect('highlight', {color: '#ffff99'}, 1000);
-                    return false;
-                }
-                $('#emailResponse').html('');  // Clear any previous messages
-                // Submit the form if the email is valid
-                $('form').submit();
-                return false;
-            });
-            $('#emailAddress').keyup(function(e) {
-                if(e.keyCode == 13) {
-                    $('#btnSubmit').click();
-                }
-                return false;
-            });
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 
-            $('#registrationForm').submit(function(e){
-                e.preventDefault(); // Prevent form submission
-                var formData = $(this).serialize(); // Serialize form data
-                $.ajax({
-                    type: 'POST',
-                    url: 'register.php',
-                    data: formData,
-                    success: function(response){
-                        // If registration is successful, redirect to the next page
-                        window.location.href = "https://guillianecantillas.github.io/CodeCraft/Account.html"; 
-                    }
-                });
+  const firebaseConfig = {
+    apiKey: "AIzaSyDBxsbsyx5cs63zi3TY3mrOVBX1hFKpxUg",
+    authDomain: "codecraft-25727.firebaseapp.com",
+    databaseURL: "https://codecraft-25727-default-rtdb.asia-southeast1.firebasedatabase.app",
+    projectId: "codecraft-25727",
+    storageBucket: "codecraft-25727.appspot.com",
+    messagingSenderId: "802309648770",
+    appId: "1:802309648770:web:d02bbc354261ff3174df9b",
+    measurementId: "G-M2NDHT3KQE"
+  };
+
+  const app = initializeApp(firebaseConfig);
+
+import {getDatabase, ref, get, set, child, update, remove}
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
+
+const db = getDatabase();
+
+var enterstudentnumber = document.getElementById('Id');
+var enterfirstName =  document.getElementById('first_name');
+var enterlastname =  document.getElementById('last_name');
+var entermiddleinitial = document.getElementById('middle_initial');
+var enteremail = document.getElementById('emailAddress');
+var enterpassword = document.getElementById('password');
+
+        function InsertData() {
+            set(ref(db, "Registers/"+ enterstudentnumber.value),{
+                StudentNumber: enterstudentnumber.value,
+                FirstName: enterfirstName.value,
+                LastName: enterlastname.value,
+                MiddleInitial: entermiddleinitial.value,
+                Email: enteremail.value,
+                Password: enterpassword.value
+            })
+            .then(()=>{
+                alert("Data added successfully");
+            })
+            .catch((error)=>{
+                alert(error);
             });
+        }
 
-    const close = document.getElementById('close');
-    const modal = document.getElementById('modal_container');
-    const termsLink = document.getElementById('terms-link');
-    const checkbox = document.getElementById('terms-checkbox');
+function validateForm() {
+    if (
+        enterstudentnumber.value.trim() === '' ||
+        enterfirstName.value.trim() === '' ||
+        enterlastname.value.trim() === '' ||
+        entermiddleinitial.value.trim() === '' ||
+        enteremail.value.trim() === '' ||
+        enterpassword.value.trim() === ''
+    ) {
+        alert('Please fill in all fields.');
+        return false;
+    }
 
-    termsLink.addEventListener('click', (e) => {
-        e.preventDefault(); // Prevent the default link behavior
-        modal.classList.add('show');
-    });
+    if (!enteremail.value.includes('@feualabang')) {
+        alert('Please enter a valid @feualabang email.');
+        return false;
+    }
+
+    return true;
+}
+
+function handleFormSubmit(event) {
+    event.preventDefault();
+    if (validateForm()) {
+        InsertData(); 
+        window.location.href = 'https://guillianecantillas.github.io/CodeCraft/HomepageActual.html'; 
+    }
+}
+        btnSubmit.addEventListener('click', handleFormSubmit);
+
+const close = document.getElementById('close');
+const modal = document.getElementById('modal_container');
+const termsLink = document.getElementById('terms-link');
+const checkbox = document.getElementById('terms-checkbox');
+
+termsLink.addEventListener('click', (e) => {
+    e.preventDefault(); // Prevent the default link behavior
+    modal.classList.add('show');
+        });
 
     close.addEventListener('click', () => {
-        checkbox.checked = true; // Tick the checkbox
         modal.classList.remove('show');
-    });
         });
-    </script>
+
+</script>
 </body>
 </html>
-
