@@ -1,0 +1,258 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif, 'monospace';
+  }
+  
+  body {
+    display: flex;
+    align-items: center;
+    min-height: 100vh;
+    justify-content: center;
+    background-color: black;
+    position: relative;
+  }
+  
+  .homeheader {
+    position: absolute;
+    bottom: 30px;
+    left: 10px; 
+  }
+  .homeheader h1, .homeheader h2, .homeheader h3 {
+    position: absolute;
+    margin: 0; 
+  }
+  .homeheader h1 {
+    font-family: "Bungee Inline", sans-serif;
+    font-size: 25px;
+    color: #F50CA0;
+    left: 0; 
+  }
+  .homeheader h2 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 12px;
+    color: white;
+    left: 160px; 
+  }
+  .homeheader h3 {
+    font-family: "Russo One", sans-serif;
+    font-size: 15px;
+    color: #D284AC;
+    left: 180px;
+  }
+  
+  #pixel-art-container1, #pixel-art-container2, #pixel-art-container3{
+    width: 900px;
+    height: 500px;
+    position: absolute;
+    top: 200px;
+    left: 60px;
+    margin: 0 auto; 
+    border: white;
+    border-style: solid;
+    border-width: 5px;
+  }
+  
+  .pixel-art-frame {
+    width: 100%; 
+    height: 100%;
+    position: absolute; 
+    top: 0;
+    left: 0;
+    opacity: 0; 
+  }
+  
+  .pixel-art-frame:first-child {
+    opacity: 1; 
+  }
+  
+  .pixel-art-frame.active {
+    opacity: 1; 
+  }
+  
+  .buttons {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .button1, .button2, .button3 {
+    width: 8%;
+    height: 30px;
+    background: #D284AC;
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, -1);
+    cursor: pointer;
+    font-size: 14px;
+    color: white;
+    font-weight: 100;
+    position: absolute; 
+    z-index: 1;
+  }
+  
+  .button1:hover, .button2:hover, .button3:hover {
+    background-color: #F50CA0;
+    color: black;
+  }
+  
+  .text-box {
+    position: fixed;
+    top: 5px;
+    right: 50px;
+    bottom: 10vw; /* space for the input and submit button */
+    width: 30vw;
+    max-width: 600px;
+    font-size: 18px;
+    color: #fff;
+    background-color: black;
+    padding: 10px;
+    text-align: left;
+    overflow-y: auto; /* vertical scrolling */
+    transition: width 0.5s ease-in-out;
+  }
+  
+  .text-box.minimized {
+    width: 60px;
+  }
+  
+  .text-box::-webkit-scrollbar {
+    width: 0.5vw;
+    height: 3vw;
+  }
+  
+  .text-box::-webkit-scrollbar-thumb {
+    background-color: #D284AC;
+    border-radius: 2px;
+  }
+  
+  .text-box::-webkit-scrollbar-track {
+    background-color: #F50CA0;
+    border-radius: 10px;
+  }
+  
+  .form input[type="text"] {
+    width: 25vw;
+    max-width: 600px;
+    height: 5vh;
+    padding: 1.5vh;
+    border: 0.2vw solid #ccc;
+    background-color: black;
+    border-radius: 3px;
+    font-size: 1.1vw;
+    color: white;
+    position: fixed;
+    bottom: 4vh;
+    right: 10vh;
+    z-index: 1000; /* stays on top */
+    transition: width 0.5s ease-in-out;
+  }
+  
+  .form input[type="submit"] {
+    position: fixed;
+    bottom: 4vh;
+    right: 10vh;
+    width: 9vw;
+    height: 5vh;
+    padding: 1.5vh;
+    border: none;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 1vw;
+    background-color: #D284AC;
+    color: white;
+    cursor: pointer;
+    z-index: 1000; /* stays on top */
+    transition: width 0.5s ease-in-out;
+  }
+  
+  .form input[type="submit"]:hover {
+    background-color: #F50CA0;
+    color: black;
+  }
+  
+  .minimized-form .form input[type="text"],
+  .minimized-form .form input[type="submit"] {
+    width: 60px;
+  }
+  
+  .pixel-art-frame {
+    display: none;
+  }
+  
+  .active {
+    display: block;
+  }
+  
+  .correct {
+    color: #F50CA0;
+  }
+  
+  .incorrect {
+    color: red;
+  }
+  
+  .sentence {
+    opacity: 0;
+    transition: opacity 4s ease-in-out;
+  }
+  
+  .sentence.show {
+    opacity: 1;
+  }
+  
+  #sentence5 {
+    color: gray;
+    font-size: 12px;
+  }
+  
+  #sentence9 {
+    color: gray;
+    font-size: 12px;
+  }
+  
+  .form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    visibility: visible;
+  }
+  
+  #score-container {
+    width: 15%;
+    height: 10%;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 10px 20px;
+    border-radius: 10px;
+    color: white;
+    font-family: 'Russo One', sans-serif;
+    font-size: 18px;
+    z-index: 3;
+  }
+  
+  #score-container p {
+    margin: 0;
+  }
+  
+  #hintBox {
+    width: 20%;
+    height: 20%;
+    position: absolute;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    display: none; 
+  }
+  
+  #hintText {
+    font-family: 'Arial', sans-serif;
+    color: #333;
+    font-size: 14px;
+  }
+  
+  

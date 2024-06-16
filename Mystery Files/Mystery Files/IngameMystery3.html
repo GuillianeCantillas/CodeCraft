@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mystery</title>
+    <link rel="stylesheet" href="IngameMystery.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bungee+Inline&family=Russo+One&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="homeheader">
+        <h1>CodeCraft</h1>
+        <h2>by </h2>
+        <h3>CyberPink</h3>
+    </div>
+
+<div id="pixel-art-container2">
+        <img id="img1" src="startloadingfinal1.png" class="pixel-art-frame active">
+        <img id="img2" src="startloadingfinal2.png" class="pixel-art-frame">
+
+        <div class="buttons">
+            <button type="reset" class="button1" onclick="resetForm()">Reset</button>
+            <button type="button" class="button2" onclick="undoInput()">Undo</button>
+            <button type="button" class="button3" onclick="showHint()">Hint</button>
+        </div>
+    
+        <div id="score-container">
+            <p>Score: <span id="score">0</span></p>
+        </div>
+    
+        <div id="hintBox" style="display:none;">
+            <p id="hintText"></p>
+        </div>
+</div>
+    
+            <div class="text-box">
+                <div id="sentence14" class="sentence show">
+                    You're back at the case folder, ready to delve deeper into Phoebe's last sighting. 
+                    Upon opening the witness report document, you find the information. 
+                    You decide to gather data and list your findings on a notepad.
+                    <br></div>
+                <div id="sentence15" class="sentence">
+                    <br>As you organize the data, key points start to emerge, shedding light on Phoebe's whereabouts before her disappearance.<br>
+                    <br><br></div>
+                    <div id="sentence16" class="sentence"> 
+                        from datetime import datetime <br><br>
+
+                        last_found = "CENTRAL PARK" <br>
+                        date = datetime(2024, 6, 17)._____________("%B %d, %Y")<br>
+                        time = datetime(2024, 6, 17, 16, 20, 0)._____________("%H:%M:%S")<br>
+                        last_seen_wearing = ["BLACK SHIRT", "GREY SWEATPANTS", "PINK HOODIE", "WHITE SHOES"]<br><br>
+                        
+                        print(f"LAST FOUND: {last_found}")<br>
+                        print(f"DATE: {date}")<br>
+                        print(f"TIME: {time}")<br>
+                        print("LAST SEEN WEARING:")<br>
+                        print(", ".join(last_seen_wearing))<br>
+
+                    <br><br> 
+            </div>
+                    <div id="sentence17" class="sentence"> <br><br>The strftime() function is used to convert date and time objects to their string representation. </div>
+                </div>
+            
+    
+             <div class="form">
+                <form id="answerForm" onsubmit="checkAnswer8(); return false;">
+                    <input type="text" id="textbox" name="textbox" placeholder="Enter your answer here: " oninput="updateSentence8();"><br>
+                    <span id="output" style="font-size: 14px;"></span><br>
+                    <input type="submit" value="Submit" id="submitbutton">
+                </form>
+            </div>
+
+    <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const container = document.getElementById('pixel-art-container2');
+                const button1 = document.querySelector('.button1');
+                const button2 = document.querySelector('.button2');
+                const button3 = document.querySelector('.button3');
+                const scores = document.getElementById('score-container');
+                const hinting = document.getElementById('hintBox');
+                let hintIndex = 0;
+                const hints = [
+                "Hint 1: It's a method used to convert datetime objects into formatted strings.",
+                "Hint 2: It allows you to specify the exact format for displaying dates and times.",
+                "Hint 3: Common format codes used with this method include %Y for the year and %H for the hour in 24-hour format."];
+            
+                function updateButtonPositions() {
+                    const containerRect = container.getBoundingClientRect();
+                    
+                    button1.style.left = `${containerRect.left + -60}px`;
+                    button1.style.top = `${containerRect.top + 310}px`; //Reset
+    
+                    button2.style.left = `${containerRect.left + 20}px`;
+                    button2.style.top = `${containerRect.top + 310}px`; //Undo
+    
+                    button3.style.left = `${containerRect.left + 760}px`;
+                    button3.style.top = `${containerRect.top + 310}px`; // Hint
+    
+                    scores.style.left = `${containerRect.left + 740}px`;
+                    scores.style.top = `${containerRect.top + -255}px`; // Score Board
+    
+                    hinting.style.left = `${containerRect.left + 710}px`;
+                    hinting.style.top = `${containerRect.top + 340}px`; // Hints na talaguh
+                }
+    
+                updateButtonPositions();
+                window.addEventListener('resize', updateButtonPositions);
+                window.addEventListener('scroll', updateButtonPositions);
+    
+    let currentFrameIndex = 0;
+    let interval = 1000;
+    const frames2 = container.querySelectorAll(".pixel-art-frame");
+    let animationInterval;
+
+    function showNextFrame(frames) {
+        frames[currentFrameIndex].classList.remove("active");
+        currentFrameIndex = (currentFrameIndex + 1) % frames.length;
+        frames[currentFrameIndex].classList.add("active");
+
+        // Stop the animation when reaching the last frame
+        if (frames[currentFrameIndex].id === 'img18') {
+            clearInterval(animationInterval);
+        }
+    }
+
+    function startAnimation(frames) {
+        currentFrameIndex = 0; // Reset index
+        frames[currentFrameIndex].classList.add("active");
+        animationInterval = setInterval(() => showNextFrame(frames), interval);
+    }
+
+    setTimeout(() => {
+        startAnimation(frames2); 
+    }, 3000);
+
+    setTimeout(() => {
+                document.getElementById("sentence15").style.display = "block";
+                document.getElementById("sentence15").classList.add("show");
+              }, 4000); 
+
+    setTimeout(() => {
+              document.getElementById("sentence16").style.display = "block";
+              document.getElementById("sentence16").classList.add("show");
+              }, 8000); 
+
+
+const scoreElement = document.getElementById('score');
+function getScore() {
+  const score = localStorage.getItem("score");
+  return score ? parseInt(score, 10) : 0;
+};
+
+function updateScore(newScore) {
+  localStorage.setItem("score", newScore);
+  scoreElement.textContent = newScore;
+};
+
+let score = getScore();
+scoreElement.textContent = score;
+
+let newScore = getScore();
+
+window.checkAnswer8 = function() {
+  var userInput = document.getElementById("textbox").value.trim().toLowerCase();
+  var sentence8 = document.getElementById("sentence16");
+  var correctAnswer = "strftime";
+  var spanClass = userInput === correctAnswer ? 'correct' : 'incorrect';
+
+        if (userInput === correctAnswer) {
+            newScore = score + 10; 
+            updateScore(newScore);
+            sentence16.innerHTML = "from datetime import datetime <br> " + "last_found = 'CENTRAL PARK' "+ 
+            "date = datetime(2024, 6, 17)." + "<span class='" + spanClass + "'>" + userInput + "</span>('%B %d, %Y')<br>" +
+            "time = datetime(2024, 6, 17, 16, 20, 0)." + "<span class='" + spanClass + "'>" + userInput + "</span>('%H:%M:%S') <br>" +
+            "last_seen_wearing = ['BLACK SHIRT', 'GREY SWEATPANTS', 'PINK HOODIE', 'WHITE SHOES']<br><br>print(f'LAST FOUND: {last_found}'')<br>'"+ 
+            "print(f'DATE: {date}')<br>"+
+            "print(f'TIME: {time}')<br>" + "print('LAST SEEN WEARING:')<br>"+ "print(', '.join(last_seen_wearing))<br>" ;
+                document.getElementById("textbox").disabled = true;
+                document.getElementById("submitbutton").disabled = true;
+                
+            setTimeout(() => {
+                document.getElementById("sentence17").style.display = "block";
+                document.getElementById("sentence17").classList.add("show");
+            }, 2000);
+
+            setTimeout(() => {
+                window.location.href = 'Ingamemystery4.html';
+            }, 8000);
+
+        } else {
+            sentence16.innerHTML ="from datetime import datetime <br> " + "last_found = 'CENTRAL PARK' <br>"+ 
+            "date = datetime(2024, 6, 17)." + "<span class='" + spanClass + "'>" + userInput + "</span>('%B %d, %Y')<br>" +
+            "time = datetime(2024, 6, 17, 16, 20, 0)." + "<span class='" + spanClass + "'>" + userInput + "</span>('%H:%M:%S')<br>" +
+            "last_seen_wearing = ['BLACK SHIRT', 'GREY SWEATPANTS', 'PINK HOODIE', 'WHITE SHOES']<br><br>print(f'LAST FOUND: {last_found}'')<br>'"+
+            "print(f'DATE: {date}')<br>"+
+            "print(f'TIME: {time}')<br>" + 
+            "print('LAST SEEN WEARING:')<br>" + 
+            "print(', '.join(last_seen_wearing))<br>" ;
+        };
+    };
+
+    console.log("Current Score:", score);
+    console.log("New Score:", newScore);  
+
+    window.updateSentence16 = function () {
+        var userInput = document.getElementById("textbox").value.trim();
+        var sentence16 = document.getElementById("sentence16");
+        sentence16.innerHTML = "from datetime import datetime <br><br>" + "last_found = 'CENTRAL PARK'<br>"+ 
+            "date = datetime(2024, 6, 17)." + userInput + "('%B %d, %Y')<br>" +
+            "time = datetime(2024, 6, 17, 16, 20, 0)." + userInput + "('%H:%M:%S')<br>" +
+            "last_seen_wearing = ['BLACK SHIRT', 'GREY SWEATPANTS', 'PINK HOODIE', 'WHITE SHOES']<br>" + 
+            "print(f'LAST FOUND: {last_found}')<br>"+
+            "print(f'DATE: {date}')<br>"+
+            "print(f'TIME: {time}')<br>" + 
+            "print('LAST SEEN WEARING:')<br>"+
+            "print(', '.join(last_seen_wearing))<br>" ;
+    };
+            window.resetForm = function () {
+                document.getElementById("answerForm").reset();
+                sentence16.innerHTML = "from datetime import datetime <br> " + "last_found = 'CENTRAL PARK'<br> "+ 
+            "date = datetime(2024, 6, 17)." + "__________('%B %d, %Y')<br>" +
+            "time = datetime(2024, 6, 17, 16, 20, 0)." + "_____________('%H:%M:%S') <br>" +
+            "last_seen_wearing = ['BLACK SHIRT', 'GREY SWEATPANTS', 'PINK HOODIE', 'WHITE SHOES']<br>" + 
+            "print(f'LAST FOUND: {last_found}'')<br>"+
+            "print(f'DATE: {date}')<br>"+
+            "print(f'TIME: {time}')<br>" + 
+            "print('LAST SEEN WEARING:')<br>"+"print(', '.join(last_seen_wearing))<br>" ;
+            document.getElementById("textbox").disabled = false;
+            document.getElementById("sentence17").style.display = "none";
+            document.getElementById("sentence17").classList.remove("show");
+            };
+
+            window.undoInput = function () {
+                var textbox = document.getElementById("textbox");
+                textbox.value = textbox.value.slice(0, -1);
+                updateSentence16();
+            };
+
+        window.showHint = function () {
+            const hintBox = document.getElementById("hintBox");
+            const hintText = document.getElementById("hintText");
+
+            if (hintIndex < hints.length) {
+                hintText.textContent = hints[hintIndex];
+                hintBox.style.display = "block";
+                hintIndex++;
+            } else {
+                hintText.textContent = "No more hints available.";
+            }};
+        });
+        </script>
+</body>
+
+</html>
