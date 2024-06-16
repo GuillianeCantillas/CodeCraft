@@ -13,6 +13,8 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <script src="Register.js" defer  type="module"></script>
+
     
 </head>
 <body>
@@ -27,37 +29,65 @@
             <div class="login-link">
                 <p>Already have an account? <a href="https://guillianecantillas.github.io/CodeCraft/Login.html">Login</a></p>
             </div>
-            <div class="input-box">
-                <p> Student Number</p>
-                <input type="text" id="Id" placeholder="Student Number" required>
-                <i class='bx bxs-user'></i>
-            </div>
+
             <div class="input-box">
                 <p>First name</p>
-                <input type="text" id="first_name" placeholder="First name" required>
+                <input type="text" id="FirstName" placeholder="First name"required>
                 <i class='bx bxs-user'></i>
             </div>
-            <div class="input-box">
-                <p>Last name</p>
-                <input type="text" id="last_name" placeholder="Last name" required>
-                <i class='bx bxs-user'></i>
-            </div>
+
             <div class="input-box">
                 <p>Middle Initial</p>
-                <input type="text" id="middle_initial" placeholder="Middle Initial" required>
+                <input type="text" id="Middle" placeholder="M.I"required>
                 <i class='bx bxs-user'></i>
             </div>
+
+            <div class="input-box">
+                <p>Last name</p>
+                <input type="text" id="Lastname" placeholder="Last name"required>
+                <i class='bx bxs-user'></i>
+            </div>
+
             <div class="input-box">
                 <p>Email</p>
                 <input type="email" id="emailAddress" name="email" placeholder="Use your @feualabang.edu.ph email" required>
                 <i class='bx bxs-user'></i>
             </div>
+
             <div id="emailResponse" style="margin-right:10px;"></div>
+
             <div class="input-box">
                 <p>Password</p>
                 <input type="password" id="password" placeholder="Password" required>
                 <i class='bx bxs-user'></i>
             </div>
+
+            <div class="input-box">
+                <p> Student Number</p>
+                <input type="text" id="Id" placeholder="Student Number" required>
+                <i class='bx bxs-user'></i>
+            </div>
+
+            <div class="Course">
+                <label for="Course">Choose your course:</label>
+                <select name="Course" id="Course">
+                    <option value="None"></option>
+                    <option value="BSCS">BSCS</option>
+                    <option value="BSIT">BSIT</option>
+                </select>
+                </div>
+            
+            <div class="Year-Level">
+                <label for="Year-Level">Choose your year level:</label>
+                <select name="Year-Level" id="Year-Level">
+                    <option value="None"></option>
+                    <option value="1st">1st Year</option>
+                    <option value="2nd">2nd Year</option>
+                    <option value="3rd">3rd Year</option>
+                    <option value="4th">4th Year</option>
+                </select>
+            </div>
+
             <div class="Terms-and-Conditions">
                 <p><input type="checkbox" name="terms" value="1" required id="terms-checkbox"> I agree to the
                     <a href="#"  id="terms-link">Terms and Conditions</a></p>
@@ -83,96 +113,5 @@
               </div>
         </form>
     </div>
-
-<script type="module">
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-
-  const firebaseConfig = {
-    apiKey: "AIzaSyDBxsbsyx5cs63zi3TY3mrOVBX1hFKpxUg",
-    authDomain: "codecraft-25727.firebaseapp.com",
-    databaseURL: "https://codecraft-25727-default-rtdb.asia-southeast1.firebasedatabase.app",
-    projectId: "codecraft-25727",
-    storageBucket: "codecraft-25727.appspot.com",
-    messagingSenderId: "802309648770",
-    appId: "1:802309648770:web:d02bbc354261ff3174df9b",
-    measurementId: "G-M2NDHT3KQE"
-  };
-
-  const app = initializeApp(firebaseConfig);
-
-import {getDatabase, ref, get, set, child, update, remove}
-from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
-
-const db = getDatabase();
-
-var enterstudentnumber = document.getElementById('Id');
-var enterfirstName =  document.getElementById('first_name');
-var enterlastname =  document.getElementById('last_name');
-var entermiddleinitial = document.getElementById('middle_initial');
-var enteremail = document.getElementById('emailAddress');
-var enterpassword = document.getElementById('password');
-
-        function InsertData() {
-            set(ref(db, "Registers/"+ enterstudentnumber.value),{
-                StudentNumber: enterstudentnumber.value,
-                FirstName: enterfirstName.value,
-                LastName: enterlastname.value,
-                MiddleInitial: entermiddleinitial.value,
-                Email: enteremail.value,
-                Password: enterpassword.value
-            })
-            .then(()=>{
-                alert("Data added successfully");
-            })
-            .catch((error)=>{
-                alert(error);
-            });
-        }
-
-function validateForm() {
-    if (
-        enterstudentnumber.value.trim() === '' ||
-        enterfirstName.value.trim() === '' ||
-        enterlastname.value.trim() === '' ||
-        entermiddleinitial.value.trim() === '' ||
-        enteremail.value.trim() === '' ||
-        enterpassword.value.trim() === ''
-    ) {
-        alert('Please fill in all fields.');
-        return false;
-    }
-
-    if (!enteremail.value.includes('@feualabang')) {
-        alert('Please enter a valid @feualabang email.');
-        return false;
-    }
-
-    return true;
-}
-
-function handleFormSubmit(event) {
-    event.preventDefault();
-    if (validateForm()) {
-        InsertData(); 
-        window.location.href = 'https://guillianecantillas.github.io/CodeCraft/HomepageActual.html'; 
-    }
-}
-        btnSubmit.addEventListener('click', handleFormSubmit);
-
-const close = document.getElementById('close');
-const modal = document.getElementById('modal_container');
-const termsLink = document.getElementById('terms-link');
-const checkbox = document.getElementById('terms-checkbox');
-
-termsLink.addEventListener('click', (e) => {
-    e.preventDefault(); // Prevent the default link behavior
-    modal.classList.add('show');
-        });
-
-    close.addEventListener('click', () => {
-        modal.classList.remove('show');
-        });
-
-</script>
 </body>
 </html>

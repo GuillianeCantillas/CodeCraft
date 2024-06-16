@@ -14,11 +14,6 @@ body {
   position: relative;
 }
 
-.homeheader {
-  position: absolute;
-  bottom: 70px;
-  left: 10px; 
-}
 .homeheader h1, .homeheader h2, .homeheader h3 {
   position: absolute;
   margin: 0; 
@@ -27,22 +22,25 @@ body {
   font-family: "Bungee Inline", sans-serif;
   font-size: 25px;
   color: #F50CA0;
-  left: 0; 
+  bottom: 20px;
+  left: 50px; 
 }
 .homeheader h2 {
   font-family: 'Roboto', sans-serif;
   font-size: 12px;
   color: white;
-  left: 160px; 
+  bottom: 40px;
+  left: 210px; 
 }
 .homeheader h3 {
   font-family: "Russo One", sans-serif;
   font-size: 15px;
   color: #D284AC;
-  left: 180px;
+  bottom: 39px;
+  left: 230px;
 }
 
-#pixel-art-container1, #pixel-art-container2, #pixel-art-container3, #pixel-art-container5, #pixel-art-container6, #pixel-art-container7, #pixel-art-container8{
+#pixel-art-container1, #pixel-art-container2, #pixel-art-container3, #pixel-art-container5, #pixel-art-container6, #pixel-art-container7, #pixel-art-container8,  #pixel-art-container9{
   width: 900px;
   height: 500px;
   position: absolute;
@@ -68,7 +66,6 @@ body {
   border-style: solid;
   border-width: 5px;
 }
-
 
 .pixel-art-frame {
   width: 100%; 

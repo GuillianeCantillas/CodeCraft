@@ -2,12 +2,13 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <link rel="stylesheet" href="HomepageActual.css">
+  <link rel="stylesheet" href="HomepageUser.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Bungee+Inline&family=Russo+One&display=swap" rel="stylesheet">
 <!-- <link href="https://fonts.googleapis.com/css2?family=Tiny5&display=swap" rel="stylesheet"> -->
 <link href="https://fonts.googleapis.com/css2?family=Jersey+10&display=swap" rel="stylesheet">
+<script src="Update.js" defer  type="module"></script>
 
   <title>CodeCraft</title>
 </head>
@@ -16,16 +17,25 @@
   <header>
     <h1>CodeCraft</h1>
     <nav>
-      <a href="#">Games</a>
+      <a href='https://guillianecantillas.github.io/CodeCraft/HomepageActual.html'>Games</a>
       <a href="#">Leaderboards</a>
       <a href='https://guillianecantillas.github.io/CodeCraft/Supplementary.html'>Supplementary Materials</a>
     </nav>
-    <button class="button" onclick="window.location.href = 'https://guillianecantillas.github.io/CodeCraft/HomepageUser.html';">
-      <img src="Accounts.png" id="user-image"></button>
+    <img src="Accounts.png" alt="User Image" class="user-image">
     <div class="flowing-line"></div>
   </header>
 
-  <button class="horror" onclick="window.location.href='https://guillianecantillas.github.io/CodeCraft/HorrorFiles/Ingamehorror.html'">Click me for Haunted Algorithms</button>
+<div class="textbox">
+
+    <div class="name">
+    <p  id="First_Name"></p>
+    <p  id="Initial"></p>
+    <p  id="Lastname"></p> </div>
+    <p  id="StudentNumber"></p>
+    <p  id="Email"></p>
+    <p  id="YearLevel"></p>
+    <p  id="Course"></p>
+</div>
 
 </body>
 </html>

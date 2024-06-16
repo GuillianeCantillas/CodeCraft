@@ -100,25 +100,20 @@
 
 <script type="text/javascript">
     function redirectToOtherPage() {
-        // Collect form data
         var username = document.querySelector('input[name="Username"]').value;
         var section = document.querySelector('input[name="Section"]').value;
         var course = document.getElementById('Course').value;
         var yearLevel = document.getElementById('Year-Level').value;
 
-        // Construct URL with parameters
         var url = 'https://guillianecantillas.github.io/CodeCraft/HomepageActual.html?' +
                   'username=' + encodeURIComponent(username) +
                   '&section=' + encodeURIComponent(section) +
                   '&course=' + encodeURIComponent(course) +
                   '&yearLevel=' + encodeURIComponent(yearLevel);
 
-        // Redirect to the other page with the constructed URL
         window.location.href = 'HomepageActual.html;';
     }
 </script>
 
-</body>
-</html>
 </body>
 </html>

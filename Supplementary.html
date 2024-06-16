@@ -70,6 +70,23 @@ body {
   font-family: 'Russo One', sans-serif;
 }
 
+.button {
+    background-color: #171415;
+    display: inline-block;
+    cursor: pointer;
+    border: none;
+    background: none;
+    padding: 0;
+}
+
+  #user-image {
+    width: 2.5vw; 
+    height: 2.5vw; 
+    border-radius: 50%;
+    margin-right: 7.5vw; 
+  }
+  
+
 
   </style>
 </head>
@@ -82,10 +99,8 @@ body {
       <a href="#">Leaderboards</a>
       <a href="#">Supplementary Materials</a>
     </nav>
-    <div class="search-box">
-      <input type="text" placeholder="Search...">
-    </div>
-    <a href="#"><img src="user-image.jpg" alt="User Image" class="user-image"></a>
+    <button class="button" onclick="window.location.href = 'https://guillianecantillas.github.io/CodeCraft/HomepageUser.html';">
+      <img src="Accounts.png" id="user-image"></button>
   </header>
 
   <div class="flowing-line"></div>

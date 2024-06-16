@@ -3,6 +3,7 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding-top: 80px;
+    max-width: 960px;
   }
   
   header {
@@ -23,22 +24,7 @@ body {
     margin: 0;
     color: #F50CA0;
   }
-  
-  h2 {
-    /*font-family: "Tiny5", sans-serif;
-    font-weight: 400;
-    font-style: normal;*/
-    margin-top: 2.5vh; /* Adjusted margin */
-    font-family: "Jersey 10", sans-serif;
-    font-weight: 300;
-    font-style: normal;
-    color: #D284AC;
-    font-size: 5vw; /* Adjusted font size */
-    text-align: center;
-    text-shadow: 0 0 1vw gray, 0 0 2vw gray, 0 0 3vw gray, 0 0 4vw gray; /* Adjusted text shadow */
-    animation: glow 1.5s infinite alternate;
-  }
-  
+
   @keyframes glow {
     from {
         text-shadow: 0 0 1vw gray, 0 0 2vw gray, 0 0 3vw gray, 0 0 4vw gray; /* Adjusted text shadow */
@@ -73,18 +59,9 @@ body {
     border-radius: 0.625vw;
   }
 
-  .button {
-    background-color: #171415;
-    display: inline-block;
-    cursor: pointer;
-    border: none;
-    background: none;
-    padding: 0;
-}
-
-  #user-image {
-    width: 2.5vw; 
-    height: 2.5vw; 
+  .user-image {
+    width: 2vw; 
+    height: 2vw; 
     border-radius: 50%;
     margin-right: 7.5vw; 
   }
@@ -112,18 +89,46 @@ body {
     }
   }
   
-  .TextContainer {
+  .textbox {
+    position: fixed;
+    top: 20vh;
+    left: 10vw;
+    border: 2px solid #ccc;
+    border-width: 5px;
+    border-color: black;
+    border-radius: 50px;
+    box-shadow: 0 10px 20px #D284AC; 
+    padding: 10px; 
+    width: 300px;
+    height: 500px; 
+    max-height: 100%;
+    font-size: 18px;
+    background-color: #f8f8f8; 
+    font-family: 'Russo One', sans-serif;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    flex-direction: column; /* Stack items vertically */
-  }
-  
- .horror{
-  position: fixed;
-  top: 150px;
-  left:30px;
-  width: 500px;
-  height: 500px;
- }
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center; 
+}
+
+.textbox .name {
+  margin-top: 160px;
+    display: flex; /* Set container as flex */
+    justify-content: center; /* Center items horizontally */
+    align-items: center; /* Center items vertically */
+    gap: 10px; /* Spacing between items */
+    flex-wrap: wrap;
+}
+
+.textbox p {
+  margin: 5px 0; /* Adjust vertical margin */
+  padding: 0; /* Remove padding */
+}
+
+.textbox #Studentnumber,
+.textbox #Email {
+  margin-top: 5px; /* Adjust top margin */
+}
+
+
+

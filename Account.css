@@ -83,15 +83,6 @@
         color:black
     }
 
-    #Course{
-        color: black;
-        background: rgb(255,255,255,0.7);
-        margin-bottom: 10px;
-    }
-    #Year-Level {
-        color: black;
-        background: rgb(255,255,255,0.7);
-    }
 
     .image-container{
         display: flex; 
