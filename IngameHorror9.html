@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horror</title>
+    <link rel="stylesheet" href="IngameHorror.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bungee+Inline&family=Russo+One&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="homeheader">
+        <h1>CodeCraft</h1>
+        <h2>by </h2>
+        <h3>CyberPink</h3>
+    </div>
+
+ <div id="pixel-art-container9">
+        <img id="img81" src="Bar1.png" class="pixel-art-frame">
+        <img id="img82" src="Bar2.png" class="pixel-art-frame">
+        <img id="img83" src="Bar3.png" class="pixel-art-frame">
+        <img id="img84" src="Bar4.png" class="pixel-art-frame">
+        <img id="img85" src="Bar5.png" class="pixel-art-frame">
+
+        <div class="buttons">
+            <button type="reset" class="button1" onclick="resetForm()">Reset</button>
+            <button type="button" class="button2" onclick="undoInput()">Undo</button>
+            <button type="button" class="button3" onclick="showHint()">Hint</button>
+        </div>
+
+        <div id="score-container">
+            <p>Score: <span id="score">0</span></p>
+        </div>
+
+        <div id="hintBox" style="display:none;">
+            <p id="hintText"></p>
+        </div>
+
+        <div class="form">
+            <form id="answerForm" onsubmit="checkAnswer54(); return false;">
+                <input type="text" id="textbox" name="textbox" placeholder="Enter your answer here: " oninput="updateSentence54();"><br>
+                <span id="output" style="font-size: 14px;"></span><br>
+                <input type="submit" value="Submit" id="submitbutton">
+            </form>
+        </div>
+</div>
+
+<div class="text-box">
+    <div id="sentence49" class="sentence"> You did it! You actually broke out of the loop! Though this time, you are in an uncharted territory. <br> <br></div>
+    <div id="sentence50" class="sentence"> Barrels upon barrels and a bar like ambience is what this room had offered you. <br><br></div>
+    <div id="sentence51" class="sentence"> And by the end of the room, you see a door. It looks promising, but it's locked.  <br><br></div>
+    <div id="sentence52" class="sentence"> You see a number on one of the barrels, but notice that the door isn't accepting a number. <br><br></div>
+    <div id="sentence53" class="sentence"> //Date of aged wine is 1040 <br><br></div>
+    <div id="sentence54" class="sentence"> 
+        import java.time.LocalDate; <br><br><br>
+        
+        public class wine {<br>
+        &nbsp; &nbsp; &nbsp;  public static void main(String[] args) {<br>
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;    _________ date1040 = _________.of(1040, 1, 1);<br>
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;    System.out.println("The code for the door is" + date1040);<br>
+        &nbsp; &nbsp; &nbsp;    }<br>
+    } </div>
+<div id="sentence55" class="sentence"> <br> Java does not have a built-in Date class, but we can import the java.time package to work with the date and time API. The package includes many date and time classes. <br><br>
+    LocalDate in the question represents the date January 1st, 1040. LocalDate represents a date (year, month, day (yyyy-MM-dd))<br><br>
+    LocalTime represents a time (hour, minute, second and nanoseconds (HH-mm-ss-ns))<br><br>
+    LocalDateTime represents both a date and a time (yyyy-MM-dd-HH-mm-ss-ns)<br><br>
+    DateTimeFormatter is used to create formatters with specific patterns. <br>
+</div>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {       
+    const container = document.getElementById('pixel-art-container9');
+    const button1 = document.querySelector('.button1');
+    const button2 = document.querySelector('.button2');
+    const button3 = document.querySelector('.button3');
+    const scores = document.getElementById('score-container');
+    const hinting = document.getElementById('hintBox');
+    let hintIndex = 0;
+    const hints = [
+            "Hint 1: This is immutable, meaning once you create an instance, you cannot modify its state.",
+            "Hint 2:  You can access individual components of this instance such as year, month, and day.",
+            "Hint 3: is a class in the Java java.time package that represents a date without a time component."];
+
+    const updateButtonPositions = () => {
+    const containerRect = container.getBoundingClientRect();
+        
+        document.querySelector('.button1').style.left = `${containerRect.left - 60}px`;
+        document.querySelector('.button1').style.top = `${containerRect.top + 310}px`;
+        
+        document.querySelector('.button2').style.left = `${containerRect.left + 20}px`;
+        document.querySelector('.button2').style.top = `${containerRect.top + 310}px`;
+        
+        document.querySelector('.button3').style.left = `${containerRect.left + 760}px`;
+        document.querySelector('.button3').style.top = `${containerRect.top + 310}px`;
+        
+        document.getElementById('score-container').style.left = `${containerRect.left + 740}px`;
+        document.getElementById('score-container').style.top = `${containerRect.top - 255}px`;
+        
+        document.getElementById('hintBox').style.left = `${containerRect.left + 710}px`;
+        document.getElementById('hintBox').style.top = `${containerRect.top + 340}px`;
+    };
+
+    updateButtonPositions();
+    window.addEventListener('resize', updateButtonPositions);
+    window.addEventListener('scroll', updateButtonPositions);
+
+    let currentFrameIndex = 0;
+    let interval = 1000;
+    const frames8 = container.querySelectorAll(".pixel-art-frame");
+    let animationInterval;
+
+    function showNextFrame(frames) {
+        frames[currentFrameIndex].classList.remove("active");
+        currentFrameIndex = (currentFrameIndex + 1) % frames.length;
+        frames[currentFrameIndex].classList.add("active");
+    }
+
+    function startAnimation(frames) {
+        currentFrameIndex = 0;
+        frames[currentFrameIndex].classList.add("active");
+        animationInterval = setInterval(() => showNextFrame(frames), interval);
+    }
+
+    setTimeout(() => {
+        startAnimation(frames8);
+    }, 0);
+
+    setTimeout(() => {
+        document.getElementById("sentence49").style.display = "block";
+        document.getElementById("sentence49").classList.add("show");
+    }, 2000);
+
+    setTimeout(() => {
+        document.getElementById("sentence50").style.display = "block";
+        document.getElementById("sentence50").classList.add("show");
+    }, 8000);
+
+    setTimeout(() => {
+        document.getElementById("sentence51").style.display = "block";
+        document.getElementById("sentence51").classList.add("show");
+    }, 15000);
+
+    setTimeout(() => {
+        document.getElementById("sentence52").style.display = "block";
+        document.getElementById("sentence52").classList.add("show");
+    }, 23000);
+
+    setTimeout(() => {
+        document.getElementById("sentence53").style.display = "block";
+        document.getElementById("sentence53").classList.add("show");
+    }, 30000);
+
+    setTimeout(() => {
+        document.getElementById("sentence54").style.display = "block";
+        document.getElementById("sentence54").classList.add("show");
+    }, 30000);
+
+const scoreElement = document.getElementById('score');
+function getScore() {
+  const score = localStorage.getItem("score");
+  return score ? parseInt(score, 10) : 0;
+};
+
+function updateScore(newScore) {
+  localStorage.setItem("score", newScore);
+  scoreElement.textContent = newScore;
+};
+
+let score = getScore();
+scoreElement.textContent = score;
+
+let newScore = getScore();
+
+window.checkAnswer54 = function() {
+  var userInput = document.getElementById("textbox").value.trim();
+  var sentence54 = document.getElementById("sentence54");
+  var correctAnswer = "LocalDate";
+  var spanClass = userInput === correctAnswer ? 'correct' : 'incorrect';
+
+        if (userInput === correctAnswer) {
+            newScore = score + 12; 
+            updateScore(newScore);
+            sentence54.innerHTML = 
+        "import java.time.LocalDate; <br><br><br>" +
+        
+        "public class wine {<br>" + 
+        "&nbsp; &nbsp; &nbsp;  public static void main(String[] args) {<br>" +
+        "&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class='" + spanClass + "'>" + userInput + "</span> date1040 =" + "<span class='" + spanClass + "'> " + userInput + "</span>.of(1040, 1, 1); <br>" +
+        "&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; System.out.println('The code for the door is' + date1040); <br>" +
+        "&nbsp; &nbsp; &nbsp;    }<br> " +
+    "}";
+        document.getElementById("textbox").disabled = true;
+        document.getElementById("submitbutton").disabled = true;
+            
+                    setTimeout(() => {
+                        document.getElementById("sentence55").style.display = "block";
+                        document.getElementById("sentence55").classList.add("show");
+                    }, 2000);
+
+                    setTimeout(() => {
+                        window.location.href = 'https://guillianecantillas.github.io/CodeCraft/Horror%20Files/Ingamehorror10.html';
+                    }, 15000);
+            
+        } else {
+            sentence54.innerHTML =
+        "import java.time.LocalDate; <br><br><br>" +
+        
+        "public class wine {<br>" + 
+        "&nbsp; &nbsp; &nbsp;  public static void main(String[] args) {<br>" +
+        "&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class='" + spanClass + "'>" + userInput + "</span> date1040 =" + "<span class='" + spanClass + "'> " + userInput + "</span>.of(1040, 1, 1); <br>" +
+        "&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; System.out.println('The code for the door is' + date1040);<br>"  +
+        "&nbsp; &nbsp; &nbsp;    }<br> " +
+    "}";
+        };
+    };
+
+    console.log("Current Score:", score);
+    console.log("New Score:", newScore);  
+
+
+    window.updateSentence54 = function () {
+        var userInput = document.getElementById("textbox").value.trim();
+        var sentence54 = document.getElementById("sentence54");
+        sentence54.innerHTML = 
+        "import java.time.LocalDate; <br><br><br>" +
+        
+        "public class wine {<br>" + 
+        "&nbsp; &nbsp; &nbsp;  public static void main(String[] args) {<br>" +
+        "&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;"  + userInput + " date1040 =" + userInput + " .of(1040, 1, 1); <br>" +
+        "&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; System.out.println('The code for the door is' + date1040); <br>" +
+        "&nbsp; &nbsp; &nbsp;    }<br> " +
+    "}";
+    };
+            window.resetForm = function () {
+                document.getElementById("answerForm").reset();
+                sentence54.innerHTML =  
+        "import java.time.LocalDate; <br><br><br>" +
+        
+        "public class wine {<br>" + 
+        "&nbsp; &nbsp; &nbsp;  public static void main(String[] args) {<br>" +
+        "&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; _________ date1040 = _________.of(1040, 1, 1); <br>" +
+        "&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; System.out.println('The code for the door is' + date1040);<br>" +
+        "&nbsp; &nbsp; &nbsp;    }<br> " +
+    "}";
+                document.getElementById("textbox").disabled = false;
+                document.getElementById("sentence55").style.display = "none";
+                document.getElementById("sentence55").classList.remove("show");
+
+                score = 0;
+                scoreElement.textContent = score;
+            };
+
+            window.undoInput = function () {
+                var textbox = document.getElementById("textbox");
+                textbox.value = textbox.value.slice(0, -1);
+                updateSentence54();
+            };
+            window.showHint = function () {
+            const hintBox = document.getElementById("hintBox");
+            const hintText = document.getElementById("hintText");
+
+            if (hintIndex < hints.length) {
+                hintText.textContent = hints[hintIndex];
+                hintBox.style.display = "block";
+                hintIndex++;
+            } else {
+                hintText.textContent = "No more hints available.";
+            }};
+        });
+
+</script>
+</body>
+
+</html>

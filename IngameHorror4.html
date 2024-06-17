@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horror</title>
+    <link rel="stylesheet" href="IngameHorror.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bungee+Inline&family=Russo+One&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="homeheader">
+        <h1>CodeCraft</h1>
+        <h2>by </h2>
+        <h3>CyberPink</h3>
+    </div>
+
+<div id="pixel-art-container4">
+        <img id="img23" src="Door5.png" class="pixel-art-frame">
+        <img id="img24" src="Door6.png" class="pixel-art-frame">
+        <img id="img25" src="Door7.png" class="pixel-art-frame"> 
+        <img id="img26" src="Door8.png" class="pixel-art-frame">
+</div>
+
+<div id="black-screen"></div>
+    
+    <div class="transition">
+        <div id="sentence15" class="sentence"> Good Choice! Now are you ready for what awaits you? <br><br> </div>
+    </div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const container4 = document.getElementById("pixel-art-container4");
+  if (!container4) {
+    console.error("pixel-art-container4 not found.");
+    return;
+  }
+  
+  const frames4 = container4.querySelectorAll(".pixel-art-frame");
+  if (frames4.length === 0) {
+    console.error("No frames found in pixel-art-container4.");
+    return;
+  }
+
+  let currentFrameIndex4 = 0;
+  const interval = 2000;
+  let animationInterval4;
+
+  function showNextFrame(frames, currentIndex) {
+    if (frames.length === 0) return currentIndex; 
+    
+    frames[currentIndex].classList.remove("active");
+    currentIndex = (currentIndex + 1) % frames.length;
+    frames[currentIndex].classList.add("active");
+    return currentIndex;
+  }
+
+  function startAnimation(frames, currentIndex, setCurrentIndex) {
+    if (frames.length === 0) return; 
+    
+    frames[currentIndex].classList.add("active");
+    return setInterval(() => {
+      currentIndex = showNextFrame(frames, currentIndex);
+      setCurrentIndex(currentIndex);
+    }, interval);
+  }
+
+  function setCurrentIndex4(value) {
+    currentFrameIndex4 = value;
+  }
+
+  animationInterval4 = startAnimation(frames4, currentFrameIndex4, setCurrentIndex4);
+
+  setTimeout(() => {
+                document.getElementById("sentence15").style.display = "block";
+                document.getElementById("sentence15").classList.add("show");
+              }, 1000);
+
+  setTimeout(() => {
+    const blackScreen = document.getElementById("black-screen");
+    if (blackScreen) {
+      blackScreen.classList.add("show");
+      setTimeout(() => {
+        window.location.href = 'https://guillianecantillas.github.io/CodeCraft/Horror%20Files/Ingamehorror5.html';
+      }, 2000); 
+    } else {
+      console.error("black-screen not found.");
+    }
+  }, frames4.length * interval);
+});
+
+</script>
+</body>
+</html>
