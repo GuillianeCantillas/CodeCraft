@@ -121,9 +121,35 @@ body {
   }
   
  .horror{
+  background-color: #D284AC;
   position: fixed;
   top: 150px;
   left:30px;
   width: 500px;
-  height: 500px;
+  height: 610px;
+  display: inline-block;
+  cursor: pointer;
+  border: none;
+  padding: 0;
  }
+
+ .horror:hover{
+  box-shadow: 0 20px 20px #D284AC; 
+ }
+
+ .horror #Title{
+  font-family: 'Russo One', sans-serif;
+  font-size: 18px;
+ }
+
+ .horror #Desc{
+  font-family: Arial, sans-serif;
+  padding: 10px;
+  font-size: 12px;
+  color: white;
+ }
+
+ #image{
+  width: 500px;
+  height: 500px; 
+}
