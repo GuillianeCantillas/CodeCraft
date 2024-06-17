@@ -44,16 +44,35 @@
         </div>
 
         <div class="form">
-            <form id="answerForm" onsubmit="checkAnswer46(); return false;">
-                <input type="text" id="textbox" name="textbox" placeholder="Enter your answer here: " oninput="updateSentence46();"><br>
+            <form id="answerForm" onsubmit="checkAnswer54(); return false;">
+                <input type="text" id="textbox" name="textbox" placeholder="Enter your answer here: " oninput="updateSentence54();"><br>
                 <span id="output" style="font-size: 14px;"></span><br>
-                <input type="submit" value="Submit">
+                <input type="submit" value="Submit" id="submitbutton">
             </form>
         </div>
 </div>
 
 <div class="text-box">
-    <div id="sentence43" class="sentence"> 
+    <div id="sentence49" class="sentence"> You did it! You actually broke out of the loop! Though this time, you are in an uncharted territory. <br> <br></div>
+    <div id="sentence50" class="sentence"> Barrels upon barrels and a bar like ambience is what this room had offered you. <br><br></div>
+    <div id="sentence51" class="sentence"> And by the end of the room, you see a door. It looks promising, but it's locked.  <br><br></div>
+    <div id="sentence52" class="sentence"> You see a number on one of the barrels, but notice that the door isn't accepting a number. <br><br></div>
+    <div id="sentence53" class="sentence"> //Date of aged wine is 1040 <br><br></div>
+    <div id="sentence54" class="sentence"> 
+        import java.time.LocalDate; <br><br><br>
+        
+        public class wine {<br>
+        &nbsp; &nbsp; &nbsp;  public static void main(String[] args) {<br>
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;    _________ date1040 = _________.of(1040, 1, 1);<br>
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;    System.out.println("The code for the door is" + date1040);<br>
+        &nbsp; &nbsp; &nbsp;    }<br>
+    } </div>
+<div id="sentence55" class="sentence"> <br> Java does not have a built-in Date class, but we can import the java.time package to work with the date and time API. The package includes many date and time classes. <br><br>
+    LocalDate in the question represents the date January 1st, 1040. LocalDate represents a date (year, month, day (yyyy-MM-dd))<br><br>
+    LocalTime represents a time (hour, minute, second and nanoseconds (HH-mm-ss-ns))<br><br>
+    LocalDateTime represents both a date and a time (yyyy-MM-dd-HH-mm-ss-ns)<br><br>
+    DateTimeFormatter is used to create formatters with specific patterns. <br>
+</div>
 </div>
 
 <script>
@@ -66,9 +85,9 @@ document.addEventListener("DOMContentLoaded", function () {
     const hinting = document.getElementById('hintBox');
     let hintIndex = 0;
     const hints = [
-            "Hint 1: This technique relies on the call stack to keep track of function calls.",
-            "Hint 2: This is known to anser the factorial calculation or Fibonacci series.",
-            "Hint 3: This function usually has 2 main parts.The base case and the recursive case."];
+            "Hint 1: This is immutable, meaning once you create an instance, you cannot modify its state.",
+            "Hint 2:  You can access individual components of this instance such as year, month, and day.",
+            "Hint 3: is a class in the Java java.time package that represents a date without a time component."];
 
     const updateButtonPositions = () => {
     const containerRect = container.getBoundingClientRect();
@@ -115,28 +134,33 @@ document.addEventListener("DOMContentLoaded", function () {
     }, 0);
 
     setTimeout(() => {
-        document.getElementById("sentence43").style.display = "block";
-        document.getElementById("sentence43").classList.add("show");
+        document.getElementById("sentence49").style.display = "block";
+        document.getElementById("sentence49").classList.add("show");
     }, 2000);
 
     setTimeout(() => {
-        document.getElementById("sentence44").style.display = "block";
-        document.getElementById("sentence44").classList.add("show");
+        document.getElementById("sentence50").style.display = "block";
+        document.getElementById("sentence50").classList.add("show");
     }, 8000);
 
     setTimeout(() => {
-        document.getElementById("sentence45").style.display = "block";
-        document.getElementById("sentence45").classList.add("show");
+        document.getElementById("sentence51").style.display = "block";
+        document.getElementById("sentence51").classList.add("show");
     }, 15000);
 
     setTimeout(() => {
-        document.getElementById("sentence46").style.display = "block";
-        document.getElementById("sentence46").classList.add("show");
+        document.getElementById("sentence52").style.display = "block";
+        document.getElementById("sentence52").classList.add("show");
     }, 23000);
 
     setTimeout(() => {
-        document.getElementById("sentence47").style.display = "block";
-        document.getElementById("sentence47").classList.add("show");
+        document.getElementById("sentence53").style.display = "block";
+        document.getElementById("sentence53").classList.add("show");
+    }, 30000);
+
+    setTimeout(() => {
+        document.getElementById("sentence54").style.display = "block";
+        document.getElementById("sentence54").classList.add("show");
     }, 30000);
 
 const scoreElement = document.getElementById('score');
@@ -155,31 +179,46 @@ scoreElement.textContent = score;
 
 let newScore = getScore();
 
-window.checkAnswer46 = function() {
+window.checkAnswer54 = function() {
   var userInput = document.getElementById("textbox").value.trim();
-  var sentence46 = document.getElementById("sentence46");
-  var correctAnswer = "recursion";
+  var sentence54 = document.getElementById("sentence54");
+  var correctAnswer = "LocalDate";
   var spanClass = userInput === correctAnswer ? 'correct' : 'incorrect';
 
         if (userInput === correctAnswer) {
             newScore = score + 12; 
             updateScore(newScore);
-            sentence46.innerHTML = "In java, there is a technique that does the same. The only difference is that it calls itself  to do it. What is this technique? <span class='" + spanClass + "'>" + userInput + "</span> <br><br></div>";
-            document.getElementById("textbox").disabled = true;
-            document.getElementById("submitbutton").disabled = true;
+            sentence54.innerHTML = 
+        "import java.time.LocalDate; <br><br><br>" +
+        
+        "public class wine {<br>" + 
+        "&nbsp; &nbsp; &nbsp;  public static void main(String[] args) {<br>" +
+        "&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class='" + spanClass + "'>" + userInput + "</span> date1040 =" + "<span class='" + spanClass + "'> " + userInput + "</span>.of(1040, 1, 1); <br>" +
+        "&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; System.out.println('The code for the door is' + date1040); <br>" +
+        "&nbsp; &nbsp; &nbsp;    }<br> " +
+    "}";
+        document.getElementById("textbox").disabled = true;
+        document.getElementById("submitbutton").disabled = true;
             
                     setTimeout(() => {
-                        document.getElementById("sentence48").style.display = "block";
-                        document.getElementById("sentence48").classList.add("show");
+                        document.getElementById("sentence55").style.display = "block";
+                        document.getElementById("sentence55").classList.add("show");
                     }, 2000);
 
                     setTimeout(() => {
-                        window.location.href = 'Ingamehorror9.html';
-                    }, 9000);
+                        window.location.href = 'https://guillianecantillas.github.io/CodeCraft/Horror%20Files/Ingamehorror10.html';
+                    }, 15000);
             
         } else {
-            sentence46.innerHTML = "In java, there is a technique that does the same. The only difference is that it calls itself  to do it. What is this technique? <span class='" + spanClass + "'>" + userInput + "</span> <br><br></div>";
-
+            sentence54.innerHTML =
+        "import java.time.LocalDate; <br><br><br>" +
+        
+        "public class wine {<br>" + 
+        "&nbsp; &nbsp; &nbsp;  public static void main(String[] args) {<br>" +
+        "&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class='" + spanClass + "'>" + userInput + "</span> date1040 =" + "<span class='" + spanClass + "'> " + userInput + "</span>.of(1040, 1, 1); <br>" +
+        "&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; System.out.println('The code for the door is' + date1040);<br>"  +
+        "&nbsp; &nbsp; &nbsp;    }<br> " +
+    "}";
         };
     };
 
@@ -187,18 +226,33 @@ window.checkAnswer46 = function() {
     console.log("New Score:", newScore);  
 
 
-    window.updateSentence46 = function () {
+    window.updateSentence54 = function () {
         var userInput = document.getElementById("textbox").value.trim();
-        var sentence46 = document.getElementById("sentence46");
-        sentence46.innerHTML = "In java, there is a technique that does the same. The only difference is that it calls itself  to do it. What is this technique?" + userInput + "<br><br></div>"
-
+        var sentence54 = document.getElementById("sentence54");
+        sentence54.innerHTML = 
+        "import java.time.LocalDate; <br><br><br>" +
+        
+        "public class wine {<br>" + 
+        "&nbsp; &nbsp; &nbsp;  public static void main(String[] args) {<br>" +
+        "&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;"  + userInput + " date1040 =" + userInput + " .of(1040, 1, 1); <br>" +
+        "&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; System.out.println('The code for the door is' + date1040); <br>" +
+        "&nbsp; &nbsp; &nbsp;    }<br> " +
+    "}";
     };
             window.resetForm = function () {
                 document.getElementById("answerForm").reset();
-                sentence46.innerHTML =  "In java, there is a technique that does the same. The only difference is that it calls itself  to do it. What is this technique? _________ <br><br></div>"
+                sentence54.innerHTML =  
+        "import java.time.LocalDate; <br><br><br>" +
+        
+        "public class wine {<br>" + 
+        "&nbsp; &nbsp; &nbsp;  public static void main(String[] args) {<br>" +
+        "&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; _________ date1040 = _________.of(1040, 1, 1); <br>" +
+        "&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; System.out.println('The code for the door is' + date1040);<br>" +
+        "&nbsp; &nbsp; &nbsp;    }<br> " +
+    "}";
                 document.getElementById("textbox").disabled = false;
-                document.getElementById("sentence23").style.display = "none";
-                document.getElementById("sentence23").classList.remove("show");
+                document.getElementById("sentence55").style.display = "none";
+                document.getElementById("sentence55").classList.remove("show");
 
                 score = 0;
                 scoreElement.textContent = score;
@@ -207,7 +261,7 @@ window.checkAnswer46 = function() {
             window.undoInput = function () {
                 var textbox = document.getElementById("textbox");
                 textbox.value = textbox.value.slice(0, -1);
-                updateSentence46();
+                updateSentence54();
             };
             window.showHint = function () {
             const hintBox = document.getElementById("hintBox");
