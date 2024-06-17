@@ -49,7 +49,7 @@ Login.addEventListener("click", async function() {
             Password: enterpassword.value,
             Course: enterCourse.value,
             YearLevel: enterYearLevel.value
-        }); window.location.href = "..HomepageUser.html";
+        }); window.location.href = 'https://guillianecantillas.github.io/CodeCraft/HomepageUser.html';
     } catch (error) {
         // Handle errors
         console.error("Registration error:", error.message);
