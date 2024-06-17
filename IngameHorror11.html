@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horror</title>
+    <link rel="stylesheet" href="IngameHorror11.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bungee+Inline&family=Russo+One&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="homeheader">
+        <h1>CodeCraft</h1>
+        <h2>by </h2>
+        <h3>CyberPink</h3>
+    </div>
+
+    <div id="pixel-art-container1">
+        <img id="img2" src="2.png" class="pixel-art-frame active">
+        <img id="img3" src="3.png" class="pixel-art-frame">
+
+    <div class="buttons">
+        <button type="reset" class="button1" onclick="resetForm()">Reset</button>
+        <button type="button" class="button2" onclick="undoInput()">Undo</button>
+        <button type="button" class="button3" onclick="showHint()">Hint</button>
+    </div>
+
+    <div id="score-container">
+        <p>Score: <span id="score">0</span></p>
+    </div>
+
+    <div id="hintBox" style="display:none;">
+        <p id="hintText"></p>
+    </div>
+
+    <div class="form">
+        <form id="answerForm" onsubmit="checkAnswer4(); return false;">
+            <input type="text" id="textbox" name="textbox" placeholder="Enter your answer here: " oninput="updateSentence4();"><br>
+            <span id="output" style="font-size: 14px;"></span><br>
+            <input type="submit" value="Submit" id="submitbutton">
+        </form>
+    </div>
+</div>
+    
+    <div class="text-box">
+        <div id="sentence1" class="sentence show"> Hello! Welcome to <span style="color: #D284AC;">Haunted by Programming Languages: Java Escape Challenge! </span>This is a series of horror-themed puzzle games that revolve around certain programming languages. <br><br> </div>
+        <div id="sentence2" class="sentence"> For this Haunted by PL's, you are going to be using the Java Language to answer the puzzles ahead of you.  <br><br></div>
+        <div id="sentence3" class="sentence"> But first, let's get you geared up! <br><br></div>
+        <div id="sentence4" class="sentence"> This is the <span style="color: #D284AC;">text-box</span>, this is where all the narration happens, story wise and even some 4th wall breaks. <br><br></div>
+        <div id="sentence5" class="sentence"> To your left is the <span style="color: #D284AC;">pixel container</span>. That is what could be called your eyes within the story. <br><br></div>
+        <div id="sentence6" class="sentence"> Below the pixel container are three buttons. <br><br></div>
+        <div id="sentence7" class="sentence">  <span style="color: #D284AC;">Reset</span> - to reset the whole form. <br><br></div>
+        <div id="sentence8" class="sentence">  <span style="color: #D284AC;">Undo</span> - to erase your answer. <br><br></div>
+        <div id="sentence9" class="sentence">  And lastly, the <span style="color: #D284AC;">Hint button</span> which you can go ahead and explore yourself. <br><br></div>
+        <div id="sentence10" class="sentence"> On top of the pixel container is your score. You may acquire different amount of points per level as the difficulty arises. So stay tuned for that.<br><br></div>
+        <div id="sentence11" class="sentence"> Oh and ofcourse! The way CodeCraft's games verify your answer is by color. <br><br></div>
+        <div id="sentence12" class="sentence"> Your input will change to this color if it is <span style="color: #F50CA0;">correct</span> and turn to this if <span style="color: red;">incorrect</span> <br><br></div>
+        <div id="sentence13" class="sentence"> Further information about the syntax presented in each puzzle will also look like this.<br><br></div>
+        <div id="sentence14" class="sentence"> That's about it! We hope that you have a wonderful time playing! Goodluck!<br><br></div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const container = document.getElementById('pixel-art-container1');
+            const text = document.getElementsByClassName("text-box");
+            const button1 = document.querySelector('.button1');
+            const button2 = document.querySelector('.button2');
+            const button3 = document.querySelector('.button3');
+            const scoreElement = document.getElementById('score');
+            const scores = document.getElementById('score-container');
+            const hinting = document.getElementById('hintBox');
+            let score = 0;
+            let hintIndex = 0;
+            const hints = [
+            "Hint 1: This is your HintBox. You are given a maximum of 3 hints per level. So make sure to use them wisely!",
+            "Hint 2: You are using them wisely right?",
+            "Hint 3: I don't know what else to tell you, this is the last hint you get",
+            "Hint 4: Just Kidding." ]
+
+            function updateButtonPositions() {
+                const containerRect = container.getBoundingClientRect();
+                
+                button1.style.left = `${containerRect.left + -60}px`;
+                button1.style.top = `${containerRect.top + 310}px`; //Reset
+
+                button2.style.left = `${containerRect.left + 20}px`;
+                button2.style.top = `${containerRect.top + 310}px`; //Undo
+
+                button3.style.left = `${containerRect.left + 760}px`;
+                button3.style.top = `${containerRect.top + 310}px`; // Hint
+
+                scores.style.left = `${containerRect.left + 740}px`;
+                scores.style.top = `${containerRect.top + -255}px`; // Score Board
+
+                hinting.style.left = `${containerRect.left + 710}px`;
+                hinting.style.top = `${containerRect.top + 340}px`; // Hints na talaguh
+            }
+
+            updateButtonPositions();
+            window.addEventListener('resize', updateButtonPositions);
+            window.addEventListener('scroll', updateButtonPositions);
+
+            const frames = document.querySelectorAll(".pixel-art-frame");
+            let currentFrameIndex = 0;
+            const interval = 1000;
+
+            function showNextFrame() {
+                frames[currentFrameIndex].classList.remove("active");
+                currentFrameIndex = (currentFrameIndex + 1) % frames.length;
+                frames[currentFrameIndex].classList.add("active");
+            }
+
+            function startAnimation() {
+                setInterval(showNextFrame, interval);
+            }
+
+            startAnimation();
+
+            setTimeout(() => {
+                        document.getElementById("sentence2").style.display = "block";
+                        document.getElementById("sentence2").classList.add("show");
+                    }, 5000);
+
+             setTimeout(() => {
+                        document.getElementById("sentence3").style.display = "block";
+                        document.getElementById("sentence3").classList.add("show");
+                    }, 15000);
+                    
+            setTimeout(() => {
+                        document.getElementById("sentence4").style.display = "block";
+                        document.getElementById("sentence4").classList.add("show");
+                    }, 20000);       
+
+            setTimeout(() => {
+                        document.getElementById("sentence5").style.display = "block";
+                        document.getElementById("sentence5").classList.add("show");
+                        container.classList.add("highlight"); 
+                    }, 25000);
+
+            setTimeout(() => {
+                        container.classList.remove("highlight"); // Remove highlight
+                        document.getElementById("sentence6").style.display = "block";
+                        document.getElementById("sentence6").classList.add("show");
+                    }, 30000); 
+
+            setTimeout(() => {
+                        button1.classList.add("highlight"); 
+                        document.getElementById("sentence7").style.display = "block";
+                        document.getElementById("sentence7").classList.add("show");
+                    }, 35000); 
+                    
+                setTimeout(() => {
+                        button2.classList.add("highlight"); 
+                        document.getElementById("sentence8").style.display = "block";
+                        document.getElementById("sentence8").classList.add("show");
+                    }, 40000);   
+
+                setTimeout(() => {
+                        button3.classList.add("highlight"); 
+                        document.getElementById("sentence9").style.display = "block";
+                        document.getElementById("sentence9").classList.add("show");
+                    }, 45000);   
+
+                setTimeout(() => {
+                        button1.classList.remove("highlight"); 
+                        button2.classList.remove("highlight"); 
+                        button3.classList.remove("highlight"); 
+                        document.getElementById("sentence10").style.display = "block";
+                        document.getElementById("sentence10").classList.add("show");
+                        scores.classList.add("highlight"); 
+                    }, 55000);   
+
+                setTimeout(() => {
+                        scores.classList.remove("highlight"); 
+                        document.getElementById("sentence11").style.display = "block";
+                        document.getElementById("sentence11").classList.add("show");
+                    }, 60000); 
+
+                setTimeout(() => {
+                        document.getElementById("sentence12").style.display = "block";
+                        document.getElementById("sentence12").classList.add("show");
+                    }, 65000); 
+
+                setTimeout(() => {
+                        document.getElementById("sentence13").style.display = "block";
+                        document.getElementById("sentence13").classList.add("show");
+                    }, 75000); 
+
+                setTimeout(() => {
+                        document.getElementById("sentence14").style.display = "block";
+                        document.getElementById("sentence14").classList.add("show");
+                        windo
+                    }, 85000); 
+
+                setTimeout(() => {
+                window.location.href = 'https://guillianecantillas.github.io/CodeCraft/IngameHorror0.html';
+            }, 10000);
+
+
+        window.showHint = function () {
+            const hintBox = document.getElementById("hintBox");
+            const hintText = document.getElementById("hintText");
+
+            if (hintIndex < hints.length) {
+                hintText.textContent = hints[hintIndex];
+                hintBox.style.display = "block";
+                hintIndex++;
+            } else {
+                hintText.textContent = "No more hints available.";
+            }};
+    });
+</script>
+</body>
+</html>

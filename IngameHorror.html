@@ -32,6 +32,9 @@
         <img id="img9" src="9.JPEG" class="pixel-art-frame">
         <img id="img10" src="10.png" class="pixel-art-frame">
 
+        <span class="tooltiptext">Tooltip for Pixel Art Container</span>
+
+
     <div class="buttons">
         <button type="reset" class="button1" onclick="resetForm()">Reset</button>
         <button type="button" class="button2" onclick="undoInput()">Undo</button>
@@ -45,29 +48,26 @@
     <div id="hintBox" style="display:none;">
         <p id="hintText"></p>
     </div>
+
+    <div class="form">
+        <form id="answerForm" onsubmit="checkAnswer4(); return false;">
+            <input type="text" id="textbox" name="textbox" placeholder="Enter your answer here: " oninput="updateSentence4();"><br>
+            <span id="output" style="font-size: 14px;"></span><br>
+            <input type="submit" value="Submit" id="submitbutton">
+        </form>
+    </div>
+
 </div>
     
     <div class="text-box">
         <div id="sentence1" class="sentence show">You awaken to a cold feeling on your back. As you open your eyes, you are met with a lightbulb continuously turning on and off. <br><br> </div>
         <div id="sentence2" class="sentence">Trying to adjust your eyes to the surroundings, you notice that you're in a room.
-            There's a gray and maroon wall, decorated with a shelf and some books as well as beside the bed where you awaken, a sink and small mirror.<br><br>
-        </div>
-        <div id="sentence3" class="sentence"> By the end of the room, a large steel door can be seen. You decided to walk towards the door.<br><br>
-        </div>
+            There's a gray and maroon wall, decorated with a shelf and some books as well as beside the bed where you awaken, a sink and a small mirror.<br><br></div>
+        <div id="sentence3" class="sentence"> By the end of the room, a large steel door can be seen. You decided to walk towards the door.<br><br></div>
         <div id="sentence4" class="sentence"> The door seems to be missing a small passcode, <br><br>
             passcode = new File ("C:\\dungeon\\LargeSteelDoortxt");<br><br>
-            public void __________ (passcode) throws IOException <br><br>
-        </div>
-        <div id="sentence5" class="sentence"> The open() method, launches the associated application to open a file. It takes a file as an argument.<br><br>
-    </div>
-
-        <div class="form">
-            <form id="answerForm" onsubmit="checkAnswer4(); return false;">
-                <input type="text" id="textbox" name="textbox" placeholder="Enter your answer here: " oninput="updateSentence4();"><br>
-                <span id="output" style="font-size: 14px;"></span><br>
-                <input type="submit" value="Submit" id="submitbutton">
-            </form>
-        </div>
+            public void __________ (passcode) throws IOException <br><br></div>
+        <div id="sentence5" class="sentence"> The open() method, launches the associated application to open a file. It takes a file as an argument.<br><br> </div>
 
     <script>
         document.addEventListener("DOMContentLoaded", function () {
@@ -211,8 +211,19 @@
             } else {
                 hintText.textContent = "No more hints available.";
             }};
-        });
 
+    var tooltip = document.getElementById('tooltip-text');
+
+    container.addEventListener('mouseover', function() {
+        tooltip.style.visibility = 'visible';
+        tooltip.style.opacity = 1;
+    });
+
+    container.addEventListener('mouseout', function() {
+        tooltip.style.visibility = 'hidden';
+        tooltip.style.opacity = 0;
+        });
+    });
 </script>
 </body>
 </html>
