@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horror</title>
+    <link rel="stylesheet" href="IngameHorror.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bungee+Inline&family=Russo+One&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="homeheader">
+        <h1>CodeCraft</h1>
+        <h2>by </h2>
+        <h3>CyberPink</h3>
+    </div>
+
+ <div id="pixel-art-container7">
+        <img id="img56" src="House1.png" class="pixel-art-frame">
+        <img id="img57" src="House2.png" class="pixel-art-frame">
+        <img id="img58" src="House3.png" class="pixel-art-frame">
+        <img id="img59" src="House4.png" class="pixel-art-frame">
+        <img id="img60" src="House5.png" class="pixel-art-frame">
+        <img id="img61" src="House6.png" class="pixel-art-frame">
+        <img id="img62" src="House7.png" class="pixel-art-frame"> 
+        <img id="img63" src="House8.png" class="pixel-art-frame">
+        <img id="img64" src="House9.png" class="pixel-art-frame">
+        <img id="img65" src="HouseNoKnife1.png" class="pixel-art-frame">
+        <img id="img66" src="HouseNoKnife2.png" class="pixel-art-frame">
+        <img id="img67" src="HouseNoKnife3.png" class="pixel-art-frame">
+        <img id="img68" src="HouseLoop1.png" class="pixel-art-frame">
+        <img id="img69" src="HouseLoop2.png" class="pixel-art-frame">
+        <img id="img70" src="HouseLoop3.png" class="pixel-art-frame">
+        <img id="img71" src="HouseLoop4.png" class="pixel-art-frame">
+        <img id="img72" src="HouseLoop5.png" class="pixel-art-frame">
+
+        <div class="buttons">
+            <button type="reset" class="button1" onclick="resetForm()">Reset</button>
+            <button type="button" class="button2" onclick="undoInput()">Undo</button>
+            <button type="button" class="button3" onclick="showHint()">Hint</button>
+        </div>
+
+        <div id="score-container">
+            <p>Score: <span id="score">0</span></p>
+        </div>
+
+        <div id="hintBox" style="display:none;">
+            <p id="hintText"></p>
+        </div>
+
+<div class="form">
+    <form id="answerForm" onsubmit="checkAnswer41(); return false;">
+        <input type="text" id="textbox" name="textbox" placeholder="Enter your answer here: " oninput="updateSentence41();"><br>
+        <span id="output" style="font-size: 14px;"></span><br>
+        <input type="submit" value="Submit" id="submitbutton">
+    </form>
+</div>
+
+</div>
+
+<div class="text-box">
+    <div id="sentence31" class="sentence"> After a long while of walking in the darkness, you finally enter another room.  Wooden walls with gray pillars, decorated with various furniture.<br><br></div>
+    <div id="sentence32" class="sentence"> You slowly traverse the room observing every last detail of it.<br><br></div>
+    <div id="sentence33" class="sentence"> There's an eerie feeling.<br><br></div>
+    <div id="sentence34" class="sentence"> The feeling like you're being watched. <br><br></div>
+    <div id="sentence35" class="sentence"> Lighting strikes and everything flashes around you. That's weird, you thought since it doesnt seem to be raining. <br><br></div>
+    <div id="sentence36" class="sentence"> But you continued walking, the room appears to be never ending. You'll just keep walking, you thought. It is a big house after all. <br><br></div>
+    <div id="sentence37" class="sentence"> But not even a few steps forward, you notice something. <br><br></div>
+    <div id="sentence38" class="sentence"> Why does this seem so familliar? <br><br></div>
+    <div id="sentence39" class="sentence"> Have you done this before? <br><br></div>
+    <div id="sentence40" class="sentence"> Didn't you break out of the loop?<br><br></div>
+    <div id="sentence41" class="sentence"> 
+        public class Main { <br>
+            &nbsp; &nbsp; &nbsp; public static void main(String[] args) { <br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;___ (int i = 1; i <= 5; i++) { <br>
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; System.out.println(i); <br>
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;    } <br>
+                    &nbsp; &nbsp; &nbsp;   } <br>
+        }<br><br>
+    </div>
+    <div id="sentence42" class="sentence"> The for loop repeats a block of code a fixed number of times. </div>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {       
+    const container = document.getElementById('pixel-art-container7');
+    const allImages = container.querySelectorAll('.pixel-art-frame');
+    const img62 = document.getElementById('img62');
+    const button1 = document.querySelector('.button1');
+    const button2 = document.querySelector('.button2');
+    const button3 = document.querySelector('.button3');
+    const scores = document.getElementById('score-container');
+    const hinting = document.getElementById('hintBox');
+    const answerForm = document.getElementById('answerForm');
+    let hintIndex = 0;
+    const hints = [
+        "Hint 1: With this statement, you can declare and initialize the loop control variable within the loop statement.",
+        "Hint 2: The types of loops can be nested inside each other to handle multi-dimensional data structures like 2D arrays.",
+        "Hint 3: This Loop can reverse order by initializing the loop variable to a maximum value and decreasing it."
+    ];
+
+    const sentences = [
+        "sentence31",
+        "sentence32",
+        "sentence33",
+        "sentence34",
+        "sentence35",
+        "sentence36",
+        "sentence37",
+        "sentence38",
+        "sentence39",
+        "sentence40",
+        "sentence41",
+        "sentence42"
+    ];
+
+    const additionalElements = [
+        button1,
+        button2,
+        button3,
+        scores,
+        hinting,
+        answerForm
+    ];
+
+    allImages.forEach(img => {
+        if (img.id !== 'img62') {
+            img.classList.add('darken');
+        }
+    });
+
+    function showSentence(id, delay) {
+        setTimeout(() => {
+            const sentence = document.getElementById(id);
+            if (sentence) {
+                sentence.style.display = "block";
+                sentence.classList.add("show");
+            } else {
+                console.warn(`Sentence with ID ${id} not found.`);
+            }
+        }, delay);
+    }
+
+    function flashElements() {
+        sentences.forEach(id => {
+            const sentence = document.getElementById(id);
+            if (sentence && sentence.classList.contains('show')) {
+                sentence.classList.add('flashing');
+            } else if (!sentence) {
+                console.warn(`Sentence with ID ${id} not found.`);
+            }
+        });
+
+        additionalElements.forEach(el => {
+            if (el) {
+                el.classList.add('flashing');
+            }
+        });
+    }
+
+    function removeFlashFromElements() {
+        sentences.forEach(id => {
+            const sentence = document.getElementById(id);
+            if (sentence) {
+                sentence.classList.remove('flashing');
+            } else {
+                console.warn(`Sentence with ID ${id} not found.`);
+            }
+        });
+
+        additionalElements.forEach(el => {
+            if (el) {
+                el.classList.remove('flashing');
+            }
+        });
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                flashElements();
+                img62.classList.add('brighten');
+                document.body.classList.add('bg-change');
+                allImages.forEach(img => {
+                    if (img.id !== 'img62') {
+                        img.classList.remove('darken');
+                    }
+                });
+                setTimeout(() => {
+                    img62.classList.remove('brighten');
+                    document.body.classList.remove('bg-change');
+                }, 3000);
+            } else {
+                removeFlashFromElements();
+                allImages.forEach(img => {
+                    if (img.id !== 'img62') {
+                        img.classList.add('darken');
+                    }
+                });
+            }
+        });
+    }, { threshold: 0.5 });
+
+    observer.observe(img62);
+
+    showSentence("sentence31", 1000);
+    showSentence("sentence32", 6000);
+    showSentence("sentence33", 9000);
+    showSentence("sentence34", 13000);
+    showSentence("sentence35", 20000);
+    showSentence("sentence36", 30000);
+    showSentence("sentence37", 35000);
+    showSentence("sentence38", 40000);
+    showSentence("sentence39", 45000);
+    showSentence("sentence40", 50000);
+    showSentence("sentence41", 55000);
+
+    const updateButtonPositions = () => {
+    const containerRect = container.getBoundingClientRect();
+        
+        document.querySelector('.button1').style.left = `${containerRect.left - 60}px`;
+        document.querySelector('.button1').style.top = `${containerRect.top + 310}px`;
+        
+        document.querySelector('.button2').style.left = `${containerRect.left + 20}px`;
+        document.querySelector('.button2').style.top = `${containerRect.top + 310}px`;
+        
+        document.querySelector('.button3').style.left = `${containerRect.left + 760}px`;
+        document.querySelector('.button3').style.top = `${containerRect.top + 310}px`;
+        
+        document.getElementById('score-container').style.left = `${containerRect.left + 740}px`;
+        document.getElementById('score-container').style.top = `${containerRect.top - 255}px`;
+        
+        document.getElementById('hintBox').style.left = `${containerRect.left + 710}px`;
+        document.getElementById('hintBox').style.top = `${containerRect.top + 340}px`;
+    };
+
+    updateButtonPositions();
+    window.addEventListener('resize', updateButtonPositions);
+    window.addEventListener('scroll', updateButtonPositions);
+
+    let currentFrameIndex = 0;
+    let interval = 3000;
+    const frames7 = container.querySelectorAll(".pixel-art-frame");
+    let animationInterval;
+
+    function showNextFrame(frames) {
+        frames[currentFrameIndex].classList.remove("active");
+        currentFrameIndex = (currentFrameIndex + 1) % frames.length;
+        frames[currentFrameIndex].classList.add("active");
+    }
+
+    function startAnimation(frames) {
+        currentFrameIndex = 0;
+        frames[currentFrameIndex].classList.add("active");
+        animationInterval = setInterval(() => showNextFrame(frames), interval);
+    }
+
+    setTimeout(() => {
+        startAnimation(frames7);
+    }, 3000);
+
+    setTimeout(() => {
+        document.getElementById("sentence31").style.display = "block";
+        document.getElementById("sentence31").classList.add("show");
+    }, 1000);
+
+    setTimeout(() => {
+        document.getElementById("sentence32").style.display = "block";
+        document.getElementById("sentence32").classList.add("show");
+    }, 6000);
+    
+    setTimeout(() => {
+        document.getElementById("sentence33").style.display = "block";
+        document.getElementById("sentence33").classList.add("show");
+    }, 9000);
+
+    setTimeout(() => {
+        document.getElementById("sentence34").style.display = "block";
+        document.getElementById("sentence34").classList.add("show");;
+    }, 13000);
+
+    setTimeout(() => {
+        document.getElementById("sentence35").style.display = "block";
+        document.getElementById("sentence35").classList.add("show");
+    }, 20000);
+
+    setTimeout(() => {
+        document.getElementById("sentence36").style.display = "block";
+        document.getElementById("sentence36").classList.add("show");
+    }, 30000);
+
+    setTimeout(() => {
+        document.getElementById("sentence37").style.display = "block";
+        document.getElementById("sentence37").classList.add("show");
+    }, 35000);
+
+    setTimeout(() => {
+        document.getElementById("sentence38").style.display = "block";
+        document.getElementById("sentence38").classList.add("show");
+    }, 45000);
+
+    setTimeout(() => {
+        document.getElementById("sentence39").style.display = "block";
+        document.getElementById("sentence39").classList.add("show");
+    }, 50000);
+
+    setTimeout(() => {
+        document.getElementById("sentence40").style.display = "block";
+        document.getElementById("sentence40").classList.add("show");
+    }, 55000);
+
+    setTimeout(() => {
+        document.getElementById("sentence41").style.display = "block";
+        document.getElementById("sentence41").classList.add("show");
+    }, 60000);
+
+const scoreElement = document.getElementById('score');
+function getScore() {
+  const score = localStorage.getItem("score");
+  return score ? parseInt(score, 10) : 0;
+};
+
+function updateScore(newScore) {
+  localStorage.setItem("score", newScore);
+  scoreElement.textContent = newScore;
+};
+
+let score = getScore();
+scoreElement.textContent = score;
+
+let newScore = getScore();
+
+window.checkAnswer41 = function() {
+  var userInput = document.getElementById("textbox").value.trim();
+  var sentence41 = document.getElementById("sentence41");
+  var correctAnswer = "for";
+  var spanClass = userInput === correctAnswer ? 'correct' : 'incorrect';
+
+        if (userInput === correctAnswer) {
+            newScore = score + 12; 
+            updateScore(newScore);
+            sentence41.innerHTML = "public class Main { <br>" + 
+            "&nbsp; &nbsp; &nbsp; public static void main(String[] args) { <br>" +
+                "&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class='" + spanClass + "'>" + userInput + "</span>(int i = 1; i <= 5; i++) { <br>" + 
+                    "&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; System.out.println(i); <br>" + 
+                    "&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;    } <br>" + 
+                    "&nbsp; &nbsp; &nbsp;   } <br>" + 
+                        "}<br><br>"
+                    document.getElementById("textbox").disabled = true;
+                    document.getElementById("submitbutton").disabled = true;
+            
+                    setTimeout(() => {
+                        document.getElementById("sentence42").style.display = "block";
+                        document.getElementById("sentence42").classList.add("show");
+                    }, 2000);
+
+                    setTimeout(() => {
+                        window.location.href = 'https://guillianecantillas.github.io/CodeCraft/Horror%20Files/Ingamehorror8.html';
+                    }, 9000);
+            
+        } else {
+            sentence41.innerHTML = "public class Main { <br>" + 
+            "&nbsp; &nbsp; &nbsp; public static void main(String[] args) { <br>" +
+                "&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class='" + spanClass + "'>" + userInput + "</span>(int i = 1; i <= 5; i++) { <br>" + 
+                    "&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; System.out.println(i); <br>" + 
+                    "&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;    } <br>" + 
+                    "&nbsp; &nbsp; &nbsp;   } <br>" + 
+                        "}<br><br>"
+        };
+    };
+
+    console.log("Current Score:", score);
+    console.log("New Score:", newScore);  
+
+
+    window.updateSentence41 = function () {
+        var userInput = document.getElementById("textbox").value.trim();
+        var sentence41 = document.getElementById("sentence41");
+        sentence41.innerHTML = "public class Main { <br>" + 
+            "&nbsp; &nbsp; &nbsp; public static void main(String[] args) { <br>" +
+                "&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;" + userInput + "(int i = 1; i <= 5; i++) { <br>" + 
+                    "&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; System.out.println(i); <br>" + 
+                    "&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;    } <br>" + 
+                    "&nbsp; &nbsp; &nbsp;   } <br>" + 
+                        "}<br><br>"
+    };
+            window.resetForm = function () {
+                document.getElementById("answerForm").reset();
+                sentence41.innerHTML = "public class Main { <br>" + 
+            "&nbsp; &nbsp; &nbsp; public static void main(String[] args) { <br>" +
+                "&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ___ (int i = 1; i <= 5; i++) { <br>" + 
+                    "&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; System.out.println(i); <br>" + 
+                    "&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;    } <br>" + 
+                    "&nbsp; &nbsp; &nbsp;   } <br>" + 
+                        "}<br><br>"
+                document.getElementById("textbox").disabled = false;
+                document.getElementById("sentence42").style.display = "none";
+                document.getElementById("sentence42").classList.remove("show");
+
+                score = 0;
+                scoreElement.textContent = score;
+            };
+
+            window.undoInput = function () {
+                var textbox = document.getElementById("textbox");
+                textbox.value = textbox.value.slice(0, -1);
+                updateSentence41();
+            };
+            window.showHint = function () {
+            const hintBox = document.getElementById("hintBox");
+            const hintText = document.getElementById("hintText");
+
+            if (hintIndex < hints.length) {
+                hintText.textContent = hints[hintIndex];
+                hintBox.style.display = "block";
+                hintIndex++;
+            } else {
+                hintText.textContent = "No more hints available.";
+            }};
+        });
+
+</script>
+</body>
+
+</html>
