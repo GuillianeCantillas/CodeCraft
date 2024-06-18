@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head> //LEVEL7 
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mystery</title>
+    <link rel="stylesheet" href="IngameMystery.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bungee+Inline&family=Russo+One&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="homeheader">
+        <h1>CodeCraft</h1>
+        <h2>by </h2>
+        <h3>CyberPink</h3>
+    </div>
+
+<div id="pixel-art-container2">
+        <img id="img108" src="startloadingfinal1.png" class="pixel-art-frame active">
+        <img id="img109" src="startloadingfinal2.png" class="pixel-art-frame">
+
+        <div class="buttons">
+            <button type="reset" class="button1" onclick="resetForm()">Reset</button>
+            <button type="button" class="button2" onclick="undoInput()">Undo</button>
+            <button type="button" class="button3" onclick="showHint()">Hint</button>
+        </div>
+    
+        <div id="score-container">
+            <p>Score: <span id="score">0</span></p>
+        </div>
+    
+        <div id="hintBox" style="display:none;">
+            <p id="hintText"></p>
+        </div>
+</div>
+    
+            <div class="text-box">
+                <div id="sentence22" class="sentence show">
+                    You are finally nearing the end. You have seen everything there is to know about. 
+                    The question now lies as to what truly happened to Phoebe Martin that night and who's responsible for it. 
+
+                    <br><br></div>
+                <div id="sentence23" class="sentence"> Therefore, you gather all the information you have to connect the dots.
+                    <br><br></div>
+                    <div id="sentence24" class="sentence"> 
+                        from ___________ import Counter <br><br>
+                        case_0011 = {<br>
+                            "last_found": "Central Park",<br>
+                            "date": "June 17, 2024",<br>
+                            "time": "4:20PM",<br>
+                            "last_seen_wearing": ["Black Shirt", "Grey Sweatpants", "Pink Hoodie", "White Shoes"],<br>
+                            "suspects": ["Maria De Vera", "Berna Mendes", "Lee Gorospi", "Jake Garcia"]<br>
+                        }<br>
+                        last_found = case_0011["last_found"]<br>
+                        date = case_0011["date"]<br>
+                        time = case_0011["time"]<br>
+                        last_seen_wearing = case_0011["last_seen_wearing"]<br>
+                        suspects = case_0011["suspects"]<br>
+                        clothing_tally = Counter(last_seen_wearing)<br><br>
+                        print("Case 0011 Findings:")<br>
+                        print(f"Last Found: {last_found}")<br>
+                        print(f"Date: {date}")<br>
+                        print(f"Time: {time}")<br>
+                        print("\nLast Seen Wearing:")<br>
+                        for item, count in clothing_tally.items():<br>
+                            print(f"- {item}: {count} times")<br>
+                        print("\nList of Suspects:")<br>
+                        for suspect in suspects:<br>
+                            print(f"- {suspect}")<br>
+                        
+                    <br><br> 
+            </div>
+                    <div id="sentence25" class="sentence"> <br><br>Collections in Python are containers used for storing data and are commonly 
+                        known as data structures, such as lists, tuples, arrays, dictionaries, etc.</div>
+                </div>
+            
+    
+             <div class="form">
+                <form id="answerForm" onsubmit="checkAnswer8(); return false;">
+                    <input type="text" id="textbox" name="textbox" placeholder="Enter your answer here: " oninput="updateSentence24();"><br>
+                    <span id="output" style="font-size: 14px;"></span><br>
+                    <input type="submit" value="Submit" id="submitbutton">
+                </form>
+            </div>
+
+    <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const container = document.getElementById('pixel-art-container2');
+                const button1 = document.querySelector('.button1');
+                const button2 = document.querySelector('.button2');
+                const button3 = document.querySelector('.button3');
+                const scores = document.getElementById('score-container');
+                const hinting = document.getElementById('hintBox');
+                let hintIndex = 0;
+                const hints = [
+                "Hint 1: The module name is plural and begins with a 'c', often used to refer to a group of objects.",
+                "Hint 2: The Counter class, which is used to tally elements, is part of this module in Python.",
+                "Hint 3: This module's name refers to a common term for groups of items."];
+            
+                function updateButtonPositions() {
+                const containerRect = container.getBoundingClientRect();
+                
+                button1.style.left = `${containerRect.left + -430}px`;
+                button1.style.top = `${containerRect.top + 510}px`; //Reset
+
+                button2.style.left = `${containerRect.left + -430}px`;
+                button2.style.top = `${containerRect.top + 470}px`; //Undo
+
+                button3.style.left = `${containerRect.left + 660}px`;
+                button3.style.top = `${containerRect.top + 510}px`; // Hint
+
+                scores.style.left = `${containerRect.left + -500}px`;
+                scores.style.top = `${containerRect.top + 5}px`; // Score Board
+
+                hinting.style.left = `${containerRect.left + 710}px`;
+                hinting.style.top = `${containerRect.top + 340}px`; // Hints na talaguh
+            }
+
+    
+                updateButtonPositions();
+                window.addEventListener('resize', updateButtonPositions);
+                window.addEventListener('scroll', updateButtonPositions);
+    
+    let currentFrameIndex = 0;
+    let interval = 1000;
+    const frames2 = container.querySelectorAll(".pixel-art-frame");
+    let animationInterval;
+
+    function showNextFrame(frames) {
+        frames[currentFrameIndex].classList.remove("active");
+        currentFrameIndex = (currentFrameIndex + 1) % frames.length;
+        frames[currentFrameIndex].classList.add("active");
+
+        // Stop the animation when reaching the last frame
+        if (frames[currentFrameIndex].id === 'img18') {
+            clearInterval(animationInterval);
+        }
+    }
+
+    function startAnimation(frames) {
+        currentFrameIndex = 0; // Reset index
+        frames[currentFrameIndex].classList.add("active");
+        animationInterval = setInterval(() => showNextFrame(frames), interval);
+    }
+
+    setTimeout(() => {
+        startAnimation(frames2); 
+    }, 3000);
+
+    setTimeout(() => {
+                document.getElementById("sentence23").style.display = "block";
+                document.getElementById("sentence23").classList.add("show");
+              }, 4000); 
+
+    setTimeout(() => {
+              document.getElementById("sentence24").style.display = "block";
+              document.getElementById("sentence24").classList.add("show");
+              }, 8000); 
+
+
+const scoreElement = document.getElementById('score');
+function getScore() {
+  const score = localStorage.getItem("score");
+  return score ? parseInt(score, 10) : 0;
+};
+
+function updateScore(newScore) {
+  localStorage.setItem("score", newScore);
+  scoreElement.textContent = newScore;
+};
+
+let score = getScore();
+scoreElement.textContent = score;
+
+let newScore = getScore();
+
+window.checkAnswer8 = function() {
+  var userInput = document.getElementById("textbox").value.trim().toLowerCase();
+  var sentence24 = document.getElementById("sentence24");
+  var correctAnswer = "collections";
+  var spanClass = userInput === correctAnswer ? 'correct' : 'incorrect';
+
+        if (userInput === correctAnswer) {
+            newScore = score + 20; 
+            updateScore(newScore);
+            sentence24.innerHTML = "from " + "<span class='" + spanClass + "'>" + userInput + "</span>  import Counter "+
+            "case_0011 = {<br>" + "'last_found': 'Central Park',<br>" + "'date': 'June 17, 2024',<br>" + "'time': '4:20PM',<br>" +
+             "'last_seen_wearing' : ['Black Shirt', 'Grey Sweatpants', 'Pink Hoodie', 'White Shoes'],<br>" +
+             " }<br>" + "last_found = case_0011['last_found']<br>" + "date = case_0011['date']<br>" +
+              "time = case_0011['time']<br>" + "last_seen_wearing = case_0011['last_seen_wearing']<br>" + 
+              "suspects = case_0011['suspects']<br>" +  "clothing_tally = Counter(last_seen_wearing)<br><br>" + 
+              "print('Case 0011 Findings:')<br>" + "print(f'Last Found: {last_found}'')<br>" + 
+              "print(f'Date: {date}')<br>" + "print(f'Time: {time}'')<br>" + 
+              "print('\nLast Seen Wearing:'')<br>"+ "for item, count in clothing_tally.items():<br>" + 
+              "print(f'- {item}: {count} times')<br>" + "print('\nList of Suspects:')<br>" + 
+              "for suspect in suspects:<br>" + "print(f'- {suspect}')]";
+                document.getElementById("textbox").disabled = true;
+                document.getElementById("submitbutton").disabled = true;
+                
+            setTimeout(() => {
+                document.getElementById("sentence25").style.display = "block";
+                document.getElementById("sentence25").classList.add("show");
+            }, 2000);
+
+            setTimeout(() => {
+                window.location.href = 'Ingamemystery6.html';
+            }, 8000);
+
+        } else {
+            sentence24.innerHTML ="from "+ "<span class='" + spanClass + "'>" + userInput + "</span>  + import Counter "+
+            "case_0011 = {<br>" + "'last_found': 'Central Park',<br>" + "'date': 'June 17, 2024',<br>" + "'time': '4:20PM',<br>" +
+             "'last_seen_wearing' : ['Black Shirt', 'Grey Sweatpants', 'Pink Hoodie', 'White Shoes'],<br>" +
+             " }<br>" + "last_found = case_0011['last_found']<br>" + "date = case_0011['date']<br>" +
+              "time = case_0011['time']<br>" + "last_seen_wearing = case_0011['last_seen_wearing']<br>" + 
+              "suspects = case_0011['suspects']<br>" +  "clothing_tally = Counter(last_seen_wearing)<br><br>" + 
+              "print('Case 0011 Findings:')<br>" + "print(f'Last Found: {last_found}'')<br>" + 
+              "print(f'Date: {date}')<br>" + "print(f'Time: {time}'')<br>" + 
+              "print('\nLast Seen Wearing:'')<br>"+ "for item, count in clothing_tally.items():<br>" + 
+              "print(f'- {item}: {count} times')<br>" + "print('\nList of Suspects:')<br>" + 
+              "for suspect in suspects:<br>" + "print(f'- {suspect}')]";
+        };
+    };
+
+    console.log("Current Score:", score);
+    console.log("New Score:", newScore);  
+
+    window.updateSentence24 = function () {
+        var userInput = document.getElementById("textbox").value.trim();
+        var sentence24 = document.getElementById("sentence24");
+        sentence24.innerHTML = "from " + userInput + " import Counter "+
+            "case_0011 = {<br>" + "'last_found': 'Central Park',<br>" + "'date': 'June 17, 2024',<br>" + "'time': '4:20PM',<br>" +
+             "'last_seen_wearing' : ['Black Shirt', 'Grey Sweatpants', 'Pink Hoodie', 'White Shoes'],<br>" +
+             " }<br>" + "last_found = case_0011['last_found']<br>" + "date = case_0011['date']<br>" +
+              "time = case_0011['time']<br>" + "last_seen_wearing = case_0011['last_seen_wearing']<br>" + 
+              "suspects = case_0011['suspects']<br>" +  "clothing_tally = Counter(last_seen_wearing)<br><br>" + 
+              "print('Case 0011 Findings:')<br>" + "print(f'Last Found: {last_found}'')<br>" + 
+              "print(f'Date: {date}')<br>" + "print(f'Time: {time}'')<br>" + 
+              "print('\nLast Seen Wearing:'')<br>"+ "for item, count in clothing_tally.items():<br>" + 
+              "print(f'- {item}: {count} times')<br>" + "print('\nList of Suspects:')<br>" + 
+              "for suspect in suspects:<br>" + "print(f'- {suspect}')]";
+    };
+            window.resetForm = function () {
+                document.getElementById("answerForm").reset();
+                sentence24.innerHTML = "from _______________ import Counter " +
+            "case_0011 = {<br>" + "'last_found': 'Central Park',<br>" + "'date': 'June 17, 2024',<br>" + "'time': '4:20PM',<br>" +
+             "'last_seen_wearing' : ['Black Shirt', 'Grey Sweatpants', 'Pink Hoodie', 'White Shoes'],<br>" +
+             " }<br>" + "last_found = case_0011['last_found']<br>" + "date = case_0011['date']<br>" +
+              "time = case_0011['time']<br>" + "last_seen_wearing = case_0011['last_seen_wearing']<br>" + 
+              "suspects = case_0011['suspects']<br>" +  "clothing_tally = Counter(last_seen_wearing)<br><br>" + 
+              "print('Case 0011 Findings:')<br>" + "print(f'Last Found: {last_found}'')<br>" + 
+              "print(f'Date: {date}')<br>" + "print(f'Time: {time}'')<br>" + 
+              "print('\nLast Seen Wearing:'')<br>"+ "for item, count in clothing_tally.items():<br>" + 
+              "print(f'- {item}: {count} times')<br>" + "print('\nList of Suspects:')<br>" + 
+              "for suspect in suspects:<br>" + "print(f'- {suspect}')]";
+            document.getElementById("textbox").disabled = false;
+            document.getElementById("sentence25").style.display = "none";
+            document.getElementById("sentence25").classList.remove("show");
+            };
+
+            window.undoInput = function () {
+                var textbox = document.getElementById("textbox");
+                textbox.value = textbox.value.slice(0, -1);
+                updateSentence24();
+            };
+
+        window.showHint = function () {
+            const hintBox = document.getElementById("hintBox");
+            const hintText = document.getElementById("hintText");
+
+            if (hintIndex < hints.length) {
+                hintText.textContent = hints[hintIndex];
+                hintBox.style.display = "block";
+                hintIndex++;
+            } else {
+                hintText.textContent = "No more hints available.";
+            }};
+        });
+        </script>
+</body>
+
+</html>

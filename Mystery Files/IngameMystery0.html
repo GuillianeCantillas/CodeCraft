@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=2.0">
+    <title>Mystery</title>
+    <link rel="stylesheet" href="IngameMystery.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bungee+Inline&family=Russo+One&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="homeheader">
+        <h1>CodeCraft</h1>
+        <h2>by </h2>
+        <h3>CyberPink</h3>
+    </div>
+
+    <div id="pixel-art-container">
+        <img id="img1" src="startloadingfinal1.png" class="pixel-art-frame active">
+        <img id="img2" src="startloadingfinal2.png" class="pixel-art-frame">
+        <img id="img3" src="startloadingfinal3.png" class="pixel-art-frame">
+        <img id="img4" src="startloadingfinal4.png" class="pixel-art-frame">
+        <img id="img5" src="startloadingfinal5.png" class="pixel-art-frame">
+        <img id="img6" src="startloadingfinal6.png" class="pixel-art-frame">
+        <img id="img7" src="startloadingfinal7.png" class="pixel-art-frame">
+        <img id="img8" src="startloadingfinal8.png" class="pixel-art-frame">
+        <img id="img9" src="startloadingfinal9.png" class="pixel-art-frame">
+        <img id="img10" src="startloadingfinal10.png" class="pixel-art-frame">
+        <img id="img11" src="startloadingfinal11.png" class="pixel-art-frame">
+        <img id="img12" src="startloadingfinal12.png" class="pixel-art-frame">
+        <img id="img13" src="startloadingfinal13.png" class="pixel-art-frame">
+        <img id="img14" src="startloadingfinal14.png" class="pixel-art-frame">
+        <img id="img15" src="startloadingfinal15.png" class="pixel-art-frame">
+        <img id="img16" src="startloadingfinal16.png" class="pixel-art-frame">
+        <img id="img17" src="startloadingfinal17.png" class="pixel-art-frame">
+        <img id="img18" src="startloadingfinal18.png" class="pixel-art-frame">
+        <img id="img19" src="startloadingfinal19.png" class="pixel-art-frame">
+        <img id="img20" src="startloadingfinal20.png" class="pixel-art-frame">
+        <img id="img21" src="startloadingfinal21.png" class="pixel-art-frame">
+        <img id="img22" src="startloadingfinal22.png" class="pixel-art-frame">
+        <img id="img23" src="startloadingfinal23.png" class="pixel-art-frame">
+        <img id="img24" src="startloadingfinal24.png" class="pixel-art-frame">
+        <img id="img25" src="startloadingfinal25.png" class="pixel-art-frame">
+        <img id="img26" src="startloadingfinal26.png" class="pixel-art-frame">
+        <img id="img27" src="startloadingfinal27.png" class="pixel-art-frame">
+        <img id="img28" src="startloadingfinal28.png" class="pixel-art-frame">
+        <img id="img29" src="startloadingfinal29.png" class="pixel-art-frame">
+        <img id="img30" src="startloadingfinal30.png" class="pixel-art-frame">
+        <img id="img31" src="startloadingfinal31.png" class="pixel-art-frame">
+        <img id="img32" src="userlvl1.png" class="pixel-art-frame">
+        <img id="img33" src="userlvl2.png" class="pixel-art-frame">
+        <img id="img34" src="userlvl3.png" class="pixel-art-frame">
+        <img id="img35" src="userlvl4.png" class="pixel-art-frame">
+</div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const container = document.getElementById('pixel-art-container');
+            const frames = document.querySelectorAll(".pixel-art-frame");
+            let currentFrameIndex = 0;
+            const interval = 1000;
+
+            function showNextFrame() {
+                frames[currentFrameIndex].classList.remove("active");
+                currentFrameIndex = (currentFrameIndex + 1) % frames.length;
+                frames[currentFrameIndex].classList.add("active");
+            }
+
+            function startAnimation() {
+                setInterval(showNextFrame, interval);
+            }
+
+            startAnimation();
+
+                     setTimeout(() => {
+                        window.location.href = "https://guillianecantillas.github.io/CodeCraft/Mystery%20Files/IngameMystery.html";
+                    }, 35000);
+                });
+
+</script>
+</body>
+</html>

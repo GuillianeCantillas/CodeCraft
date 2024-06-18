@@ -170,6 +170,10 @@ body{
     top: 30px;
 }
 
+.Logo img{
+    width: 25vw;
+}
+
 .LogoOfficial img{
     width: 80px;
     position: absolute;

@@ -22,9 +22,53 @@
     </div>
 
     <div id="pixel-art-container1">
-        <img id="img1" src="startloadingfinal1.png" class="pixel-art-frame active">
-        <img id="img2" src="startloadingfinal2.png" class="pixel-art-frame">
-        <img id="img3" src="startloadingfinal3.png" class="pixel-art-frame">
+        <img id="img36" src="level2_final1.png" class="pixel-art-frame active">
+        <img id="img37" src="level2_final2.png" class="pixel-art-frame">
+        <img id="img38" src="level2_final3.png" class="pixel-art-frame">
+        <img id="img39" src="level2_final4.png" class="pixel-art-frame">
+        <img id="img40" src="level2_final5.png" class="pixel-art-frame">
+        <img id="img41" src="level2_final6.png" class="pixel-art-frame">
+        <img id="img42" src="level2_final7.png" class="pixel-art-frame">
+        <img id="img43" src="level2_final8.png" class="pixel-art-frame">
+        <img id="img44" src="level2_final9.png" class="pixel-art-frame">
+        <img id="img45" src="level2_final10.png" class="pixel-art-frame">
+        <img id="img46" src="level2_final11.png" class="pixel-art-frame">
+        <img id="img47" src="level2_final12.png" class="pixel-art-frame">
+        <img id="img48" src="level2_final13.png" class="pixel-art-frame">
+        <img id="img49" src="level2_final14.png" class="pixel-art-frame">
+        <img id="img50" src="level2_final15.png" class="pixel-art-frame">
+        <img id="img51" src="level2_final16.png" class="pixel-art-frame">
+        <img id="img52" src="level2_final17.png" class="pixel-art-frame">
+        <img id="img53" src="level2_final18.png" class="pixel-art-frame">
+        <img id="img54" src="level2_final19.png" class="pixel-art-frame">
+        <img id="img55" src="level2_final20.png" class="pixel-art-frame">
+        <img id="img56" src="level2_final21.png" class="pixel-art-frame">
+        <img id="img57" src="level2_final22.png" class="pixel-art-frame">
+        <img id="img58" src="level2_final23.png" class="pixel-art-frame">
+        <img id="img59" src="level2_final24.png" class="pixel-art-frame">
+        <img id="img60" src="level2_final25.png" class="pixel-art-frame">
+        <img id="img61" src="level2_final26.png" class="pixel-art-frame">
+        <img id="img62" src="level2_final27.png" class="pixel-art-frame">
+        <img id="img63" src="level2_final28.png" class="pixel-art-frame">
+        <img id="img64" src="level2_final29.png" class="pixel-art-frame">
+        <img id="img65" src="level2_final30.png" class="pixel-art-frame">
+        <img id="img66" src="level2_final31.png" class="pixel-art-frame">
+        <img id="img67" src="level2_final32.png" class="pixel-art-frame">
+        <img id="img68" src="level2_final33.png" class="pixel-art-frame">
+        <img id="img69" src="level2_final34.png" class="pixel-art-frame">
+        <img id="img70" src="level2_final35.png" class="pixel-art-frame">
+        <img id="img71" src="level2_final36.png" class="pixel-art-frame">
+        <img id="img72" src="level2_final37.png" class="pixel-art-frame">
+        <img id="img73" src="level2_final38.png" class="pixel-art-frame">
+        <img id="img74" src="level2_final39.png" class="pixel-art-frame">
+        <img id="img75" src="level2_final40.png" class="pixel-art-frame">
+        <img id="img76" src="level2_final41.png" class="pixel-art-frame">
+        <img id="img77" src="level2_final42.png" class="pixel-art-frame">
+        <img id="img78" src="level2_final43.png" class="pixel-art-frame">
+        <img id="img79" src="level2_final44.png" class="pixel-art-frame">
+        <img id="img80" src="level2_final45.png" class="pixel-art-frame">
+        <img id="img81" src="level2_final46.png" class="pixel-art-frame">
+
 
     <div class="buttons">
         <button type="reset" class="button1" onclick="resetForm()">Reset</button>
@@ -39,17 +83,21 @@
     <div id="hintBox" style="display:none;">
         <p id="hintText"></p>
     </div>
+
+    <div class="form">
+        <form id="answerForm" onsubmit="checkAnswer4(); return false;">
+            <input type="text" id="textbox" name="textbox" placeholder="Enter your answer here: " oninput="updateSentence4();"><br>
+            <span id="output" style="font-size: 14px;"></span><br>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+
 </div>
     
-
     <div class="text-box">
-        <div id="sentence1" class="sentence show">You've just cracked a tough case and are about to log your findings into your computer. 
-             <br><br> </div>
-
-        <div id="sentence2" class="sentence">Suddenly, an unexpected message appears on your screen...<br><br>
-        </div>
-        <div id="sentence3" class="sentence"> "Do you wish to accept this case?" Intrigued, you choose to accept.<br><br>
-        </div>
+        <div id="sentence1" class="sentence show">You've just cracked a tough case and are about to log your findings into your computer. <br><br> </div>
+        <div id="sentence2" class="sentence">Suddenly, an unexpected message appears on your screen...<br><br></div>
+        <div id="sentence3" class="sentence"> "Do you wish to accept this case?" Intrigued, you choose to accept.<br><br></div>
         <div id="sentence4" class="sentence">However, when you try to open the file, it doesn't budge. It's locked tight, requiring a password to proceed.<br><br>
             import os<br>
             import getpass<br><br>
@@ -66,14 +114,6 @@
         </div>
         <div id="sentence5" class="sentence"> The `correct_password` variable stores the predefined password, which is compared against the user input in the `check_password` function to grant or deny access to the folder.<br><br>
     </div>
-
-        <div class="form">
-            <form id="answerForm" onsubmit="checkAnswer4(); return false;">
-                <input type="text" id="textbox" name="textbox" placeholder="Enter your answer here: " oninput="updateSentence4();"><br>
-                <span id="output" style="font-size: 14px;"></span><br>
-                <input type="submit" value="Submit">
-            </form>
-        </div>
 
     <script>
         document.addEventListener("DOMContentLoaded", function () {
@@ -94,17 +134,17 @@
             function updateButtonPositions() {
                 const containerRect = container.getBoundingClientRect();
                 
-                button1.style.left = `${containerRect.left + -60}px`;
-                button1.style.top = `${containerRect.top + 310}px`; //Reset
+                button1.style.left = `${containerRect.left + -430}px`;
+                button1.style.top = `${containerRect.top + 510}px`; //Reset
 
-                button2.style.left = `${containerRect.left + 20}px`;
-                button2.style.top = `${containerRect.top + 310}px`; //Undo
+                button2.style.left = `${containerRect.left + -430}px`;
+                button2.style.top = `${containerRect.top + 470}px`; //Undo
 
-                button3.style.left = `${containerRect.left + 760}px`;
-                button3.style.top = `${containerRect.top + 310}px`; // Hint
+                button3.style.left = `${containerRect.left + 660}px`;
+                button3.style.top = `${containerRect.top + 510}px`; // Hint
 
-                scores.style.left = `${containerRect.left + 740}px`;
-                scores.style.top = `${containerRect.top + -255}px`; // Score Board
+                scores.style.left = `${containerRect.left + -500}px`;
+                scores.style.top = `${containerRect.top + 5}px`; // Score Board
 
                 hinting.style.left = `${containerRect.left + 710}px`;
                 hinting.style.top = `${containerRect.top + 340}px`; // Hints na talaguh
@@ -173,7 +213,7 @@
                     }, 1000);
 
                      setTimeout(() => {
-                        window.location.href = 'IngameMystery2.html';
+                        window.location.href = "https://guillianecantillas.github.io/CodeCraft/Mystery%20Files/IngameMystery2.html";
                     }, 9000);
                 } else {
                     sentence.innerHTML = `However, when you try to open the file, it doesn't budge. It's locked tight, requiring a password to proceed. <br><br> import os<br>

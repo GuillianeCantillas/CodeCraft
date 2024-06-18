@@ -22,8 +22,17 @@
     </div>
 
 <div id="pixel-art-container2">
-        <img id="img1" src="startloadingfinal1.png" class="pixel-art-frame active">
-        <img id="img2" src="startloadingfinal2.png" class="pixel-art-frame">
+        <img id="img85" src="level3_4.png" class="pixel-art-frame active">
+        <img id="img86" src="level3_5.png" class="pixel-art-frame">
+        <img id="img86" src="level3_6.png" class="pixel-art-frame">
+        <img id="img87" src="level3_7.png" class="pixel-art-frame">
+        <img id="img88" src="level3_8.png" class="pixel-art-frame">
+        <img id="img89" src="level3_9.png" class="pixel-art-frame">
+        <img id="img90" src="level3_10.png" class="pixel-art-frame">
+        <img id="img91" src="level3_11.png" class="pixel-art-frame">
+        <img id="img92" src="level3_12.png" class="pixel-art-frame">
+        <img id="img93" src="level3_13.png" class="pixel-art-frame">
+
 
         <div class="buttons">
             <button type="reset" class="button1" onclick="resetForm()">Reset</button>
@@ -89,23 +98,24 @@
                 "Hint 3: The function starts with the letter 'p' and is four letters long."];
             
                 function updateButtonPositions() {
-                    const containerRect = container.getBoundingClientRect();
-                    
-                    button1.style.left = `${containerRect.left + -60}px`;
-                    button1.style.top = `${containerRect.top + 310}px`; //Reset
-    
-                    button2.style.left = `${containerRect.left + 20}px`;
-                    button2.style.top = `${containerRect.top + 310}px`; //Undo
-    
-                    button3.style.left = `${containerRect.left + 760}px`;
-                    button3.style.top = `${containerRect.top + 310}px`; // Hint
-    
-                    scores.style.left = `${containerRect.left + 740}px`;
-                    scores.style.top = `${containerRect.top + -255}px`; // Score Board
-    
-                    hinting.style.left = `${containerRect.left + 710}px`;
-                    hinting.style.top = `${containerRect.top + 340}px`; // Hints na talaguh
-                }
+                const containerRect = container.getBoundingClientRect();
+                
+                button1.style.left = `${containerRect.left + -430}px`;
+                button1.style.top = `${containerRect.top + 510}px`; //Reset
+
+                button2.style.left = `${containerRect.left + -430}px`;
+                button2.style.top = `${containerRect.top + 470}px`; //Undo
+
+                button3.style.left = `${containerRect.left + 660}px`;
+                button3.style.top = `${containerRect.top + 510}px`; // Hint
+
+                scores.style.left = `${containerRect.left + -500}px`;
+                scores.style.top = `${containerRect.top + 5}px`; // Score Board
+
+                hinting.style.left = `${containerRect.left + 710}px`;
+                hinting.style.top = `${containerRect.top + 340}px`; // Hints na talaguh
+            }
+
     
                 updateButtonPositions();
                 window.addEventListener('resize', updateButtonPositions);
