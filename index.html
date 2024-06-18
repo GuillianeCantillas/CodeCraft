@@ -5,13 +5,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width-device-width,initial-scale=1.0">
-    <title>CodeCraft</title>
+    <title>Login</title>
     <link rel="stylesheet" href="Login.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Bungee+Inline&family=Russo+One&display=swap" rel="stylesheet">
+    <script src="Login.js" defer  type="module"></script>
+
 </head>
 
 <body>
@@ -27,28 +29,22 @@
         <img src="Cyberpink.png" alt="Logo2"></div>
 
     <div class="wrapper">
-        <form action="">
             <h1>Empowering College Minds 
                 through Programming Excellence.</h1>
             <div class="input-box">
-                <input type="text" placeholder="Email" required>
+                <input type="text" placeholder="Email" id="emailAddress" required>
                 <i class='bx bxs-user'></i>
                         </div>
             <div class="input-box">
-                <input type="password" placeholder="Password" required>
+                <input type="password" placeholder="Password" id="password" required>
             </div>
 
-            <div class="remember-forgot">
-                <label><input type="checkbox"> Remember me</label>
-                <a href="#">Forgot Password?</a>
-            </div>
-            
-            <button type="submit" class="btn">Login</button>
+            <button id="btnSubmit" class="btn">Login</button>
 
             <div class="register-link">
                 <p>Don't have an account? <a href="https://guillianecantillas.github.io/CodeCraft/Register.html">Register</a></p>
             </div>
-        </form>
     </div>
+
 </body>
 </html>

@@ -52,6 +52,7 @@
         </div>
 </div>
 
+
 <div class="text-box">
     <div id="sentence49" class="sentence"> You did it! You actually broke out of the loop! Though this time, you are in an uncharted territory. <br> <br></div>
     <div id="sentence50" class="sentence"> Barrels upon barrels and a bar like ambience is what this room had offered you. <br><br></div>
@@ -73,6 +74,10 @@
     LocalDateTime represents both a date and a time (yyyy-MM-dd-HH-mm-ss-ns)<br><br>
     DateTimeFormatter is used to create formatters with specific patterns. <br>
 </div>
+</div>
+
+<div id="toast" class="toast">
+    <img src="Ranking4.png" alt="Toast Image">
 </div>
 
 <script>
@@ -136,7 +141,8 @@ document.addEventListener("DOMContentLoaded", function () {
     setTimeout(() => {
         document.getElementById("sentence49").style.display = "block";
         document.getElementById("sentence49").classList.add("show");
-    }, 2000);
+        showToast();
+    }, 1000);
 
     setTimeout(() => {
         document.getElementById("sentence50").style.display = "block";
@@ -274,6 +280,12 @@ window.checkAnswer54 = function() {
             } else {
                 hintText.textContent = "No more hints available.";
             }};
+
+    function showToast() {
+    var toast = document.getElementById("toast");
+    toast.className = "toast show";
+    setTimeout(function(){ toast.className = toast.className.replace("show", ""); }, 5000);
+}
         });
 
 </script>

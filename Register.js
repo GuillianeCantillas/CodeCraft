@@ -26,8 +26,8 @@ var enterpassword = document.getElementById('password');
 var enterCourse = document.getElementById('Course');
 var enterYearLevel = document.getElementById('Year-Level');
 
-const Login = document.getElementById("btnSubmit");
-Login.addEventListener("click", async function() { 
+const register = document.getElementById("btnSubmit");
+register.addEventListener("click", async function() { 
     try {
 
         if (!enterstudentnumber.value || !enteremail.value || !enterpassword.value || !enterCourse.value || !enterYearLevel.value || !enterfirstname.value || !entermiddle.value || !enterlastname.value) {
@@ -38,9 +38,10 @@ Login.addEventListener("click", async function() {
             alert("Please enter a valid @feualabang.edu.ph email address.");
         }
 
-        const credential = await createUserWithEmailAndPassword(auth, enteremail.value, enterpassword.value);
-
-        await setDoc(doc(db, "users", credential.user.uid), {
+        const userCredential = await createUserWithEmailAndPassword(auth, enteremail.value, enterpassword.value);
+        const user = userCredential.user;
+ 
+        await setDoc(doc(db, "users", userCredential.user.uid), {
             StudentNumber: enterstudentnumber.value,
             First_Name: enterfirstname.value,
             Initial: entermiddle.value,

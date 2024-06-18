@@ -16,6 +16,10 @@
 
 <body>
 
+    <div id="toast" class="toast">
+        <img src="Ranking5.png" alt="Toast Image">
+    </div>
+
     <div class="homeheader">
         <h1> Congratulations! You escaped the scary mansion!</h1>
         <h2 id="hala"  style="display: none"> Or did you?</h2>
@@ -31,6 +35,8 @@
 
     <script>
     document.addEventListener("DOMContentLoaded", function() {
+    showToast();
+
     const scoreElement = document.getElementById('score');
     function getScore() {
     const score = localStorage.getItem("score");
@@ -57,6 +63,12 @@
       }, 2000); 
     }, 3000); 
     });
+
+    function showToast() {
+    var toast = document.getElementById("toast");
+    toast.className = "toast show";
+    setTimeout(function(){ toast.className = toast.className.replace("show", ""); }, 3000);
+}
 
     </script>
 </body>

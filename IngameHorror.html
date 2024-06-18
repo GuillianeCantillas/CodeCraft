@@ -66,6 +66,11 @@
             public void __________ (passcode) throws IOException <br><br></div>
         <div id="sentence5" class="sentence"> The open() method, launches the associated application to open a file. It takes a file as an argument.<br><br> </div>
 
+        <div id="toast" class="toast">
+            <img src="Ranking2.png" alt="Toast Image">
+        </div>
+
+    </div>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             const container = document.getElementById('pixel-art-container1');
@@ -147,6 +152,7 @@
                     document.getElementById("textbox").disabled = true;
                     document.getElementById("submitbutton").disabled = true;
 
+                    showToast();
 
                     score += 11;
                     scoreElement.textContent = score;
@@ -208,6 +214,12 @@
             } else {
                 hintText.textContent = "No more hints available.";
             }};
+
+    function showToast() {
+    var toast = document.getElementById("toast");
+    toast.className = "toast show";
+    setTimeout(function(){ toast.className = toast.className.replace("show", ""); }, 5000);
+}
     });
 </script>
 </body>
