@@ -30,6 +30,7 @@
         <img id="img16" src="Chest6.png" class="pixel-art-frame">
         <img id="img17" src="Chest7.png" class="pixel-art-frame">
         <img id="img18" src="Chest8.png" class="pixel-art-frame">
+        <img id="img19" src="Chest8.1.jpg" class="pixel-art-frame">
 
         <div class="buttons">
             <button type="reset" class="button1" onclick="resetForm()">Reset</button>
@@ -113,7 +114,7 @@
         frames[currentFrameIndex].classList.add("active");
 
         // Stop the animation when reaching the last frame
-        if (frames[currentFrameIndex].id === 'img18') {
+        if (frames[currentFrameIndex].id === 'img19') {
             clearInterval(animationInterval);
         }
     }
@@ -158,7 +159,7 @@ let newScore = getScore();
 window.checkAnswer8 = function() {
   var userInput = document.getElementById("textbox").value.trim().toLowerCase();
   var sentence8 = document.getElementById("sentence8");
-  var correctAnswer = "65";
+  var correctAnswer = "56";
   var spanClass = userInput === correctAnswer ? 'correct' : 'incorrect';
 
         if (userInput === correctAnswer) {

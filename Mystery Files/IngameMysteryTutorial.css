@@ -1,0 +1,142 @@
+body {
+    background-color: black;
+    color: white;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .loading-screen {
+    position: fixed;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 1s ease-in-out;
+  }
+  
+  .loading-content {
+    text-align: center;
+    opacity: 1;
+    transition: opacity 1s ease-in-out;
+  }
+  
+  .loading-content h2,
+  .loading-content p,
+  .loading-content button {
+    transition: opacity 1s ease-in-out;
+  }
+  
+  .loading-content h2 {
+    font-size: 2em;
+  }
+  
+  .loading-content p {
+    font-size: 1.2em;
+  }
+  
+  .loading-content button {
+    background-color: #555;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    margin-top: 20px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s, opacity 1s ease-in-out;
+  }
+  
+  .loading-content button:hover {
+    background-color: #777;
+  }
+  
+  .main-content {
+    display: none;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+  }
+  
+  h1 {
+    margin-top: 20px;
+  }
+  
+  h2{
+    color: #D284AC;
+  }
+  
+  .glow {
+    text-shadow: 0 0 10px #D284AC(255, 0, 0, 0.8), 0 0 20px #D284AC(255, 0, 0, 0.6), 0 0 30px #D284AC(255, 0, 0, 0.4);
+  }
+  
+  .buttons {
+    margin-top: 30px;
+  }
+  
+  button {
+    background-color: #555;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    margin: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s, opacity 1s ease-in-out;
+    border-radius: 25px;
+  }
+  
+  button:hover {
+    background-color: #777;
+  }
+
+  
+  @keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+  }
+  
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+    transition: opacity 1s ease-in-out;
+  }
+  
+  .modal-content {
+    background-color: #333;
+    color: white;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 600px;
+  }
+  
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  

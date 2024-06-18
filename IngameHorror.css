@@ -14,34 +14,33 @@ body {
   position: relative;
 }
 
+
 .homeheader h1, .homeheader h2, .homeheader h3 {
-  display: flex;
-  flex-direction: row;
-  gap: 10px;
   position: absolute;
   margin: 0; 
-  bottom: 20px;
-  left: 50px; 
 }
 .homeheader h1 {
   font-family: "Bungee Inline", sans-serif;
   font-size: 25px;
   color: #F50CA0;
+  bottom: 20px;
+  left: 50px; 
 }
-
 .homeheader h2 {
   font-family: 'Roboto', sans-serif;
   font-size: 12px;
   color: white;
+  bottom: 40px;
   left: 210px; 
 }
-
 .homeheader h3 {
   font-family: "Russo One", sans-serif;
   font-size: 15px;
   color: #D284AC;
-  left: 230px; 
+  bottom: 39px;
+  left: 230px;
 }
+
 
 #pixel-art-container1, #pixel-art-container2, #pixel-art-container3, #pixel-art-container5, #pixel-art-container6, #pixel-art-container7, #pixel-art-container8,  #pixel-art-container9{
   width: 900px;

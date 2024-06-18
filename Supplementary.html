@@ -85,9 +85,14 @@ body {
     border-radius: 50%;
     margin-right: 7.5vw; 
   }
+
+  nav a.disabled {
+    font-size: 18px;
+    pointer-events: none;
+    color: #F50CA0; 
+    cursor: default;
+  }
   
-
-
   </style>
 </head>
 
@@ -97,7 +102,7 @@ body {
     <nav>
       <a href='https://guillianecantillas.github.io/CodeCraft/HomepageActual.html'>Games</a>
       <a href="#">Leaderboards</a>
-      <a href="#">Supplementary Materials</a>
+      <a href="#" class="disabled">Supplementary Materials</a>
     </nav>
     <button class="button" onclick="window.location.href = 'https://guillianecantillas.github.io/CodeCraft/HomepageUser.html';">
       <img src="Accounts.png" id="user-image"></button>

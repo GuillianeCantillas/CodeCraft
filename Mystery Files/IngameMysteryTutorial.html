@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Detective</title>
+    <link rel="stylesheet" href="IngameMysteryTutorial.css">
+</head>
+<body>
+    <div id="loading-screen" class="loading-screen">
+        <div class="loading-content">
+            <h2 class="glow">New to the mechanics of CodeCraft? We have a tutorial here for you!</h2>
+            <button class="delayed-button" onclick="continueToTutorial()">Tutorial</button>
+            <button class="delayed-button" onclick="continueToMain()">Start the game</button>
+        </div>
+    </div>
+
+    <script>
+        function continueToMain() {
+            document.getElementById('loading-screen').style.opacity = '0';
+            setTimeout(function() {
+                window.location.href = 'https://guillianecantillas.github.io/CodeCraft/Mystery%20Files/IngameMystery.html';
+            }, 3000);
+        }
+
+        function continueToTutorial() {
+            document.getElementById('loading-screen').style.opacity = '0';
+            setTimeout(function() {
+                window.location.href = 'https://guillianecantillas.github.io/CodeCraft/Mystery%20Files/IngameMystery11.html';
+            }, 3000);
+        }
+    </script>
+</body>
+</html>
