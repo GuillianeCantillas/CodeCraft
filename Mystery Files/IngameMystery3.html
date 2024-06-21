@@ -42,17 +42,25 @@
         <div id="hintBox" style="display:none;">
             <p id="hintText"></p>
         </div>
+
+        <div class="form">
+            <form id="answerForm" onsubmit="checkAnswer17(); return false;">
+                <input type="text" id="textbox" name="textbox" placeholder="Enter your answer here: " oninput="updateSentence17();"><br>
+                <span id="output" style="font-size: 14px;"></span><br>
+                <input type="submit" value="Submit" id="submitbutton">
+            </form>
+        </div>
 </div>
     
             <div class="text-box">
-                <div id="sentence14" class="sentence show">
+                <div id="sentence15" class="sentence show">
                     You're back at the case folder, ready to delve deeper into Phoebe's last sighting. 
                     Upon opening the witness report document, you find the information. 
                     You decide to gather data and list your findings on a notepad.
-                    <br></div>
-                <div id="sentence15" class="sentence">As you organize the data, key points start to emerge, shedding light on Phoebe's whereabouts before her disappearance.<br>
                     <br><br></div>
-                    <div id="sentence16" class="sentence"> 
+                <div id="sentence16" class="sentence">As you organize the data, key points start to emerge, shedding light on Phoebe's whereabouts before her disappearance.<br>
+                    <br><br></div>
+                    <div id="sentence17" class="sentence"> 
                         from datetime import datetime <br><br>
 
                         last_found = "CENTRAL PARK" <br>
@@ -66,18 +74,13 @@
                         print("LAST SEEN WEARING:")<br>
                         print(", ".join(last_seen_wearing))<br>
 
-                    <br><br> 
+                    <br><br> </div>
+                    <div id="sentence18" class="sentence"> <br><br>The strftime() function is used to convert date and time objects to their string representation.<br><br> </div>
             </div>
-                    <div id="sentence17" class="sentence"> <br><br>The strftime() function is used to convert date and time objects to their string representation. </div>
-                </div>
             
-    
-             <div class="form">
-                <form id="answerForm" onsubmit="checkAnswer8(); return false;">
-                    <input type="text" id="textbox" name="textbox" placeholder="Enter your answer here: " oninput="updateSentence8();"><br>
-                    <span id="output" style="font-size: 14px;"></span><br>
-                    <input type="submit" value="Submit" id="submitbutton">
-                </form>
+
+            <div id="toast" class="toast">
+                <img src="Ranking (1)5.png" alt="Toast Image">
             </div>
 
     <script>
@@ -95,30 +98,31 @@
                 "Hint 3: Common format codes used with this method include %Y for the year and %H for the hour in 24-hour format."];
             
                 function updateButtonPositions() {
-                    const containerRect = container.getBoundingClientRect();
-                    
-                    button1.style.left = `${containerRect.left + -60}px`;
-                    button1.style.top = `${containerRect.top + 310}px`; //Reset
-    
-                    button2.style.left = `${containerRect.left + 20}px`;
-                    button2.style.top = `${containerRect.top + 310}px`; //Undo
-    
-                    button3.style.left = `${containerRect.left + 760}px`;
-                    button3.style.top = `${containerRect.top + 310}px`; // Hint
-    
-                    scores.style.left = `${containerRect.left + 740}px`;
-                    scores.style.top = `${containerRect.top + -255}px`; // Score Board
-    
-                    hinting.style.left = `${containerRect.left + 710}px`;
-                    hinting.style.top = `${containerRect.top + 340}px`; // Hints na talaguh
-                }
-    
+                const containerRect = container.getBoundingClientRect();
+                
+                button1.style.left = `${containerRect.left + -430}px`;
+                button1.style.top = `${containerRect.top + 510}px`; //Reset
+
+                button2.style.left = `${containerRect.left + -430}px`;
+                button2.style.top = `${containerRect.top + 470}px`; //Undo
+
+                button3.style.left = `${containerRect.left + 660}px`;
+                button3.style.top = `${containerRect.top + 510}px`; // Hint
+
+                scores.style.left = `${containerRect.left + -500}px`;
+                scores.style.top = `${containerRect.top + 5}px`; // Score Board
+
+                hinting.style.left = `${containerRect.left + 710}px`;
+                hinting.style.top = `${containerRect.top + 340}px`; // Hints na talaguh
+            }
+
                 updateButtonPositions();
                 window.addEventListener('resize', updateButtonPositions);
                 window.addEventListener('scroll', updateButtonPositions);
     
+    
     let currentFrameIndex = 0;
-    let interval = 1000;
+    let interval = 2000;
     const frames2 = container.querySelectorAll(".pixel-art-frame");
     let animationInterval;
 
@@ -128,7 +132,7 @@
         frames[currentFrameIndex].classList.add("active");
 
         // Stop the animation when reaching the last frame
-        if (frames[currentFrameIndex].id === 'img18') {
+        if (frames[currentFrameIndex].id === 'img97') {
             clearInterval(animationInterval);
         }
     }
@@ -144,14 +148,19 @@
     }, 3000);
 
     setTimeout(() => {
-                document.getElementById("sentence14").style.display = "block";
-                document.getElementById("sentence14").classList.add("show");
+                document.getElementById("sentence15").style.display = "block";
+                document.getElementById("sentence15").classList.add("show");
               }, 4000); 
 
     setTimeout(() => {
               document.getElementById("sentence16").style.display = "block";
               document.getElementById("sentence16").classList.add("show");
               }, 8000); 
+
+    setTimeout(() => {
+              document.getElementById("sentence17").style.display = "block";
+              document.getElementById("sentence17").classList.add("show");
+              }, 12000); 
 
 
 const scoreElement = document.getElementById('score');
@@ -170,34 +179,41 @@ scoreElement.textContent = score;
 
 let newScore = getScore();
 
-window.checkAnswer8 = function() {
+window.checkAnswer17 = function() {
   var userInput = document.getElementById("textbox").value.trim().toLowerCase();
-  var sentence8 = document.getElementById("sentence16");
+  var sentence17 = document.getElementById("sentence17");
   var correctAnswer = "strftime";
   var spanClass = userInput === correctAnswer ? 'correct' : 'incorrect';
 
         if (userInput === correctAnswer) {
             newScore = score + 10; 
             updateScore(newScore);
-            sentence16.innerHTML = "from datetime import datetime <br> " + "last_found = 'CENTRAL PARK' "+ 
+            sentence17.innerHTML = "from datetime import datetime <br> " + "last_found = 'CENTRAL PARK' "+ 
             "date = datetime(2024, 6, 17)." + "<span class='" + spanClass + "'>" + userInput + "</span>('%B %d, %Y')<br>" +
             "time = datetime(2024, 6, 17, 16, 20, 0)." + "<span class='" + spanClass + "'>" + userInput + "</span>('%H:%M:%S') <br>" +
             "last_seen_wearing = ['BLACK SHIRT', 'GREY SWEATPANTS', 'PINK HOODIE', 'WHITE SHOES']<br><br>print(f'LAST FOUND: {last_found}'')<br>'print(f'DATE: {date}')<br>"+
             "print(f'TIME: {time}')<br>" + "print('LAST SEEN WEARING:')<br>"+ "print(', '.join(last_seen_wearing))<br>" ;
                 document.getElementById("textbox").disabled = true;
                 document.getElementById("submitbutton").disabled = true;
+                showToast();
+
+                clearInterval(animationInterval);
+                    showNextFrame([...frames2, document.getElementById("img98")]); 
+                    setTimeout(() => {
+                        startAnimation([...frames2, document.getElementById("img98")]); 
+                    }, 2000);
                 
             setTimeout(() => {
-                document.getElementById("sentence13").style.display = "block";
-                document.getElementById("sentence13").classList.add("show");
+                document.getElementById("sentence18").style.display = "block";
+                document.getElementById("sentence18").classList.add("show");
             }, 2000);
 
             setTimeout(() => {
-                window.location.href = 'Ingamemystery4.html';
-            }, 8000);
+                window.location.href = 'https://guillianecantillas.github.io/CodeCraft/Mystery%20Files/IngameMystery4.html';
+            }, 10000);
 
         } else {
-            sentence16.innerHTML ="from datetime import datetime <br> " + "last_found = 'CENTRAL PARK' <br>"+ 
+            sentence17.innerHTML ="from datetime import datetime <br> " + "last_found = 'CENTRAL PARK' <br>"+ 
             "date = datetime(2024, 6, 17)." + "<span class='" + spanClass + "'>" + userInput + "</span>('%B %d, %Y')<br>" +
             "time = datetime(2024, 6, 17, 16, 20, 0)." + "<span class='" + spanClass + "'>" + userInput + "</span>('%H:%M:%S')<br>" +
             "last_seen_wearing = ['BLACK SHIRT', 'GREY SWEATPANTS', 'PINK HOODIE', 'WHITE SHOES']<br><br>print(f'LAST FOUND: {last_found}'')<br>'print(f'DATE: {date}')<br>"+
@@ -208,10 +224,10 @@ window.checkAnswer8 = function() {
     console.log("Current Score:", score);
     console.log("New Score:", newScore);  
 
-    window.updateSentence8 = function () {
+    window.updateSentence17 = function () {
         var userInput = document.getElementById("textbox").value.trim();
-        var sentence16 = document.getElementById("sentence16");
-        sentence16.innerHTML = "from datetime import datetime <br><br>" + "last_found = 'CENTRAL PARK'<br>"+ 
+        var sentence17 = document.getElementById("sentence17");
+        sentence17.innerHTML = "from datetime import datetime <br><br>" + "last_found = 'CENTRAL PARK'<br>"+ 
             "date = datetime(2024, 6, 17)." + userInput + "('%B %d, %Y')<br>" +
             "time = datetime(2024, 6, 17, 16, 20, 0)." + userInput + "('%H:%M:%S')<br>" +
             "last_seen_wearing = ['BLACK SHIRT', 'GREY SWEATPANTS', 'PINK HOODIE', 'WHITE SHOES']<br>" + 
@@ -220,11 +236,10 @@ window.checkAnswer8 = function() {
             "print(f'TIME: {time}')<br>" + 
             "print('LAST SEEN WEARING:')<br>"+
             "print(', '.join(last_seen_wearing))<br>" ;
-            document.getElementById("textbox").disabled = true;
     };
             window.resetForm = function () {
                 document.getElementById("answerForm").reset();
-                sentence16.innerHTML = "from datetime import datetime <br> " + "last_found = 'CENTRAL PARK'<br> "+ 
+                sentence17.innerHTML = "from datetime import datetime <br> " + "last_found = 'CENTRAL PARK'<br> "+ 
             "date = datetime(2024, 6, 17)." + "__________('%B %d, %Y')<br>" +
             "time = datetime(2024, 6, 17, 16, 20, 0)." + "_____________('%H:%M:%S') <br>" +
             "last_seen_wearing = ['BLACK SHIRT', 'GREY SWEATPANTS', 'PINK HOODIE', 'WHITE SHOES']<br>" + 
@@ -234,14 +249,14 @@ window.checkAnswer8 = function() {
             "print('LAST SEEN WEARING:')<br>"+"print(', '.join(last_seen_wearing))<br>" ;
                 document.getElementById("textbox").disabled = true;
             document.getElementById("textbox").disabled = false;
-            document.getElementById("sentence17").style.display = "none";
-            document.getElementById("sentence17").classList.remove("show");
+            document.getElementById("sentence18").style.display = "none";
+            document.getElementById("sentence18").classList.remove("show");
             };
 
             window.undoInput = function () {
                 var textbox = document.getElementById("textbox");
                 textbox.value = textbox.value.slice(0, -1);
-                updateSentence16();
+                updateSentence17();
             };
 
         window.showHint = function () {
@@ -255,6 +270,12 @@ window.checkAnswer8 = function() {
             } else {
                 hintText.textContent = "No more hints available.";
             }};
+
+            function showToast() {
+    var toast = document.getElementById("toast");
+    toast.className = "toast show";
+    setTimeout(function(){ toast.className = toast.className.replace("show", ""); }, 5000);
+}
         });
         </script>
 </body>

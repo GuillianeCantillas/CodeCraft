@@ -12,6 +12,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Bungee+Inline&family=Russo+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -22,8 +23,23 @@
     </div>
 
 <div id="pixel-art-container2">
-        <img id="img1" src="startloadingfinal1.png" class="pixel-art-frame active">
-        <img id="img2" src="startloadingfinal2.png" class="pixel-art-frame">
+        <img id="img135" src="lvl8final1.png" class="pixel-art-frame active">
+        <img id="img136" src="lvl8final2.png" class="pixel-art-frame">
+        <img id="img137" src="lvl8final3.png" class="pixel-art-frame">
+        <img id="img138" src="lvl8final4.png" class="pixel-art-frame">
+        <img id="img139" src="lvl8final5.png" class="pixel-art-frame">
+        <img id="img140" src="lvl8final6.png" class="pixel-art-frame">
+        <img id="img141" src="lvl8final7.png" class="pixel-art-frame">
+        <img id="img142" src="level8FinalStop.png" class="pixel-art-frame">
+        <img id="img143" src="lvl8final8.png" class="pixel-art-frame">
+        <img id="img144" src="lvl8final9.png" class="pixel-art-frame">
+        <img id="img145" src="lvl8final10.png" class="pixel-art-frame">
+        <img id="img146" src="lvl8final11.png" class="pixel-art-frame">
+        <img id="img147" src="lvl8final12.png" class="pixel-art-frame">
+        <img id="img148" src="lvl8final13.png" class="pixel-art-frame" style="display:none">
+        <img id="img149" src="lvl8final14.png" class="pixel-art-frame">
+        <img id="img150" src="lvl8final15.png" class="pixel-art-frame">
+        <img id="img151" src="lvl8final16.png" class="pixel-art-frame">
 
         <div class="buttons">
             <button type="reset" class="button1" onclick="resetForm()">Reset</button>
@@ -38,15 +54,23 @@
         <div id="hintBox" style="display:none;">
             <p id="hintText"></p>
         </div>
+
+        <div class="form">
+            <form id="answerForm" onsubmit="checkAnswer29(); return false;">
+                <input type="text" id="textbox" name="textbox" placeholder="Enter your answer here: " oninput="updateSentence29();"><br>
+                <span id="output" style="font-size: 14px;"></span><br>
+                <input type="submit" value="Submit" id="submitbutton">
+            </form>
+        </div>
 </div>
     
             <div class="text-box">
-                <div id="sentence23" class="sentence show">
+                <div id="sentence27" class="sentence show">
                     The fate of this investigation rests in your hands. Identify the killer or risk losing the case forever.
                     <br><br></div>
-                <div id="sentence24" class="sentence"> Hurry!
+                <div id="sentence28" class="sentence"> Hurry!
                     <br><br></div>
-                    <div id="sentence25" class="sentence"> 
+                    <div id="sentence29" class="sentence"> 
                         import random <br>
                         suspects = ["Maria", "Berna", "Lee", "Jake"]<br>
                         correct_suspect = _______________ <br>
@@ -63,16 +87,11 @@
                         
                     <br><br> 
             </div>
-                    <div id="sentence26" class="sentence"> <br><br>Congratulations Detective.</div>
+                    <div id="sentence30" class="sentence"> <br><br>Congratulations Detective.</div>
                 </div>
-            
-    
-             <div class="form">
-                <form id="answerForm" onsubmit="checkAnswer8(); return false;">
-                    <input type="text" id="textbox" name="textbox" placeholder="Enter your answer here: " oninput="updateSentence25();"><br>
-                    <span id="output" style="font-size: 14px;"></span><br>
-                    <input type="submit" value="Submit" id="submitbutton">
-                </form>
+
+            <div id="toast" class="toast">
+                <img src="Ranking (1)6.png" alt="Toast Image">
             </div>
 
     <script>
@@ -90,24 +109,24 @@
                 "Hint 3: Fine! The main suspect has a three letter name."];
             
                 function updateButtonPositions() {
-                    const containerRect = container.getBoundingClientRect();
-                    
-                    button1.style.left = `${containerRect.left + -60}px`;
-                    button1.style.top = `${containerRect.top + 310}px`; //Reset
-    
-                    button2.style.left = `${containerRect.left + 20}px`;
-                    button2.style.top = `${containerRect.top + 310}px`; //Undo
-    
-                    button3.style.left = `${containerRect.left + 760}px`;
-                    button3.style.top = `${containerRect.top + 310}px`; // Hint
-    
-                    scores.style.left = `${containerRect.left + 740}px`;
-                    scores.style.top = `${containerRect.top + -255}px`; // Score Board
-    
-                    hinting.style.left = `${containerRect.left + 710}px`;
-                    hinting.style.top = `${containerRect.top + 340}px`; // Hints na talaguh
-                }
-    
+                const containerRect = container.getBoundingClientRect();
+                
+                button1.style.left = `${containerRect.left + -430}px`;
+                button1.style.top = `${containerRect.top + 510}px`; //Reset
+
+                button2.style.left = `${containerRect.left + -430}px`;
+                button2.style.top = `${containerRect.top + 470}px`; //Undo
+
+                button3.style.left = `${containerRect.left + 660}px`;
+                button3.style.top = `${containerRect.top + 510}px`; // Hint
+
+                scores.style.left = `${containerRect.left + -500}px`;
+                scores.style.top = `${containerRect.top + 5}px`; // Score Board
+
+                hinting.style.left = `${containerRect.left + 710}px`;
+                hinting.style.top = `${containerRect.top + 340}px`; // Hints na talaguh
+            }
+
                 updateButtonPositions();
                 window.addEventListener('resize', updateButtonPositions);
                 window.addEventListener('scroll', updateButtonPositions);
@@ -123,29 +142,62 @@
         frames[currentFrameIndex].classList.add("active");
 
         // Stop the animation when reaching the last frame
-        if (frames[currentFrameIndex].id === 'img18') {
+        if (frames[currentFrameIndex].id === 'img142') {
             clearInterval(animationInterval);
         }
-    }
-
-    function startAnimation(frames) {
-        currentFrameIndex = 0; // Reset index
-        frames[currentFrameIndex].classList.add("active");
-        animationInterval = setInterval(() => showNextFrame(frames), interval);
     }
 
     setTimeout(() => {
         startAnimation(frames2); 
     }, 3000);
 
+    function startAnimation(frames) {
+        currentFrameIndex = 0;
+        frames[currentFrameIndex].classList.add("active");
+        animationInterval = setInterval(() => showNextFrame(frames), interval);
+    }
+
+    function displayRemainingFrames() {
+    clearInterval(animationInterval);
+
+    const remainingFrames = [
+        document.getElementById("img149"),
+        document.getElementById("img150"),
+        document.getElementById("img151")
+    ];
+
+    let remainingIndex = 0;
+    const remainingInterval = 18000;
+
+    function showNextRemainingFrame() {
+        remainingFrames[remainingIndex].classList.remove("active");
+        remainingIndex++;
+        
+        if (remainingIndex < remainingFrames.length) {
+            remainingFrames[remainingIndex].classList.add("active");
+            if (remainingFrames[remainingIndex].id === 'img151') {
+                clearInterval(remainingAnimationInterval);
+            }
+        }
+    }
+
+    remainingFrames[0].classList.add("active");
+    const remainingAnimationInterval = setInterval(showNextRemainingFrame, remainingInterval);
+}
+
     setTimeout(() => {
-                document.getElementById("sentence24").style.display = "block";
-                document.getElementById("sentence24").classList.add("show");
+                document.getElementById("sentence27").style.display = "block";
+                document.getElementById("sentence27").classList.add("show");
               }, 4000); 
 
     setTimeout(() => {
-              document.getElementById("sentence25").style.display = "block";
-              document.getElementById("sentence25").classList.add("show");
+              document.getElementById("sentence28").style.display = "block";
+              document.getElementById("sentence28").classList.add("show");
+              }, 8000); 
+
+    setTimeout(() => {
+              document.getElementById("sentence29").style.display = "block";
+              document.getElementById("sentence29").classList.add("show");
               }, 8000); 
 
 
@@ -165,16 +217,16 @@ scoreElement.textContent = score;
 
 let newScore = getScore();
 
-window.checkAnswer8 = function() {
+window.checkAnswer29 = function() {
   var userInput = document.getElementById("textbox").value.trim().toLowerCase();
-  var sentence25 = document.getElementById("sentence25");
+  var sentence29 = document.getElementById("sentence29");
   var correctAnswer = "lee";
   var spanClass = userInput === correctAnswer ? 'correct' : 'incorrect';
 
         if (userInput === correctAnswer) {
             newScore = score + 20; 
             updateScore(newScore);
-            sentence25.innerHTML = "import random <br> " + " suspects = ['Maria', 'Berna', 'Lee', 'Jake'] <br>" + 
+            sentence29.innerHTML = "import random <br> " + " suspects = ['Maria', 'Berna', 'Lee', 'Jake'] <br>" + 
             "correct_suspect = " + "<span class='" + spanClass + "'>" + userInput + "</span>  <br>" + "guess_attempts = 0<br> " +
            "found = False<br>" + "while not found:<br>" + " guess = random.choice(suspects)<br>" + "guess_attempts += 1<br>"
            + "if guess == correct_suspect:<br>" + "found = True<br>" + 
@@ -182,33 +234,54 @@ window.checkAnswer8 = function() {
            " print(f'Attempt {guess_attempts}: Guessed '{guess}', which is incorrect.'')<br>"
                 document.getElementById("textbox").disabled = true;
                 document.getElementById("submitbutton").disabled = true;
+                showToast();
+
+                setTimeout(() => {
+                document.getElementById("img148").style.display = "block";
+                document.getElementById("img148").classList.add("active");
+                }, 1000);
+
+                setTimeout(() => {
+                    displayRemainingFrames()
+                }, 5000);
                 
-            setTimeout(() => {
-                document.getElementById("sentence26").style.display = "block";
-                document.getElementById("sentence26").classList.add("show");
-            }, 2000);
+                setTimeout(() => {
+                    document.getElementById("sentence30").style.display = "block";
+                    document.getElementById("sentence30").classList.add("show");
+                }, 2000);
 
             setTimeout(() => {
-                window.location.href = 'Ingamemystery6.html';
-            }, 8000);
+                window.location.href = 'Ingamemystery6.html'; 
+            }, 8000)
 
         } else {
-            sentence25.innerHTML ="import random <br> " + " suspects = ['Maria', 'Berna', 'Lee', 'Jake']<br>" + 
-            "correct_suspect = " + "<span class='" + spanClass + "'>" + userInput + "</span> <br>" + "guess_attempts = 0<br> " +
-           "found = False<br>" + "while not found:<br>" + " guess = random.choice(suspects)<br>" + "guess_attempts += 1<br>"
-           + "if guess == correct_suspect:<br>" + "found = True<br>" + 
-           "print(f'Correct suspect '{correct_suspect}' guessed in {guess_attempts} attempts.'')else:" + 
-           " print(f'Attempt {guess_attempts}: Guessed '{guess}', which is incorrect.'')<br>"
-        };
-    };
+        sentence29.innerHTML = "import random <br> " + " suspects = ['Maria', 'Berna', 'Lee', 'Jake']<br>" + 
+        "correct_suspect = " + "<span class='" + spanClass + "'>" + userInput + "</span> <br>" + "guess_attempts = 0<br> " +
+        "found = False<br>" + "while not found:<br>" + " guess = random.choice(suspects)<br>" + "guess_attempts += 1<br>"
+        + "if guess == correct_suspect:<br>" + "found = True<br>" + 
+        "print(f'Correct suspect '{correct_suspect}' guessed in {guess_attempts} attempts.'')else:" + 
+        " print(f'Attempt {guess_attempts}: Guessed '{guess}', which is incorrect.'')<br>"
+
+        if (userInput === "berna") {
+            document.getElementById("img146").style.display = "block";
+            document.getElementById("img146").classList.add("active");
+        } else if (userInput === "maria") {
+            document.getElementById("img144").style.display = "block";
+            document.getElementById("img144").classList.add("active");
+        } else if (userInput === "jake") {
+            document.getElementById("img145").style.display = "block";
+            document.getElementById("img145").classList.add("active");
+        }
+    }
+};
 
     console.log("Current Score:", score);
     console.log("New Score:", newScore);  
 
-    window.updateSentence25 = function () {
+    window.updateSentence29 = function () {
         var userInput = document.getElementById("textbox").value.trim();
-        var sentence25 = document.getElementById("sentence25");
-        sentence25.innerHTML = "import random <br> " + " suspects = ['Maria', 'Berna', 'Lee', 'Jake']<br>" + 
+        var sentence29 = document.getElementById("sentence29");
+        sentence29.innerHTML = "import random <br> " + " suspects = ['Maria', 'Berna', 'Lee', 'Jake']<br>" + 
             "correct_suspect = " + userInput + "</span> + "+ "guess_attempts = 0<br> " +
            "found = False<br>" + "while not found:<br>" + " guess = random.choice(suspects)<br>" + "guess_attempts += 1<br>"
            + "if guess == correct_suspect:<br>" + "found = True<br>" + 
@@ -217,20 +290,20 @@ window.checkAnswer8 = function() {
     };
             window.resetForm = function () {
                 document.getElementById("answerForm").reset();
-                sentence25.innerHTML = "import random <br> " + " suspects = ['Maria', 'Berna', 'Lee', 'Jake']<br>" + 
+                sentence29.innerHTML = "import random <br> " + " suspects = ['Maria', 'Berna', 'Lee', 'Jake']<br>" + 
             "correct_suspect = ________ "+ "guess_attempts = 0<br> " + "found = False<br>" + "while not found:<br>" + 
             " guess = random.choice(suspects)<br>" + "guess_attempts += 1<br>"+ "if guess == correct_suspect:<br>" + 
             "found = True<br>" + "print(f'Correct suspect '{correct_suspect}' guessed in {guess_attempts} attempts.'')else:" + 
            " print(f'Attempt {guess_attempts}: Guessed '{guess}', which is incorrect.'')<br>";
             document.getElementById("textbox").disabled = false;
-            document.getElementById("sentence26").style.display = "none";
-            document.getElementById("sentence26").classList.remove("show");
+            document.getElementById("sentence30").style.display = "none";
+            document.getElementById("sentence30").classList.remove("show");
             };
 
             window.undoInput = function () {
                 var textbox = document.getElementById("textbox");
                 textbox.value = textbox.value.slice(0, -1);
-                updateSentence25();
+                updateSentence29();
             };
 
         window.showHint = function () {
@@ -244,6 +317,12 @@ window.checkAnswer8 = function() {
             } else {
                 hintText.textContent = "No more hints available.";
             }};
+
+    function showToast() {
+    var toast = document.getElementById("toast");
+    toast.className = "toast show";
+    setTimeout(function(){ toast.className = toast.className.replace("show", ""); }, 5000);
+}
         });
         </script>
 </body>

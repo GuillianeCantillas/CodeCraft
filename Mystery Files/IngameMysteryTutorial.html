@@ -11,12 +11,14 @@
         <div class="loading-content">
             <h2 class="glow">New to the mechanics of CodeCraft? We have a tutorial here for you!</h2>
             <button class="delayed-button" onclick="continueToTutorial()">Tutorial</button>
-            <button class="delayed-button" onclick="continueToMain()">Start the game</button>
+            <button class="delayed-button" onclick="continueToGame()">Start the game</button>
+            <button class="delayed-button" onclick="continueToMain()">Main Menu</button>
+
         </div>
     </div>
 
     <script>
-        function continueToMain() {
+        function continueToGame() {
             document.getElementById('loading-screen').style.opacity = '0';
             setTimeout(function() {
                 window.location.href = 'https://guillianecantillas.github.io/CodeCraft/Mystery%20Files/IngameMystery.html';
@@ -27,6 +29,13 @@
             document.getElementById('loading-screen').style.opacity = '0';
             setTimeout(function() {
                 window.location.href = 'https://guillianecantillas.github.io/CodeCraft/Mystery%20Files/IngameMystery11.html';
+            }, 3000);
+        }
+
+        function continueToMain() {
+            document.getElementById('loading-screen').style.opacity = '0';
+            setTimeout(function() {
+                window.location.href = 'https://guillianecantillas.github.io/CodeCraft/HomepageActual.html';
             }, 3000);
         }
     </script>

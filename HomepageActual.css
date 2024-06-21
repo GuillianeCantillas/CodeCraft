@@ -197,4 +197,39 @@ body {
   height: 500px; 
 }
 
+.anomaly{
+  background-color: #D284AC;
+  position: fixed;
+  top: 150px;
+  left: 1160px;
+  width: 500px;
+  height: 610px;
+  display: inline-block;
+  cursor: pointer;
+  border: none;
+  padding: 0;
+ }
+
+
+ .anomaly:hover{
+  box-shadow: 0 20px 20px #D284AC; 
+ }
+
+ .anomaly #Title{
+  font-family: 'Russo One', sans-serif;
+  font-size: 18px;
+ }
+
+ .anomaly #Desc{
+  font-family: Arial, sans-serif;
+  padding: 10px;
+  font-size: 12px;
+  color: white;
+ }
+
+ #image3{
+  width: 500px;
+  height: 500px; 
+}
+
 
