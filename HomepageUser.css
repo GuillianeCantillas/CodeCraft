@@ -131,5 +131,58 @@ body {
   margin-top: 5px; /* Adjust top margin */
 }
 
+.logout-button {
+  width: 30%;
+  height: 30px;
+  background: #D284AC;
+  border: none;
+  outline: none;
+  border-radius: 40px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, -1);
+  cursor: pointer;
+  font-size: 14px;
+  color: white;
+  font-weight: 100;
+  position: absolute; 
+  top: 550px;
+  z-index: 1;
+}
+
+.logout-button:hover{
+  background-color: #F50CA0;
+  color: black;
+}
+
+.badges {
+  font-family: 'Russo One', sans-serif;
+  background-color: rgba(255, 255, 255, 0.716); /* Adjust the opacity by changing the last value (0.5) */
+  padding: 20px;
+  border-radius: 15px;
+  margin: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  position: absolute;
+  right: 30px;
+  top: 20vh;
+  box-shadow: 0 10px 20px #D284AC; 
+}
+
+.badge-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.badge {
+  width: 300px;
+  height: 200px;
+}
+
+#logo-image{
+  width: 100px;
+  position:absolute;
+  top: 70px;
+
+}
+
 
 

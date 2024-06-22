@@ -46,3 +46,9 @@ onAuthStateChanged(auth, async (user) => {
     console.log("No user logged in.");
   }
 });
+
+document.getElementById('logoutBtn').addEventListener('click', function() {
+  alert("You have been logged out.");
+  window.location.href = 'https://guillianecantillas.github.io/CodeCraft/index.html'; 
+});
+  

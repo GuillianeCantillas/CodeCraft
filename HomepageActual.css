@@ -131,10 +131,10 @@ body {
   
  .horror{
   background-color: #D284AC;
-  position: fixed;
+  position: absolute;
   top: 150px;
-  left:30px;
-  width: 500px;
+  left: 130px;
+  width: 600px;
   height: 610px;
   display: inline-block;
   cursor: pointer;
@@ -148,27 +148,27 @@ body {
 
  .horror #Title{
   font-family: 'Russo One', sans-serif;
-  font-size: 18px;
+  font-size: 20px;
  }
 
  .horror #Desc{
   font-family: Arial, sans-serif;
   padding: 10px;
-  font-size: 12px;
+  font-size: 14px;
   color: white;
  }
 
  #image{
-  width: 500px;
+  width: 600px;
   height: 500px; 
 }
 
 .mystery{
   background-color: #D284AC;
-  position: fixed;
+  position: absolute;
   top: 150px;
-  left: 600px;
-  width: 500px;
+  right: 130px;
+  width: 600px;
   height: 610px;
   display: inline-block;
   cursor: pointer;
@@ -182,27 +182,27 @@ body {
 
  .mystery #Title{
   font-family: 'Russo One', sans-serif;
-  font-size: 18px;
+  font-size: 20px;
  }
 
  .mystery #Desc{
   font-family: Arial, sans-serif;
   padding: 10px;
-  font-size: 12px;
+  font-size: 14px;
   color: white;
  }
 
  #image2{
-  width: 500px;
+  width: 600px;
   height: 500px; 
 }
 
 .anomaly{
   background-color: #D284AC;
-  position: fixed;
-  top: 150px;
-  left: 1160px;
-  width: 500px;
+  position: absolute;
+  top: 830px;
+  left:130px;
+  width: 600px;
   height: 610px;
   display: inline-block;
   cursor: pointer;
@@ -217,23 +217,24 @@ body {
 
  .anomaly #Title{
   font-family: 'Russo One', sans-serif;
-  font-size: 18px;
+  font-size: 20px;
  }
 
  .anomaly #Desc{
   font-family: Arial, sans-serif;
   padding: 10px;
-  font-size: 12px;
+  font-size: 14px;
   color: white;
  }
 
  #image3{
-  width: 500px;
+  width: 600px;
   height: 500px; 
 }
 
 footer {
-  margin-top: 1000px;
+  font-family: 'Russo One', sans-serif;
+  margin-top: 1500px;
   text-align: right;
   border-top: 1px solid #ccc;
   padding-top: 4px;
@@ -245,7 +246,6 @@ footer nav {
 }
 
 footer nav a {
-  text-decoration: none;
   color: #666;
   font-size: 1.2em;
   margin: 0 10px;
@@ -253,6 +253,39 @@ footer nav a {
 
 footer nav a:hover {
   color: #333;
-  
 }
 
+.arcade{
+  background-color: gray;
+  position: absolute;
+  top: 830px;
+  right:130px;
+  width: 600px;
+  height: 610px;
+  display: inline-block;
+  cursor: pointer;
+  border: none;
+  padding: 0;
+ }
+
+
+ .arcade:hover{
+  box-shadow: 0 20px 20px gray; 
+ }
+
+ .arcade #Title{
+  font-family: 'Russo One', sans-serif;
+  font-size: 20px;
+ }
+
+ .arcade #Desc{
+  font-family: Arial, sans-serif;
+  padding: 10px;
+  font-size: 14px;
+  color: white;
+ }
+
+ #image4{
+  width: 600px;
+  height: 500px; 
+}
