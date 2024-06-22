@@ -232,4 +232,27 @@ body {
   height: 500px; 
 }
 
+footer {
+  margin-top: 1000px;
+  text-align: right;
+  border-top: 1px solid #ccc;
+  padding-top: 4px;
+}
+
+footer nav {
+  display: inline-block;
+  margin-top: 20px;
+}
+
+footer nav a {
+  text-decoration: none;
+  color: #666;
+  font-size: 1.2em;
+  margin: 0 10px;
+}
+
+footer nav a:hover {
+  color: #333;
+  
+}
 

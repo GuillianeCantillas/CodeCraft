@@ -213,6 +213,11 @@
     color: gray;
     font-size: 12px;
   }
+
+  #sentence6, #sentence30{
+    color: gray;
+    font-size: 12px;
+  }
   
   .form {
     display: flex;
