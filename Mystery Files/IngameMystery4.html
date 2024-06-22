@@ -22,8 +22,7 @@
     </div>
 
 <div id="pixel-art-container2">
-        <img id="img100" src="lvl6.png" class="pixel-art-frame">
-        <img id="img101" src="lvl7.png" class="pixel-art-frame">
+        <img id="img101" src="lvl7.png" class="pixel-art-frame active">
         <img id="img102" src="lvl8.png" class="pixel-art-frame">
         <img id="img103" src="lvl9.png" class="pixel-art-frame">
         <img id="img104" src="lvl10.png" class="pixel-art-frame">
@@ -47,15 +46,15 @@
             <p id="hintText"></p>
         </div>
 </div>
-    
+
             <div class="text-box">
-                <div id="sentence18" class="sentence show">
+                <div id="sentence19" class="sentence show">
                     Below the witness report, you find the names of the people who were last seen with Phoebe. 
-                    Take note of these individuals to determine the main suspect.
+                    Take note of these individuals to determine the main suspect. (Take your time to read.)
                     <br><br></div>
-                <div id="sentence19" class="sentence"> To do so, you list them as potential suspects. 
+                <div id="sentence20" class="sentence"> To do so, you list them as potential suspects. 
                     <br><br></div>
-                    <div id="sentence20" class="sentence"> 
+                    <div id="sentence21" class="sentence"> 
                         suspects = [] <br><br>
                         suspects.________("Maria De Vera")<br>
                         suspects.________("Berna Mendes")<br>
@@ -66,13 +65,13 @@
                         print(suspect)<br>
                     <br><br> 
             </div>
-                    <div id="sentence21" class="sentence"> <br><br>The 'append' method is used to add a single item to the end of a list.</div>
+                    <div id="sentence22" class="sentence"> <br><br>The 'append' method is used to add a single item to the end of a list.<br><br></div>
                 </div>
             
     
              <div class="form">
-                <form id="answerForm" onsubmit="checkAnswer8(); return false;">
-                    <input type="text" id="textbox" name="textbox" placeholder="Enter your answer here: " oninput="updateSentence20();"><br>
+                <form id="answerForm" onsubmit="checkAnswer21(); return false;">
+                    <input type="text" id="textbox" name="textbox" placeholder="Enter your answer here: " oninput="updateSentence21();"><br>
                     <span id="output" style="font-size: 14px;"></span><br>
                     <input type="submit" value="Submit" id="submitbutton">
                 </form>
@@ -118,7 +117,7 @@
     
     
     let currentFrameIndex = 0;
-    let interval = 1000;
+    let interval = 15000;
     const frames2 = container.querySelectorAll(".pixel-art-frame");
     let animationInterval;
 
@@ -127,8 +126,7 @@
         currentFrameIndex = (currentFrameIndex + 1) % frames.length;
         frames[currentFrameIndex].classList.add("active");
 
-        // Stop the animation when reaching the last frame
-        if (frames[currentFrameIndex].id === 'img18') {
+        if (frames[currentFrameIndex].id === 'img104') {
             clearInterval(animationInterval);
         }
     }
@@ -139,9 +137,39 @@
         animationInterval = setInterval(() => showNextFrame(frames), interval);
     }
 
+    function displayRemainingFrames() {
+    clearInterval(animationInterval);
+
+    const remainingFrames = [
+        ...frames2, 
+        document.getElementById("img105"),
+        document.getElementById("img106"),
+        document.getElementById("img107"),
+        document.getElementById("img108")
+    ];
+
+    let remainingIndex = 0;
+    const remainingInterval = 1000;
+
+    function showNextRemainingFrame() {
+        remainingFrames[remainingIndex].classList.remove("active");
+        remainingIndex++;
+        
+        if (remainingIndex < remainingFrames.length) {
+            remainingFrames[remainingIndex].classList.add("active");
+            if (remainingFrames[remainingIndex].id === 'img108') {
+                clearInterval(remainingAnimationInterval);
+            }
+        }
+    }
+
+    remainingFrames[0].classList.add("active");
+    const remainingAnimationInterval = setInterval(showNextRemainingFrame, remainingInterval);
+}
+
     setTimeout(() => {
         startAnimation(frames2); 
-    }, 3000);
+    }, 1000);
 
     setTimeout(() => {
                 document.getElementById("sentence19").style.display = "block";
@@ -151,7 +179,12 @@
     setTimeout(() => {
               document.getElementById("sentence20").style.display = "block";
               document.getElementById("sentence20").classList.add("show");
-              }, 8000); 
+              }, 60000); 
+
+    setTimeout(() => {
+              document.getElementById("sentence21").style.display = "block";
+              document.getElementById("sentence21").classList.add("show");
+              }, 70000); 
 
 
 const scoreElement = document.getElementById('score');
@@ -170,16 +203,16 @@ scoreElement.textContent = score;
 
 let newScore = getScore();
 
-window.checkAnswer8 = function() {
+window.checkAnswer21 = function() {
   var userInput = document.getElementById("textbox").value.trim().toLowerCase();
-  var sentence20 = document.getElementById("sentence20");
+  var sentence21 = document.getElementById("sentence21");
   var correctAnswer = "append";
   var spanClass = userInput === correctAnswer ? 'correct' : 'incorrect';
 
         if (userInput === correctAnswer) {
             newScore = score + 15; 
             updateScore(newScore);
-            sentence20.innerHTML = "suspects = [] <br><br>" +
+            sentence21.innerHTML = "suspects = [] <br><br>" +
             "suspects." + "<span class='" + spanClass + "'>" + userInput + "</span>" + "('Maria De Vera')<br>" + 
             "suspects." + "<span class='" + spanClass + "'>" + userInput + "</span>" + "('Berna Mendes')<br>" +
             "suspects." + "<span class='" + spanClass + "'>" + userInput + "</span>" + "('Lee Gorospi')<br>" +
@@ -189,18 +222,19 @@ window.checkAnswer8 = function() {
             "print(suspect)<br>";
                 document.getElementById("textbox").disabled = true;
                 document.getElementById("submitbutton").disabled = true;
+                displayRemainingFrames();
                 
             setTimeout(() => {
-                document.getElementById("sentence21").style.display = "block";
-                document.getElementById("sentence21").classList.add("show");
+                document.getElementById("sentence22").style.display = "block";
+                document.getElementById("sentence22").classList.add("show");
             }, 2000);
 
             setTimeout(() => {
-                window.location.href = 'Ingamemystery5.html';
-            }, 8000);
+                window.location.href = "https://guillianecantillas.github.io/CodeCraft/Mystery%20Files/IngameMystery5.html";
+            }, 10000);
 
         } else {
-            sentence20.innerHTML ="suspects = [] <br><br>" +
+            sentence21.innerHTML ="suspects = [] <br><br>" +
             "suspects." + "<span class='" + spanClass + "'>" + userInput + "</span> ('Maria De Vera')<br>" + 
             "suspects." + "<span class='" + spanClass + "'>" + userInput + "</span> ('Berna Mendes')<br>" +
             "suspects." + "<span class='" + spanClass + "'>" + userInput + "</span> ('Lee Gorospi')<br>" +
@@ -214,10 +248,10 @@ window.checkAnswer8 = function() {
     console.log("Current Score:", score);
     console.log("New Score:", newScore);  
 
-    window.updateSentence20 = function () {
+    window.updateSentence21 = function () {
         var userInput = document.getElementById("textbox").value.trim();
-        var sentence20 = document.getElementById("sentence20");
-        sentence20.innerHTML = "suspects = [] <br><br>" +
+        var sentence21 = document.getElementById("sentence21");
+        sentence21.innerHTML = "suspects = [] <br><br>" +
             "suspects." + userInput + "</span> ('Maria De Vera')<br>" + 
             "suspects." + userInput + "</span> ('Berna Mendes')<br>" +
             "suspects." + userInput + "</span> ('Lee Gorospi')<br>" +
@@ -228,7 +262,7 @@ window.checkAnswer8 = function() {
     };
             window.resetForm = function () {
                 document.getElementById("answerForm").reset();
-                sentence20.innerHTML = "suspects = [] <br><br>" + 
+                sentence21.innerHTML = "suspects = [] <br><br>" + 
                 "suspects.________('Maria De Vera')<br> " +
                  "suspects.________('Berna Mendes')<br>" + 
                  "suspects.________('Lee Gorospi')<br> "+
@@ -237,14 +271,14 @@ window.checkAnswer8 = function() {
                  "for suspect in suspects:<br>" +
                 "print(suspect)<br>" ;
             document.getElementById("textbox").disabled = false;
-            document.getElementById("sentence21").style.display = "none";
-            document.getElementById("sentence21").classList.remove("show");
+            document.getElementById("sentence22").style.display = "none";
+            document.getElementById("sentence22").classList.remove("show");
             };
 
             window.undoInput = function () {
                 var textbox = document.getElementById("textbox");
                 textbox.value = textbox.value.slice(0, -1);
-                updateSentence20();
+                updateSentence21();
             };
 
         window.showHint = function () {

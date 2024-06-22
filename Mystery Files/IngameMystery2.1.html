@@ -30,8 +30,9 @@
         <img id="img89" src="level3_9.png" class="pixel-art-frame">
         <img id="img90" src="level3_10.png" class="pixel-art-frame">
         <img id="img91" src="level3_11.png" class="pixel-art-frame">
-        <img id="img92" src="level3_12.png" class="pixel-art-frame">
-        <img id="img93" src="level3_13.png" class="pixel-art-frame">
+        <img id="img92" src="level3_8.png" class="pixel-art-frame">
+        <img id="img93" src="level3_12.png" class="pixel-art-frame">
+        <img id="img94" src="level3_13.png" class="pixel-art-frame">
 
 
         <div class="buttons">
@@ -47,15 +48,22 @@
         <div id="hintBox" style="display:none;">
             <p id="hintText"></p>
         </div>
+
+        <div class="form">
+            <form id="answerForm" onsubmit="checkAnswer13(); return false;">
+                <input type="text" id="textbox" name="textbox" placeholder="Enter your answer here: " oninput="updateSentence13();"><br>
+                <span id="output" style="font-size: 14px;"></span><br>
+                <input type="submit" value="Submit" id="submitbutton">
+            </form>
+        </div>
 </div>
     
             <div class="text-box">
-                <div id="sentence10" class="sentence show">Finally, after successfully unlocking the restricted folder, you find several documents inside. 
-                    You open the one labeled 'Unsolved Case' to find out what it's about, but it is missing some details. 
+                <div id="sentence11" class="sentence show">Finally, after successfully unlocking the restricted folder, you find several documents inside.  
                     <br><br></div>
-                <div id="sentence11" class="sentence">But it is missing some details.<br>
+                <div id="sentence12" class="sentence">You open the one labeled 'Unsolved Case' to find out what it's about, but it is missing some details.<br>
                     <br><br></div>
-                    <div id="sentence12" class="sentence"> 
+                    <div id="sentence13" class="sentence"> 
                         name = "PHOEBE MARTIN" <br>
                         age = 20<br>
                         sex = "FEMALE"<br>
@@ -70,19 +78,13 @@
 
                     <br><br> 
             </div>
-            <div id="sentence13" class="sentence"> <br><br>The print() function displays the specified message to the screen, or other standard output device.<br><br> </div>
+            <div id="sentence14" class="sentence"> <br><br>The print() function displays the specified message to the screen, or other standard output device.<br><br> </div>
         </div>
-        
-            
     
-             <div class="form">
-                <form id="answerForm" onsubmit="checkAnswer8(); return false;">
-                    <input type="text" id="textbox" name="textbox" placeholder="Enter your answer here: " oninput="updateSentence8();"><br>
-                    <span id="output" style="font-size: 14px;"></span><br>
-                    <input type="submit" value="Submit" id="submitbutton">
-                </form>
-            </div>
 
+            <div id="toast" class="toast">
+                <img src="Ranking (1)3.png" alt="Toast Image">
+            </div>
     <script>
             document.addEventListener("DOMContentLoaded", function () {
                 const container = document.getElementById('pixel-art-container2');
@@ -116,13 +118,12 @@
                 hinting.style.top = `${containerRect.top + 340}px`; // Hints na talaguh
             }
 
-    
                 updateButtonPositions();
                 window.addEventListener('resize', updateButtonPositions);
                 window.addEventListener('scroll', updateButtonPositions);
     
     let currentFrameIndex = 0;
-    let interval = 1000;
+    let interval = 2000;
     const frames2 = container.querySelectorAll(".pixel-art-frame");
     let animationInterval;
 
@@ -132,7 +133,7 @@
         frames[currentFrameIndex].classList.add("active");
 
         // Stop the animation when reaching the last frame
-        if (frames[currentFrameIndex].id === 'img18') {
+        if (frames[currentFrameIndex].id === 'img93') {
             clearInterval(animationInterval);
         }
     }
@@ -155,7 +156,12 @@
     setTimeout(() => {
               document.getElementById("sentence12").style.display = "block";
               document.getElementById("sentence12").classList.add("show");
-              }, 8000); 
+              }, 18000); 
+
+    setTimeout(() => {
+              document.getElementById("sentence13").style.display = "block";
+              document.getElementById("sentence13").classList.add("show");
+              }, 23000); 
 
 
 const scoreElement = document.getElementById('score');
@@ -174,33 +180,41 @@ scoreElement.textContent = score;
 
 let newScore = getScore();
 
-window.checkAnswer8 = function() {
+window.checkAnswer13 = function() {
   var userInput = document.getElementById("textbox").value.trim().toLowerCase();
-  var sentence8 = document.getElementById("sentence12");
+  var sentence13 = document.getElementById("sentence13");
   var correctAnswer = "print";
   var spanClass = userInput === correctAnswer ? 'correct' : 'incorrect';
 
         if (userInput === correctAnswer) {
             newScore = score + 5; 
             updateScore(newScore);
-            sentence12.innerHTML = "name = 'PHOEBE MARTIN' <br> " + "age = 20<br>" + "sex = 'FEMALE' <br>" + " address = 'PASAY CITY' <br>" + "zip_code = 1509<br><br>"
+            sentence13.innerHTML = "name = 'PHOEBE MARTIN' <br> " + "age = 20<br>" + "sex = 'FEMALE' <br>" + " address = 'PASAY CITY' <br>" + "zip_code = 1509<br><br>"
             + "<span class='" + spanClass + "'>" + userInput + "</span>(f'NAME: {name}') <br>" +
              "<span class='" + spanClass + "'>" + userInput + "</span>(f'SEX: {sex}') <br>" + 
             "<span class='" + spanClass + "'>" + userInput + "</span>(f'ADDRESS: {address}') <br>" + "<span class='" + spanClass + "'>" + userInput + "</span>(f'ZIP-CODE: {zip_code}') <br>" ;
                 document.getElementById("textbox").disabled = true;
                 document.getElementById("submitbutton").disabled = true;
-                
+                showToast();
+
+                clearInterval(animationInterval);
+                    showNextFrame([...frames2, document.getElementById("img94")]); 
+                    setTimeout(() => {
+                        startAnimation([...frames2, document.getElementById("img94")]); 
+                    }, 2000);
+
             setTimeout(() => {
-                document.getElementById("sentence13").style.display = "block";
-                document.getElementById("sentence13").classList.add("show");
+                document.getElementById("sentence14").style.display = "block";
+                document.getElementById("sentence14").classList.add("show");
             }, 2000);
 
+
             setTimeout(() => {
-                window.location.href = 'IngameMystery3.html';
-            }, 8000);
+                window.location.href = 'https://guillianecantillas.github.io/CodeCraft/Mystery%20Files/IngameMystery3.html';
+            }, 10000);
 
         } else {
-            sentence12.innerHTML = "name = 'PHOEBE MARTIN' <br> " + "age = 20<br>" + "sex = 'FEMALE' <br>" + " address = 'PASAY CITY' <br>" + "zip_code = 1509<br><br>"
+            sentence13.innerHTML = "name = 'PHOEBE MARTIN' <br> " + "age = 20<br>" + "sex = 'FEMALE' <br>" + " address = 'PASAY CITY' <br>" + "zip_code = 1509<br><br>"
             + "<span class='" + spanClass + "'>" + userInput + "</span>(f'NAME: {name}') <br>" + "<span class='" + spanClass + "'>" + userInput + "</span>(f'AGE: {age}') <br>" +
              "<span class='" + spanClass + "'>" + userInput + "</span><span class='" + spanClass + "'>" + userInput + "</span>(f'SEX: {sex}') <br>" + 
             "<span class='" + spanClass + "'>" + userInput + "</span>(f'ADDRESS: {address}') <br>" + "<span class='" + spanClass + "'>" + userInput + "</span>(f'ZIP-CODE: {zip_code}') <br>" ;
@@ -210,15 +224,15 @@ window.checkAnswer8 = function() {
     console.log("Current Score:", score);
     console.log("New Score:", newScore);  
 
-    window.updateSentence8 = function () {
+    window.updateSentence13 = function () {
         var userInput = document.getElementById("textbox").value.trim();
-        var sentence12 = document.getElementById("sentence12");
-        sentence12.innerHTML = "name = 'PHOEBE MARTIN' <br> " + "age = 20<br>" + "sex = 'FEMALE' <br>" + " address = 'PASAY CITY' <br>" + "zip_code = 1509<br><br>"
+        var sentence13 = document.getElementById("sentence13");
+        sentence13.innerHTML = "name = 'PHOEBE MARTIN' <br> " + "age = 20<br>" + "sex = 'FEMALE' <br>" + " address = 'PASAY CITY' <br>" + "zip_code = 1509<br><br>"
             + userInput + "(f'NAME: {name}') <br>" + userInput + "(f'AGE: {age}') <br>" + userInput + "(f'SEX: {sex}') <br>" + userInput + "(f'ADDRESS: {address}') <br>" + userInput + "(f'ZIP-CODE: {zip_code}') <br>" ;
     };
             window.resetForm = function () {
                 document.getElementById("answerForm").reset();
-                sentence12.innerHTML = "name = 'PHOEBE MARTIN' <br> " + "age = 20<br>" + "sex = 'FEMALE' <br>" + " address = 'PASAY CITY' <br>" 
+                sentence13.innerHTML = "name = 'PHOEBE MARTIN' <br> " + "age = 20<br>" + "sex = 'FEMALE' <br>" + " address = 'PASAY CITY' <br>" 
             + "zip_code = 1509<br><br>" + "_______(f'NAME: {name}') <br>" + "_______(f'AGE: {age}') <br>" + "_______(f'SEX: {sex}') <br>" + 
             "_______(f'ADDRESS: {address}') <br>" + "_______(f'ZIP-CODE: {zip_code}') <br>" ;
             document.getElementById("textbox").disabled = false;
@@ -229,7 +243,7 @@ window.checkAnswer8 = function() {
             window.undoInput = function () {
                 var textbox = document.getElementById("textbox");
                 textbox.value = textbox.value.slice(0, -1);
-                updateSentence12();
+                updateSentence13();
             };
 
         window.showHint = function () {
@@ -243,7 +257,16 @@ window.checkAnswer8 = function() {
             } else {
                 hintText.textContent = "No more hints available.";
             }};
-        });
+
+            function showToast() {
+    var toast = document.getElementById("toast");
+    toast.className = "toast show";
+    setTimeout(function(){ toast.className = toast.className.replace("show", ""); }, 5000);
+        }});
+    
+
+
+
         </script>
 </body>
 
