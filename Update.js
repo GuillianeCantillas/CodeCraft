@@ -16,10 +16,10 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth();
 const db = getFirestore(app);
 
-// Listen for authentication state changes
+// Authentication changes daw
 onAuthStateChanged(auth, async (user) => {
   if (user) {
-    // User is signed in
+    // Dapat signed in si user
     try {
       const docRef = doc(db, "users", user.uid);
       const docSnap = await getDoc(docRef);
@@ -27,7 +27,7 @@ onAuthStateChanged(auth, async (user) => {
       if (docSnap.exists()) {
         const userData = docSnap.data();
 
-        // Display user data
+        // Display user data sa HomePageUser
         document.getElementById("First_Name").textContent = userData.First_Name;
         document.getElementById("Initial").textContent = userData.Initial;
         document.getElementById("Last_Name").textContent = userData.Last_Name;
@@ -42,7 +42,7 @@ onAuthStateChanged(auth, async (user) => {
       console.error("Error fetching document:", error);
     }
   } else {
-    // No user is signed in
+    // Pag walang User na sssigned in
     console.log("No user logged in.");
   }
 });

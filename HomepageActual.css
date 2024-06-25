@@ -9,7 +9,7 @@ body {
     font-family: 'Russo One', sans-serif;
     background-color: #171415;
     color: #fff;
-    padding: 10px 3vw; /* Adjusted padding */
+    padding: 10px 3vw; 
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -29,20 +29,20 @@ body {
     /*font-family: "Tiny5", sans-serif;
     font-weight: 400;
     font-style: normal;*/
-    margin-top: 2.5vh; /* Adjusted margin */
+    margin-top: 2.5vh;
     font-family: "Jersey 10", sans-serif;
     font-weight: 300;
     font-style: normal;
     color: #D284AC;
-    font-size: 5vw; /* Adjusted font size */
+    font-size: 5vw; 
     text-align: center;
-    text-shadow: 0 0 1vw gray, 0 0 2vw gray, 0 0 3vw gray, 0 0 4vw gray; /* Adjusted text shadow */
+    text-shadow: 0 0 1vw gray, 0 0 2vw gray, 0 0 3vw gray, 0 0 4vw gray; 
     animation: glow 1.5s infinite alternate;
   }
   
   @keyframes glow {
     from {
-        text-shadow: 0 0 1vw gray, 0 0 2vw gray, 0 0 3vw gray, 0 0 4vw gray; /* Adjusted text shadow */
+        text-shadow: 0 0 1vw gray, 0 0 2vw gray, 0 0 3vw gray, 0 0 4vw gray; 
     }
     to {
         text-shadow: none;
@@ -99,10 +99,10 @@ body {
   }
   
   .flowing-line {
-    height: 0.250vw; /* Adjusted height */
+    height: 0.250vw; 
     background-color: #BB0B7B;
     position: fixed;
-    top: 11vh; /* Adjusted top position */
+    top: 11vh; 
     left: 0;
     width: 100%;
     z-index: 9999;
@@ -126,7 +126,7 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    flex-direction: column; /* Stack items vertically */
+    flex-direction: column; 
   }
   
  .horror{

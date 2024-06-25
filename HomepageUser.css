@@ -10,7 +10,7 @@ body {
     font-family: 'Russo One', sans-serif;
     background-color: #171415;
     color: #fff;
-    padding: 10px 3vw; /* Adjusted padding */
+    padding: 10px 3vw; 
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -28,7 +28,7 @@ body {
 
   @keyframes glow {
     from {
-        text-shadow: 0 0 1vw gray, 0 0 2vw gray, 0 0 3vw gray, 0 0 4vw gray; /* Adjusted text shadow */
+        text-shadow: 0 0 1vw gray, 0 0 2vw gray, 0 0 3vw gray, 0 0 4vw gray;
     }
     to {
         text-shadow: none;
@@ -68,10 +68,10 @@ body {
   }
   
   .flowing-line {
-    height: 0.250vw; /* Adjusted height */
+    height: 0.250vw; 
     background-color: #BB0B7B;
     position: fixed;
-    top: 11vh; /* Adjusted top position */
+    top: 11vh;
     left: 0;
     width: 100%;
     z-index: 9999;
@@ -114,21 +114,21 @@ body {
 
 .textbox .name {
   margin-top: 160px;
-    display: flex; /* Set container as flex */
-    justify-content: center; /* Center items horizontally */
-    align-items: center; /* Center items vertically */
-    gap: 10px; /* Spacing between items */
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    gap: 10px; 
     flex-wrap: wrap;
 }
 
 .textbox p {
-  margin: 5px 0; /* Adjust vertical margin */
-  padding: 0; /* Remove padding */
+  margin: 5px 0; 
+  padding: 0;
 }
 
 .textbox #Studentnumber,
 .textbox #Email {
-  margin-top: 5px; /* Adjust top margin */
+  margin-top: 5px;
 }
 
 .logout-button {
@@ -155,7 +155,7 @@ body {
 
 .badges {
   font-family: 'Russo One', sans-serif;
-  background-color: rgba(255, 255, 255, 0.716); /* Adjust the opacity by changing the last value (0.5) */
+  background-color: rgba(255, 255, 255, 0.716); 
   padding: 20px;
   border-radius: 15px;
   margin: 20px;

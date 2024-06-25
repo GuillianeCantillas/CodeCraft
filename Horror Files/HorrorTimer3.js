@@ -74,13 +74,12 @@ const user = auth.currentUser;
             
             function showNextFrame(frames) {
                 frames[currentFrameIndex].classList.remove("active");
-                // Check if the current frame is img22 or img23
+                
                 if (frames[currentFrameIndex].id === 'img22') {
                     currentFrameIndex = frames[currentFrameIndex + 1].id === 'img23' ? currentFrameIndex + 1 : currentFrameIndex;
                 } else if (frames[currentFrameIndex].id === 'img23') {
                     currentFrameIndex = frames[currentFrameIndex - 1].id === 'img22' ? currentFrameIndex - 1 : currentFrameIndex;
                 } else {
-                    // Proceed to the next frame normally
                     currentFrameIndex = (currentFrameIndex + 1) % frames.length;
                 }
             
@@ -94,7 +93,7 @@ const user = auth.currentUser;
                 }
             
                 setTimeout(() => {
-                    startAnimation(frames3); // Start the animation after 2 seconds
+                    startAnimation(frames3); 
                 }, 1000);
             
             

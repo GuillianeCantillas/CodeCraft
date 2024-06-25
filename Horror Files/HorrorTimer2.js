@@ -78,7 +78,7 @@ const user = auth.currentUser;
                 currentFrameIndex = (currentFrameIndex + 1) % frames.length;
                 frames[currentFrameIndex].classList.add("active");
         
-                // Stop the animation when reaching the last frame
+                // Last Frame
                 if (frames[currentFrameIndex].id === 'img19') {
                     clearInterval(animationInterval);
                 }

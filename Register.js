@@ -54,7 +54,7 @@ register.addEventListener("click", async function() {
     } catch (error) {
         // Handle errors
         console.error("Registration error:", error.message);
-        alert(error.message); // Display error message to the user
+        alert(error.message); 
     }
 });
 
